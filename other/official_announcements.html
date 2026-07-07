@@ -1,0 +1,277 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>官方公告 - Ecstasy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Space+Grotesk:wght@600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#ae8783",
+                    "on-primary-fixed-variant": "#93000b",
+                    "secondary": "#c8c6c5",
+                    "on-primary-container": "#5c0004",
+                    "on-primary": "#690005",
+                    "primary-fixed": "#ffdad6",
+                    "surface-bright": "#3a3939",
+                    "tertiary-container": "#909191",
+                    "tertiary": "#c6c6c7",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary": "#2f3131",
+                    "secondary-fixed": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb4ab",
+                    "surface-tint": "#ffb4ab",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline-variant": "#5e3f3b",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-secondary": "#313030",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-primary": "#c00013",
+                    "on-surface-variant": "#e8bcb7",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-fixed": "#410002",
+                    "primary": "#ffb4ab",
+                    "on-background": "#e5e2e1",
+                    "surface-container": "#201f1f",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-dim": "#131313",
+                    "on-tertiary-container": "#282a2a",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "background": "#131313",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "secondary-container": "#474746",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#353534",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-secondary-fixed-variant": "#474746",
+                    "surface": "#131313",
+                    "primary-container": "#ff544a",
+                    "on-secondary-container": "#b7b5b4",
+                    "inverse-surface": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-sm": "8px",
+                    "gutter": "16px",
+                    "container-padding-mobile": "16px",
+                    "container-padding-desktop": "40px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "meta-sm": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-caps": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "meta-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .unread-glow {
+            box-shadow: 0 0 8px rgba(255, 84, 74, 0.6);
+        }
+
+        .active-nav-glow {
+            filter: drop-shadow(0 0 4px rgba(255, 84, 74, 0.5));
+        }
+
+        .obsidian-gradient {
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 1) 100%);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-container-padding-mobile h-16">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary">官方公告</h1>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-200 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-container-padding-mobile min-h-screen">
+<div class="max-w-md mx-auto space-y-stack-md">
+<!-- Announcement Card 1 (Unread) -->
+<section class="glass-card rounded-xl p-4 flex gap-4 relative group transition-all duration-300 active:scale-[0.98]">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container rounded-l-xl"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-on-surface font-bold truncate pr-4">VIP Member Benefits Update</h2>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant font-meta-sm text-meta-sm">14:00</span>
+<div class="w-2 h-2 rounded-full bg-primary-container unread-glow"></div>
+</div>
+</div>
+<p class="text-on-surface-variant/80 font-meta-sm text-meta-sm line-clamp-2 leading-relaxed">
+                        We have enhanced our VIP membership tiers with exclusive access to premium high-octane 4K content and priority server routing. Check out the new rewards waiting for you.
+                    </p>
+</div>
+</section>
+<!-- Announcement Card 2 -->
+<section class="glass-card rounded-xl p-4 flex gap-4 transition-all duration-300 active:scale-[0.98]">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-on-surface font-bold truncate pr-4">New Movie Release Notice</h2>
+<span class="text-on-surface-variant font-meta-sm text-meta-sm">Yesterday</span>
+</div>
+<p class="text-on-surface-variant/80 font-meta-sm text-meta-sm line-clamp-2 leading-relaxed">
+                        The highly anticipated cinematic masterpiece "Obsidian Echoes" is now streaming. Experience visual fidelity like never before in this exclusive platform premiere.
+                    </p>
+</div>
+</section>
+<!-- Feature Promotion (Visual Card) -->
+<div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden glass-card group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic, high-contrast dark image of an elite entertainment lounge with neon red accents and deep obsidian surfaces. The atmosphere is mysterious and premium, featuring soft volumetric lighting and sleek architectural lines, perfectly matching a dark cinematic luxury aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXaJnJy6zQRzt_wLiEVT83qZef2Z4zjea-G1b8HCpbzzH0c_6Hp-dOVJ9S2ZQpXmuAgD3qr-dOehkbYsrNKAmdvE4sQlK8Ysg8QUaS77kGHfaJ4m4CfCicJQYFmb8sgdKBCW6GV_vQd6JjT-WabC-INzUsoqrdj5DOh8XQzlx_dqA9Y9kP0Yg3mGgP-LxfoEZt3V4C5ui84AZxoi-e8W4hv28XrPkNg5T8Q0J8ExfLfKcx7HVyXb5k_3VZlXWjGNoSjOGAY1Jbfdw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-4">
+<span class="px-2 py-0.5 rounded bg-primary-container text-white font-label-caps text-[10px] mb-2 inline-block">SYSTEM ALERT</span>
+<h3 class="text-on-surface font-bold text-headline-lg-mobile leading-tight mb-1">Maintenance Schedule</h3>
+<p class="text-on-surface-variant font-meta-sm text-meta-sm">Scheduled upgrades for server optimization on Nov 1st.</p>
+</div>
+</div>
+<!-- Announcement Card 3 -->
+<section class="glass-card rounded-xl p-4 flex gap-4 transition-all duration-300 active:scale-[0.98]">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-on-surface font-bold truncate pr-4">Security Enhancement Protocol</h2>
+<span class="text-on-surface-variant font-meta-sm text-meta-sm">Oct 25</span>
+</div>
+<p class="text-on-surface-variant/80 font-meta-sm text-meta-sm line-clamp-2 leading-relaxed">
+                        Your account safety is our priority. We have implemented new biometric verification layers to ensure your data remains under obsidian-level protection.
+                    </p>
+</div>
+</section>
+<!-- Announcement Card 4 -->
+<section class="glass-card rounded-xl p-4 flex gap-4 transition-all duration-300 active:scale-[0.98]">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wallet</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-on-surface font-bold truncate pr-4">Wallet System Update</h2>
+<span class="text-on-surface-variant font-meta-sm text-meta-sm">Oct 24</span>
+</div>
+<p class="text-on-surface-variant/80 font-meta-sm text-meta-sm line-clamp-2 leading-relaxed">
+                        Transaction history and credit management have been revamped for faster processing. View your latest earnings and rewards in the upgraded Wallet tab.
+                    </p>
+</div>
+</section>
+<!-- Announcement Card 5 -->
+<section class="glass-card rounded-xl p-4 flex gap-4 transition-all duration-300 active:scale-[0.98]">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h2 class="text-on-surface font-bold truncate pr-4">Annual Gala Invitation</h2>
+<span class="text-on-surface-variant font-meta-sm text-meta-sm">Oct 22</span>
+</div>
+<p class="text-on-surface-variant/80 font-meta-sm text-meta-sm line-clamp-2 leading-relaxed">
+                        Join the elite circle for the upcoming Ecstasy Digital Gala. Exclusive prizes, live sets, and secret room unveils throughout the night.
+                    </p>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 dark:bg-surface/90 backdrop-blur-2xl border-t border-white/10 flex justify-around items-center h-20 px-2 pb-safe rounded-t-xl shadow-[0_-4px_20px_rgba(255,84,74,0.1)]"><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">explore</span><span class="font-label-caps text-[10px]">导航页</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">play_circle</span><span class="font-label-caps text-[10px]">视频</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">videocam</span><span class="font-label-caps text-[10px]">VLOG</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">lock</span><span class="font-label-caps text-[10px]">秘域</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">psychology</span><span class="font-label-caps text-[10px]">AI科技</span></a><a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary/80 active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span><span class="font-label-caps text-[10px]">广场</span></a><a class="flex flex-col items-center gap-1 text-primary drop-shadow-[0_0_8px_rgba(255,84,74,0.5)] active:scale-90 transition-transform duration-200" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span><span class="font-label-caps text-[10px]">我的</span></a></nav>
+<script>
+        // Micro-interaction: Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-lg');
+                header.classList.remove('bg-surface/80');
+                header.classList.add('bg-surface');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.add('bg-surface/80');
+                header.classList.remove('bg-surface');
+            }
+        });
+
+        // Click interaction for cards
+        document.querySelectorAll('section.glass-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Mock behavior: clear unread dot
+                const unreadDot = card.querySelector('.unread-glow');
+                const leftBar = card.querySelector('.w-1');
+                if (unreadDot) {
+                    unreadDot.style.opacity = '0';
+                    unreadDot.style.transform = 'scale(0)';
+                    if (leftBar) {
+                        leftBar.classList.replace('bg-primary-container', 'bg-white/10');
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</body></html>

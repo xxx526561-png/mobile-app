@@ -1,0 +1,345 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>搜索 | 极乐App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-container": "#ffdcdc",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-container": "#9b7300",
+                    "on-tertiary-fixed": "#261a00",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#393939",
+                    "outline-variant": "#444748",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-primary-container": "#7b7979",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#ffdada",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-highest": "#353535",
+                    "on-secondary-fixed-variant": "#920028",
+                    "surface-tint": "#c9c6c5",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "secondary-container": "#cc003c",
+                    "on-primary-fixed": "#1c1b1b",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-primary": "#313030",
+                    "tertiary-container": "#100900",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#40000c",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary": "#402d00",
+                    "primary": "#c9c6c5",
+                    "outline": "#8e9192",
+                    "primary-fixed": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "tertiary": "#f9bd22",
+                    "primary-container": "#0a0a0a",
+                    "surface-dim": "#131313",
+                    "surface": "#131313",
+                    "on-surface-variant": "#c4c7c7",
+                    "inverse-primary": "#5f5e5e",
+                    "on-secondary": "#68001a",
+                    "surface-container": "#20201f",
+                    "secondary": "#ffb3b6",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-margin": "24px",
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "card-padding": "20px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+        }
+
+        .rim-light {
+            box-shadow: inset 1px 1px 0px rgba(249, 189, 34, 0.15), inset -1px -1px 0px rgba(204, 0, 60, 0.1);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(204, 0, 60, 0.2);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #353535;
+            border-radius: 10px;
+        }
+
+        .active-dot::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #ffb3b6;
+            border-radius: 50%;
+        }
+        
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-variant/10 flex items-center justify-between px-container-margin h-20">
+<div class="flex items-center gap-4 flex-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/20 transition-all">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<div class="relative flex-1 group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+</div>
+<input class="w-full h-12 bg-surface-container-lowest border-none rounded-xl pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-1 focus:ring-tertiary/50 glass-panel transition-all duration-300" placeholder="搜索" type="text">
+</div>
+</div>
+<button class="ml-4 font-label-sm text-label-sm text-tertiary hover:opacity-80 transition-opacity">
+            清除
+        </button>
+</header>
+<main class="flex-1 mb-28 px-container-margin overflow-y-auto custom-scrollbar mt-20">
+<!-- 热门搜索 Section -->
+<section class="mb-8">
+  <div class="grid grid-cols-5 gap-2">
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+    <div class="aspect-square rounded-lg glass-panel rim-light flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-on-surface-variant/40">ads_click</span>
+    </div>
+  </div>
+</section><section class="mb-10">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">热门搜索</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">角色扮演</a>
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">AI女友</a>
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">4K电影</a>
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">成人游戏</a>
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">短视频</a>
+<a class="px-5 py-2.5 rounded-full glass-panel rim-light text-on-surface hover:text-tertiary hover:border-tertiary/30 transition-all font-body-md text-body-md" href="#">直播</a>
+</div>
+</section>
+<!-- 搜索历史 Section -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">搜索历史</h2>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between py-3 border-b border-surface-variant/10 hover:bg-white/5 px-2 rounded-lg transition-colors group cursor-pointer">
+<span class="font-body-md text-body-md text-on-surface-variant">赛博朋克霓虹美学</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-on-surface-variant transition-colors">close</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-variant/10 hover:bg-white/5 px-2 rounded-lg transition-colors group cursor-pointer">
+<span class="font-body-md text-body-md text-on-surface-variant">Lofi 慢节奏空间</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-on-surface-variant transition-colors">close</span>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-variant/10 hover:bg-white/5 px-2 rounded-lg transition-colors group cursor-pointer">
+<span class="font-body-md text-body-md text-on-surface-variant">虚拟夜店入口</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm group-hover:text-on-surface-variant transition-colors">close</span>
+</div>
+</div>
+</section>
+<!-- 更多发现 Section -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">更多发现</h2>
+<button class="flex items-center gap-1 text-on-surface-variant/60 hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+<span class="font-label-sm text-label-sm">换一换</span>
+</button>
+</div>
+
+<div class="grid grid-cols-2 gap-4">
+  <div class="flex flex-col gap-2 group cursor-pointer">
+    <div class="aspect-[16/9] w-full rounded-xl overflow-hidden glass-panel rim-light relative">
+      <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Video thumbnail">
+      <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded text-[10px] font-medium text-white">12:45</div>
+    </div>
+    <div class="px-1">
+      <h3 class="font-body-md text-body-md text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">赛博朋克城市漫游</h3>
+      
+    </div>
+  </div>
+  <div class="flex flex-col gap-2 group cursor-pointer">
+    <div class="aspect-[16/9] w-full rounded-xl overflow-hidden glass-panel rim-light relative">
+      <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Video thumbnail">
+      <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded text-[10px] font-medium text-white">08:20</div>
+    </div>
+    <div class="px-1">
+      <h3 class="font-body-md text-body-md text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">复古未来主义美学</h3>
+      
+    </div>
+  </div>
+  <div class="flex flex-col gap-2 group cursor-pointer">
+    <div class="aspect-[16/9] w-full rounded-xl overflow-hidden glass-panel rim-light relative">
+      <img src="https://images.unsplash.com/photo-1605142859862-978be7eba909?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Video thumbnail">
+      <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded text-[10px] font-medium text-white">15:10</div>
+    </div>
+    <div class="px-1">
+      <h3 class="font-body-md text-body-md text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">虚拟现实新境界</h3>
+      
+    </div>
+  </div>
+  <div class="flex flex-col gap-2 group cursor-pointer">
+    <div class="aspect-[16/9] w-full rounded-xl overflow-hidden glass-panel rim-light relative">
+      <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&amp;w=800&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" alt="Video thumbnail">
+      <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 backdrop-blur-md rounded text-[10px] font-medium text-white">05:30</div>
+    </div>
+    <div class="px-1">
+      <h3 class="font-body-md text-body-md text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">AI 创作的艺术</h3>
+      
+    </div>
+  </div>
+</div></section>
+</main>
+<!-- Bottom Navigation Shell (7 tabs as requested) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-8px_30px_rgb(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="text-[10px] font-medium">导航页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">movie</span>
+<span class="text-[10px] font-medium">视频</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">videocam</span>
+<span class="text-[10px] font-medium">VLOG</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">vibration</span>
+<span class="text-[10px] font-medium">秘域</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary relative transition-all active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[10px] font-medium">AI科技</span>
+<span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-secondary rounded-full"></span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="text-[10px] font-medium">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-all duration-300 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[10px] font-medium">我的</span>
+</a>
+</nav>
+<script>
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchContainer = searchInput.parentElement;
+        
+        searchInput.addEventListener('focus', () => {
+            searchContainer.classList.add('neon-glow');
+            searchInput.classList.add('border-tertiary/40');
+        });
+
+        searchInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('neon-glow');
+            searchInput.classList.remove('border-tertiary/40');
+        });
+
+        document.querySelectorAll('.material-symbols-outlined').forEach(btn => {
+            if (btn.innerText === 'close') {
+                btn.parentElement.addEventListener('click', function() {
+                    this.style.opacity = '0';
+                    this.style.transform = 'translateX(20px)';
+                    setTimeout(() => this.remove(), 300);
+                });
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

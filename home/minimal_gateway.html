@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>极乐 - 秘境 VIP ACCESS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), inset 0 -1px 1px rgba(204, 0, 60, 0.1);
+        }
+
+        .glow-crimson {
+            box-shadow: 0 0 25px rgba(204, 0, 60, 0.4);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(249, 189, 34, 0.3);
+        }
+
+        .wet-texture {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0.02) 100%);
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); opacity: 0.9; }
+            14% { transform: scale(1.05); opacity: 1; }
+            28% { transform: scale(1); opacity: 0.9; }
+            42% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(1); opacity: 0.9; }
+        }
+
+        .animate-heartbeat {
+            animation: heartbeat 2s infinite ease-in-out;
+        }
+
+        .rim-light-top {
+            border-top: 1px solid rgba(249, 189, 34, 0.2);
+            border-left: 1px solid rgba(249, 189, 34, 0.1);
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cc003c;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdf9f",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353535",
+                        "background": "#131313",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#ffb3b6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary": "#68001a",
+                        "tertiary-container": "#100900",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed": "#40000c",
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-tint": "#c9c6c5",
+                        "on-tertiary": "#402d00",
+                        "on-primary": "#313030",
+                        "surface-container": "#20201f",
+                        "on-tertiary-container": "#9b7300",
+                        "on-secondary-fixed-variant": "#920028",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "outline": "#8e9192",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-variant": "#353535",
+                        "on-secondary-container": "#ffdcdc",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary": "#f9bd22",
+                        "primary-container": "#0a0a0a",
+                        "secondary-fixed": "#ffdada",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "primary": "#c9c6c5",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-container": "#7b7979",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "outline-variant": "#444748",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "surface": "#131313",
+                        "secondary-container": "#cc003c",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "inverse-primary": "#5f5e5e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "card-padding": "20px",
+                        "gutter": "16px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background selection:bg-secondary-container selection:text-white">
+<!-- Top AppBar -->
+<main class="">
+<!-- Hero Section -->
+<section class="relative flex flex-col items-center justify-center overflow-hidden h-screen">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="relative z-10 text-center px-6">
+<div class="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full glass-card glow-crimson border-secondary-container/50">
+<span class="material-symbols-outlined text-secondary-container text-4xl" style="font-variation-settings: 'FILL' 1;">vpn_lock</span>
+</div>
+<div class="mt-8 flex flex-col items-center gap-4">
+<button class="bg-gradient-to-r from-secondary-container to-on-secondary-fixed-variant px-10 py-4 rounded-xl font-headline-md text-headline-md text-white glow-crimson animate-heartbeat transition-all hover:scale-105 active:scale-95">
+                        Unlock All Forbidden Access
+                    </button>
+</div>
+</div>
+</section>
+<!-- Warning Banner -->
+<!-- Features Bento Grid -->
+<!-- Identity Verification CTA -->
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-4"><!-- 导航页 -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</div>
+<!-- 视频 -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</div>
+<!-- VLOG -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">movie</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</div>
+<!-- 秘域 (ACTIVE) -->
+<div class="flex flex-col items-center justify-center text-secondary drop-shadow-[0_0_8px_rgba(255,179,182,0.6)] animate-pulse active:scale-90 transition-transform duration-300 cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vpn_key</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</div><!-- AI科技 -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</div>
+<!-- 广场 -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</div>
+<!-- 我的 -->
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</div></nav>
+<script>
+        // Micro-interactions for glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple haptic feedback simulation
+        document.querySelectorAll('button, .material-symbols-outlined').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body></html>

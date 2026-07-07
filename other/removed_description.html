@@ -1,0 +1,335 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>极乐App - 极致诱惑：禁忌之恋</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Manrope:wght@400;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#313030",
+                    "surface-bright": "#393939",
+                    "on-tertiary-container": "#9b7300",
+                    "outline-variant": "#444748",
+                    "surface-tint": "#c9c6c5",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "surface-container-highest": "#353535",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-tertiary": "#402d00",
+                    "tertiary-container": "#100900",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#68001a",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed": "#ffdada",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary": "#ffb3b6",
+                    "on-secondary-fixed-variant": "#920028",
+                    "on-primary-fixed": "#1c1b1b",
+                    "primary-container": "#0a0a0a",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-tertiary-fixed": "#261a00",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-surface": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-container": "#cc003c",
+                    "surface-container": "#20201f",
+                    "on-secondary-fixed": "#40000c",
+                    "primary": "#c9c6c5",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "on-primary-container": "#7b7979",
+                    "background": "#131313",
+                    "inverse-primary": "#5f5e5e",
+                    "surface-variant": "#353535",
+                    "surface": "#131313",
+                    "on-secondary-container": "#ffdcdc",
+                    "tertiary": "#f9bd22",
+                    "on-error": "#690005",
+                    "surface-dim": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "on-surface-variant": "#c4c7c7",
+                    "primary-fixed": "#e5e2e1",
+                    "outline": "#8e9192",
+                    "inverse-on-surface": "#313030"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-padding": "20px",
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Manrope"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Geist"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+        }
+        .rim-lit {
+            box-shadow: inset 1px 1px 0px rgba(255, 218, 218, 0.05), inset -1px -1px 0px rgba(204, 0, 60, 0.1);
+        }
+        .flame-glow {
+            box-shadow: 0 0 20px rgba(204, 0, 60, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-active { animation: heartbeat 2s infinite ease-in-out; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation (Shell Implementation) -->
+<main class="pb-32">
+<!-- Hero: Video Player -->
+<section class="relative w-full aspect-video bg-black overflow-hidden group"><button class="absolute top-4 left-4 z-50 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 backdrop-blur-sm border border-white/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white">arrow_back</span>
+</button>
+<div class="absolute bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex flex-col gap-2 w-full">
+<div class="relative h-1 w-full bg-white/20 rounded-full overflow-hidden cursor-pointer group/progress">
+<div class="absolute inset-y-0 left-0 w-1/3 bg-secondary-container transition-all"></div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg opacity-0 group-hover/progress:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="text-label-sm font-label-sm text-white/80">
+<span class="">12:45</span>
+<span class="mx-1">/</span>
+<span class="">45:20</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-2 py-0.5 rounded border border-white/20 text-[12px] font-bold text-white hover:bg-white/10 transition-colors">
+          1.0x
+        </button><button class="flex items-center justify-center w-8 h-8 rounded bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all active:scale-90">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+<button class="text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Overlay Controls -->
+<!-- Central Play Button (Initial State) -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-secondary-container/40 backdrop-blur-md rounded-full border border-secondary-container flex items-center justify-center transition-all duration-500 hover:scale-110 cursor-pointer">
+<span class="material-symbols-outlined text-on-surface scale-150" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</section>
+<!-- Info Section -->
+<section class="px-container-margin pt-6">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight truncate w-full mb-2">极致诱惑：禁忌之恋</h1>
+<p class="text-on-surface-variant text-[14px] leading-relaxed mb-6 line-clamp-2">简介：这是一个关于跨越禁忌、探索内心深处最隐秘欲望的视觉盛宴。每一帧都充满了张力与诱惑，带你进入一个前所未有的极乐世界...</p>
+<!-- Action Bar -->
+<div class="flex items-center justify-between gap-2 mb-8 overflow-x-auto hide-scrollbar mt-2"><button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl glass-panel rim-lit hover:bg-secondary-container/10 transition-colors"><span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span><span class="text-[10px] mt-0.5">2.4k</span></button><button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl glass-panel rim-lit hover:bg-secondary-container/10 transition-colors"><span class="material-symbols-outlined text-on-surface text-[20px]">comment</span><span class="text-[10px] mt-0.5">评论</span></button><button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl glass-panel rim-lit hover:bg-secondary-container/10 transition-colors"><span class="material-symbols-outlined text-on-surface text-[20px]">favorite</span><span class="text-[10px] mt-0.5">收藏</span></button><button class="flex-1 flex flex-col items-center justify-center py-2 rounded-xl glass-panel rim-lit hover:bg-secondary-container/10 transition-colors"><span class="material-symbols-outlined text-on-surface text-[20px]">linear_scale</span><span class="text-[10px] mt-0.5">线路</span></button></div><div class="mb-8">
+<div class="grid grid-cols-5 gap-3">
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">diamond</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">奢华品牌</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">token</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">极乐币</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">card_membership</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">尊享卡</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">redeem</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">礼品盒</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">stars</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">星级汇</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">auto_awesome</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">幻境</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">nightlight</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">夜色</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">wine_bar</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">私享酒</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">hotel_class</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">顶级房</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">local_mall</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">精品店</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">spa</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">水疗</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">celebration</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">派对</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">styler</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">造型</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">model_training</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">模特</span>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="aspect-square w-full glass-panel rim-lit rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary/60 text-[24px]">loyalty</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant truncate w-full text-center">特权</span>
+</div>
+</div>
+</div>
+<!-- Selector: Episode Selection -->
+<!-- Recommendation: Related Content -->
+<div>
+<div class="flex items-center justify-between mb-4"><h2 class="font-headline-md text-[18px] text-on-surface">猜你喜欢</h2><button class="flex items-center gap-1 text-on-surface-variant/70 hover:text-secondary transition-colors active:scale-95"><span class="material-symbols-outlined text-[18px]">refresh</span><span class="text-label-sm font-label-sm">换一换</span></button></div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden glass-panel rim-lit mb-2">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dark and moody portrait-style movie poster for a luxury drama. The focus is on a mysterious silhouette standing in a rain-slicked neon-lit alleyway. Deep shades of matte obsidian and charcoal dominate the frame, accented by sharp crimson neon reflections. The lighting is low-key, creating an atmosphere of high-end mystery and exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIwoR-ZxQa3horotZDpeXNqTOWdS7BGrMjBGv79nwY5VjKvF8xblAae0BFYYRNJEo6Xh9TjrEgydd4PT4cfRpEOYT8-0FhLMAHnk3y1Jn88LiBT9tnL250aEt1zl-iwTMM43f4kirBcSfUjJXmgBKoIqUZlCz1jxsCHhr7BiSb7iS1vApfdNiQ3lm0xAjCCCKT5rWQPv5_D-tcF8ERkpc_OBUsxAGKxMbA4lN0w9B6AawFNtaxdRwpzNGGoyM-bbGcxfrQmqkyDlI">
+<div class="absolute top-2 left-2 px-1.5 py-0.5 bg-secondary-container/90 rounded text-[10px] font-bold text-white backdrop-blur-sm">VIP</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 rounded text-[10px] font-bold text-tertiary backdrop-blur-sm border border-tertiary/30">4K</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface truncate">危险关系</p>
+</div>
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden glass-panel rim-lit mb-2">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up artistic movie poster of a silk fabric draped over a dark obsidian surface, with soft glowing gold particles floating in the air. The aesthetic is luxurious, sensual, and minimal, emphasizing texture and light. Rich deep blacks contrast with shimmering golden highlights. High-end member-only vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArczTZtajin8LKQ7YhJi92zyCkctiXpQXdf7u7wEcvHVsjk_f9f2Q1rzbSQ5liax4PphtFOP9a_gimPYPn7942C35TeJis24HjVSS4QAYRqk5cPHtHvqihI7vC4lyvpETY9-EquGrSXgEUhzO5RPr9uvXKk9qzZ7SnPL2IPEbiACBvhtiIddajkcedRD9OFd1FpwAHqMEaz7ScoLGlCIhbQ50XEayJek9n6GrDeu3ylqLpEAD3O4vRwZLhdu5Sp8xnrMXsdY2aifU">
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 bg-black/60 rounded text-[10px] font-bold text-tertiary backdrop-blur-sm border border-tertiary/30">4K</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface truncate">夜色温柔</p>
+</div>
+<div class="group">
+<div class="relative aspect-video rounded-xl overflow-hidden glass-panel rim-lit mb-2">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Minimalist abstract movie poster featuring a single flame burning in a completely dark space. The flame glows with an intense crimson red, casting a soft warm light on a reflective black marble floor. The overall style is dark, seductive, and dangerous, reflecting a high-stakes digital experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOqHizKmdRDzAWuQxCKYfMjMf36Fn_cFbIqYCOc2O8BuouaTagSEh3OwY5g-dndA9xw8z1fOlfvDk5vOetG3lrhaURX1zDA_o691TRYiAmsLalqcqtnf-21VoJUSkoWYrhAwfML4LYw5V42pHkuDSQNShaGOfb98Bh2GzNjQsVR6jwOm9EIuA6lgkcBCBbKv9inKpolf50FXrFzmRzP7FCz2CiA8zhokMdOxmjGYiY_oVdRQ_4cJ1DhL4d1_MoSeRB9URpiI2ItNM">
+<div class="absolute top-2 left-2 px-1.5 py-0.5 bg-secondary-container/90 rounded text-[10px] font-bold text-white backdrop-blur-sm">VIP</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface truncate">禁忌边缘</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Shell Implementation from JSON) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-low/90 backdrop-blur-2xl dark:bg-surface-container-low/90 rounded-t-xl border-t border-white/5 shadow-[0_-8px_30px_rgb(204,0,60,0.1)]"><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">explore</span><span class="font-label-sm text-label-sm">导航页</span></a><a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim bg-secondary-container/20 rounded-xl px-3 py-1 animate-pulse duration-500" href="#"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie</span><span class="font-label-sm text-label-sm">视频</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">play_circle</span><span class="font-label-sm text-label-sm">VLOG</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">diamond</span><span class="font-label-sm text-label-sm">秘域</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">smart_toy</span><span class="font-label-sm text-label-sm">AI科技</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">groups</span><span class="font-label-sm text-label-sm">广场</span></a><a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined">person</span><span class="font-label-sm text-label-sm">我的</span></a></nav>
+<script>
+        // Simple micro-interaction for episode selection
+        const episodes = document.querySelectorAll('.flex-shrink-0.w-14');
+        episodes.forEach(ep => {
+            ep.addEventListener('click', function() {
+                episodes.forEach(e => {
+                    e.classList.remove('bg-secondary-container', 'text-white', 'flame-glow', 'font-bold');
+                    e.classList.add('glass-panel', 'text-on-surface-variant', 'font-medium');
+                    // Remove animation icon if exists
+                    const icon = e.querySelector('.absolute');
+                    if(icon) icon.remove();
+                });
+                this.classList.remove('glass-panel', 'text-on-surface-variant', 'font-medium');
+                this.classList.add('bg-secondary-container', 'text-white', 'flame-glow', 'font-bold');
+                
+                const playIcon = document.createElement('div');
+                playIcon.className = 'absolute bottom-0 right-0 p-0.5';
+                playIcon.innerHTML = '<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: \'FILL\' 1;">graphic_eq</span>';
+                this.appendChild(playIcon);
+            });
+        });
+
+        // Header transparency scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav.fixed.top-0');
+            if (window.scrollY > 100) {
+                nav.classList.replace('bg-surface/40', 'bg-surface/90');
+            } else {
+                nav.classList.replace('bg-surface/90', 'bg-surface/40');
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>VIP 会员中心 - Ecstasy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#40000c",
+                        "inverse-primary": "#5f5e5e",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary-container": "#ffdcdc",
+                        "tertiary": "#f9bd22",
+                        "surface-container": "#20201f",
+                        "secondary-fixed": "#ffdada",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "surface-tint": "#c9c6c5",
+                        "on-secondary": "#68001a",
+                        "surface-container-highest": "#353535",
+                        "surface-dim": "#131313",
+                        "surface": "#131313",
+                        "on-primary": "#313030",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#0e0e0e",
+                        "background": "#131313",
+                        "on-error": "#690005",
+                        "surface-bright": "#393939",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "outline": "#8e9192",
+                        "on-tertiary": "#402d00",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary-container": "#7b7979",
+                        "tertiary-container": "#100900",
+                        "primary": "#c9c6c5",
+                        "on-secondary-fixed-variant": "#920028",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "inverse-surface": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#444748",
+                        "on-background": "#e5e2e1",
+                        "surface-variant": "#353535",
+                        "surface-container-high": "#2a2a2a",
+                        "error-container": "#93000a",
+                        "secondary-container": "#cc003c",
+                        "secondary": "#ffb3b6",
+                        "on-tertiary-container": "#9b7300",
+                        "primary-fixed": "#e5e2e1",
+                        "primary-container": "#0a0a0a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "card-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 1px 1px 0px rgba(249, 189, 34, 0.05);
+        }
+        .rim-light-red {
+            box-shadow: inset 0 -1px 0 rgba(204, 0, 60, 0.2), inset -1px 0 0 rgba(204, 0, 60, 0.1);
+        }
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(249, 189, 34, 0.15);
+        }
+        .pulse-desire:active {
+            animation: pulse-heartbeat 0.3s ease-in-out;
+        }
+        @keyframes pulse-heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.96); }
+            100% { transform: scale(1); }
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden pb-64">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm flex items-center justify-between px-container-margin h-16">
+<button class="active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-tertiary">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-tertiary">VIP 会员中心</h1>
+<button class="flex flex-col items-center justify-center active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-lg text-tertiary">history</span>
+<span class="text-[10px] text-on-surface-variant font-medium">充值记录</span>
+</button> <!-- Spacer for centering -->
+</header>
+<main class="mt-20 px-container-margin space-y-8">
+<!-- User Profile Summary (Membership Card) -->
+<section class="glass-card rounded-xl p-card-padding flex items-center space-x-4">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-2 border-tertiary overflow-hidden">
+<img alt="User avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdMmp01Wv2ntf6Of7G76CNvxLS1HneCUi3gWqzxbOlVLCXIjgQWH--i7pn7yLQ7cmoQqJo3zddjI2ToT3oa0ANQVFuMcQuEwyxvcb-pskXl8e9iYA7-yByZb3JSZV-logoIFSKSiSh-jtyWSMjK8k_wbF9gvXM7r8epyRNsYh5fZiFWSNBnUNDv4H-cpqVNYhoNb-qsvr6WiHeGBZAU30gkzPhaumSOt35pUfGhMcZ1XC8arAC7c0gWSzRH2jSlT1kHBchnA8_SMQ">
+</div>
+<div class="absolute -bottom-1 -right-1 bg-secondary-container text-white text-[10px] px-1.5 py-0.5 rounded-full border border-black font-bold">
+                    LV 5
+                </div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center space-x-2">
+<span class="font-bold text-lg text-on-surface">夜之主宰</span>
+
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[75%] rounded-full shadow-[0_0_8px_rgba(249,189,34,0.5)]"></div>
+</div>
+<div class="text-label-sm text-on-surface-variant flex flex-col space-y-1">
+<span class="whitespace-nowrap">VIP 5 级会员</span>
+<span class="whitespace-nowrap">距离下一级还差 240 经验</span>
+</div>
+</div>
+</section>
+<!-- VIP Plans Section -->
+<section class="space-y-4">
+
+<div class="grid grid-cols-3 gap-3">
+<!-- Monthly -->
+<div class="glass-card rounded-xl p-4 flex flex-col items-center space-y-2 border-white/5 active:scale-95 transition-transform">
+<span class="text-on-surface-variant text-sm font-medium">连续包月</span>
+<div class="text-tertiary flex items-baseline">
+<span class="text-xs">¥</span>
+<span class="text-2xl font-bold">25</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 line-through">¥45</span>
+</div>
+<!-- Annual (Featured) -->
+<div class="glass-card rounded-xl p-4 flex flex-col items-center space-y-2 border-tertiary/40 ring-1 ring-tertiary/30 gold-glow relative overflow-hidden active:scale-95 transition-transform bg-gradient-to-b from-surface-container-high to-surface-container">
+<div class="absolute top-0 right-0 bg-secondary-container text-white text-[8px] px-1.5 py-0.5 rounded-bl-lg font-bold">
+                        最划算
+                    </div>
+<span class="text-tertiary text-sm font-bold">连续包年</span>
+<div class="text-tertiary flex items-baseline">
+<span class="text-xs">¥</span>
+<span class="text-2xl font-bold">198</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 line-through">¥540</span>
+</div>
+<!-- Quarterly -->
+<div class="glass-card rounded-xl p-4 flex flex-col items-center space-y-2 border-white/5 active:scale-95 transition-transform">
+<span class="text-on-surface-variant text-sm font-medium">连续包季</span>
+<div class="text-tertiary flex items-baseline">
+<span class="text-xs">¥</span>
+<span class="text-2xl font-bold">68</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 line-through">¥135</span>
+</div>
+</div>
+<!-- Upgrade Button -->
+
+</section>
+<!-- VIP Privileges Grid (15 Icons) -->
+<section class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">会员特权</h2>
+<div class="grid grid-cols-5 gap-y-6">
+<!-- Perk 1 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary rim-light-red">
+<span class="material-symbols-outlined">block</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">广告特权</span>
+</div>
+<!-- Perk 2 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">high_quality</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">4K蓝光</span>
+</div>
+<!-- Perk 3 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">lock_open</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">解锁内容</span>
+</div>
+<!-- Perk 4 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">加速下载</span>
+</div>
+<!-- Perk 5 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">尊贵身份</span>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">comment</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">弹幕背景</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">headset</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">无损音质</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">auto_fix_high</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">专属挂件</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">超前点播</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">palette</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">主题皮肤</span>
+</div>
+<!-- Row 3 -->
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">多端共享</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">redeem</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">专属折扣</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">优先客服</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">rocket_launch</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">离线缓存</span>
+</div>
+<div class="flex flex-col items-center space-y-2">
+<div class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">add_circle</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">更多特权</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Global 7-tab Bottom Navigation Bar (Active on "我的") -->
+<div class="fixed bottom-20 left-0 w-full bg-surface/95 backdrop-blur-xl border-t border-white/5 p-4 space-y-4 z-50">
+  <div class="flex gap-3">
+    <button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-tertiary bg-tertiary/10 active:scale-95 transition-transform">
+      <span class="material-symbols-outlined text-tertiary">payments</span>
+      <span class="text-sm font-bold text-tertiary">支付宝</span>
+    </button>
+    <button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-white/10 bg-surface-container active:scale-95 transition-transform">
+      <span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+      <span class="text-sm font-medium text-on-surface-variant">微信支付</span>
+    </button>
+  </div>
+  <button class="w-full py-4 rounded-xl bg-gradient-to-b from-tertiary to-[#d4a017] text-black font-bold text-lg shadow-lg active:scale-[0.98] transition-transform">
+    立即支付
+  </button>
+</div><nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(249,189,34,0.1)] flex justify-around items-center h-20 pb-safe px-2">
+<!-- 导航页 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</a>
+<!-- 视频 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</a>
+<!-- VLOG -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">video_camera_front</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</a>
+<!-- 秘域 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">lock</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</a>
+<!-- AI科技 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">psychology</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</a>
+<!-- 广场 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined text-2xl">groups</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</a>
+<!-- 我的 (Active) -->
+<a class="flex flex-col items-center justify-center text-tertiary font-bold scale-110 active:scale-90 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</a>
+</nav>
+
+
+
+
+</body></html>

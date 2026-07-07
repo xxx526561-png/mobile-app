@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style="scroll-behavior: smooth;"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>极乐App - 导航中心</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-border {
+            border: 1px solid rgba(249, 189, 34, 0.2);
+        }
+
+        .flame-glow {
+            box-shadow: 0 0 15px rgba(204, 0, 60, 0.25);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(249, 189, 34, 0.25);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Slide-up Entrance Animation */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-item {
+            opacity: 0;
+        }
+
+        .reveal-item.visible {
+            animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Banner Carousel Custom Styles */
+        .banner-carousel {
+            scroll-snap-type: x mandatory;
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+        .banner-item {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            width: 100%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353535",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "tertiary-container": "#100900",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "surface-container": "#20201f",
+                        "surface-container-highest": "#353535",
+                        "outline": "#8e9192",
+                        "on-secondary-fixed-variant": "#920028",
+                        "tertiary": "#f9bd22",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-background": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "secondary": "#ffb3b6",
+                        "surface-bright": "#393939",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#7b7979",
+                        "secondary-fixed": "#ffdada",
+                        "primary-container": "#0a0a0a",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-container-low": "#1c1b1b",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#e5e2e1",
+                        "on-secondary-container": "#ffdcdc",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-tertiary-container": "#9b7300",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "secondary-container": "#cc003c",
+                        "on-tertiary": "#402d00",
+                        "surface-tint": "#c9c6c5",
+                        "primary": "#c9c6c5",
+                        "outline-variant": "#444748",
+                        "on-secondary-fixed": "#40000c",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-secondary": "#68001a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-dim": "#131313",
+                        "on-primary": "#313030",
+                        "error-container": "#93000a"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Navigation Hub Header -->
+<header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-2xl border-b border-white/5 px-4 pb-3">
+<div class="flex gap-4 overflow-x-auto hide-scrollbar py-2 mt-2 snap-x snap-mandatory">
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-secondary-container text-white text-sm font-bold flame-glow snap-start">推荐</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">极乐约炮</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">性药商城</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">在线赚钱</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">成人游戏</div>
+</div>
+</header>
+<main class="pb-28">
+<!-- Interactive Hero Carousel -->
+<section class="max-w-[336px] mx-auto mt-4 overflow-hidden rounded-2xl">
+<div class="banner-carousel hide-scrollbar">
+<!-- Slide 1: Live Streaming -->
+<div class="banner-item relative h-[186px] bg-surface-container-high">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="bg-secondary-container text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2 inline-block">LIVE NOW</span>
+<h2 class="text-2xl font-bold text-white mb-1">全球顶级直播平台</h2>
+<p class="text-sm text-on-surface-variant">真人在现，私密互动</p>
+<button class="mt-3 bg-tertiary text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider active:scale-95 transition-transform">立即进入</button>
+</div>
+</div>
+<!-- Slide 2: 3D Games -->
+<div class="banner-item relative h-[186px] bg-surface-container-high">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="bg-tertiary text-black text-[10px] px-2 py-0.5 rounded-full font-bold mb-2 inline-block">3D UNREAL</span>
+<h2 class="text-2xl font-bold text-white mb-1">次世代成人交互</h2>
+<p class="text-sm text-on-surface-variant">打破次元壁，定制你的幻想</p>
+<button class="mt-3 bg-secondary-container text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider active:scale-95 transition-transform">免费试玩</button>
+</div>
+</div>
+<!-- Slide 3: Physical Services -->
+<div class="banner-item relative h-[186px] bg-surface-container-high">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<span class="bg-white/20 backdrop-blur-md text-white text-[10px] px-2 py-0.5 rounded-full font-bold mb-2 inline-block">PREMIUM</span>
+<h2 class="text-2xl font-bold text-white mb-1">高端名媛预约</h2>
+<p class="text-sm text-on-surface-variant">全球一线城市，私密到家服务</p>
+<button class="mt-3 bg-white text-black px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider active:scale-95 transition-transform">查看名册</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Priority Ad Grid -->
+<section class="px-4 mt-8">
+<div class="grid grid-cols-6 gap-2 px-2 mt-4">
+<!-- Row Items with active scaling -->
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-tertiary">videocam</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">直播</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-secondary-container">sports_esports</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">游戏</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-white/60">shopping_bag</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">商城</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-error">favorite</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">约会</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-tertiary">smart_toy</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">AI</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-secondary-container">casino</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">博彩</span>
+</div>
+<!-- Additional rows follow the same pattern -->
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-white/60">movie</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">短剧</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-tertiary">diamond</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">会员</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-secondary-container">local_fire_department</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">社区</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-white/60">hub</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">资源</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-error">auto_fix_high</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">绘画</span>
+</div>
+<div class="flex flex-col items-center gap-1 active:scale-90 transition-transform cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/5">
+<span class="material-symbols-outlined text-tertiary">vpn_key</span>
+</div>
+<span class="text-[9px] text-on-surface-variant">秘域</span>
+</div>
+</div>
+</section>
+<section class="px-4 mt-8 pb-4">
+<h3 class="text-lg font-bold text-white mb-4 px-2">优质APP推荐</h3>
+<div class="flex flex-col gap-4">
+<!-- App Item 1 -->
+<div class="reveal-item flex items-center gap-4 bg-surface-container-low p-3 rounded-lg border border-white/5 active:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="皇冠体育" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzrhhlS4aUSEqGge0f-o7ARW6-T58P6SLdfLOeFo2NFvq0C42Xbyt0a3iIAWIkmoBPUTSdaJO043L7qM8M99EvcefSE0XfAubb-JYE37tdPqdO-5Vghlhqz4L9SO8gIHXk4rGdltK0afRRTuCKbhyvLYWB2U1k7kM04IlwzH6gC38GoXtHlI0KOJqX8nOMrml6FBwgAnABEqzZbVUo0wofmATWmtwv2jPMVmjr0f6SAKu3Yq2920rCse2U8ESBiVC0LXEeWpiqz_U"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="text-sm font-bold text-white truncate">皇冠体育</h4>
+<p class="text-[11px] text-on-surface-variant line-clamp-2">年度最火电子，注册赠礼888元，开户首存赠送50%</p>
+</div>
+<button class="flex-shrink-0 bg-secondary-container text-white px-4 py-1.5 rounded-full text-xs font-bold active:scale-95 transition-transform">下载</button>
+</div>
+<!-- App Item 2 -->
+<div class="reveal-item flex items-center gap-4 bg-surface-container-low p-3 rounded-lg border border-white/5 active:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="677棋牌" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA82tj88eJnzPsh-y_Pmd1vTw89n-SIIVD0J6gDMvARCLvLrdYAbpYYQFi00cIyNU9JLw9DHX5kEBFY6B0SyVvqgkePeBu7ck5VZXGX85Wil16I8vfEhRGxmta1_IccI5e-UCoA0tVBYqefeAUhEnoR2sb3fhqJ4F1qj_Jaw6DBXAikmT5PR7_oF9MfgAmOqzJJb52LnBqf_hr3oneEpkCz4YM4Y-4Af4xMEPUJnLiZSmddxXiw6xzLrr2LZRNMQy9I6mq_xXjGQVo"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="text-sm font-bold text-white truncate">677棋牌</h4>
+<p class="text-[11px] text-on-surface-variant line-clamp-2">官方直营，开元棋牌</p>
+</div>
+<button class="flex-shrink-0 bg-secondary-container text-white px-4 py-1.5 rounded-full text-xs font-bold active:scale-95 transition-transform">下载</button>
+</div>
+<!-- App Item 3 -->
+<div class="reveal-item flex items-center gap-4 bg-surface-container-low p-3 rounded-lg border border-white/5 active:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="PG电子" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ_b1Ui_tsXhhxIqiEULAY_K22lY6AVvOFpaoCDCLdtkAN2NebBMAwIk_6ByEydIl3j-rDYXcY55f3G9bJcYokiAioF9yAMHx6LVC3JhE-KyZFLGfHrQP5wFhSRU6GMo5Sr-eavbHheb1wQ1v6leZlzUVkhxFt4IwDvZn9nd9TiwRrNXbt4BXyVFlNEcUXf-4pz03SAVw7O285zRWOIfDJy-GwiKu2l722pfV5lIqkzqiFv4Qb22jCtyxgqn_fbXo9B5c6MNzFR64"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="text-sm font-bold text-white truncate">PG电子</h4>
+<p class="text-[11px] text-on-surface-variant line-clamp-2">最专业的综合游戏网站</p>
+</div>
+<button class="flex-shrink-0 bg-secondary-container text-white px-4 py-1.5 rounded-full text-xs font-bold active:scale-95 transition-transform">下载</button>
+</div>
+<!-- App Item 4 -->
+<div class="reveal-item flex items-center gap-4 bg-surface-container-low p-3 rounded-lg border border-white/5 active:bg-surface-container-high transition-colors">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="PG免费转" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDzSsxqhw851aw_ZbxcKHvb6248WirBW9IWzDkLeQ6aQXY3eCCE1FkNgBf5aDNadV95pflIEqd0BHGh8hIzotvPvTW_oPM8tcl4zoI3vWr_Xiq2EP83dHA5apC0XZlOuWzWK9vO951oNuzzRNjN4FDjYFRqSrWCrOpWa6_Ef2utKTJ1Lw_p__ZlKHHElUB9jbL9pR4nHDvpisYJifUp1xFUSnjnj4bmQHinuEavZoqK1984R3mdBeHV8KcpiIzTc08l2vFnC8DIRM"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="text-sm font-bold text-white truncate">PG免费转</h4>
+<p class="text-[11px] text-on-surface-variant line-clamp-2">PG电子大放水 发你1888元</p>
+</div>
+<button class="flex-shrink-0 bg-secondary-container text-white px-4 py-1.5 rounded-full text-xs font-bold active:scale-95 transition-transform">下载</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-low/90 backdrop-blur-2xl border-t border-white/5 shadow-2xl rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-secondary bg-secondary-container/20 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-0.5">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">movie</span>
+<span class="font-label-sm text-label-sm mt-0.5">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm mt-0.5">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">vpn_key</span>
+<span class="font-label-sm text-label-sm mt-0.5">秘域</span>
+</div><div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm mt-0.5">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-0.5">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant active:text-secondary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">我的</span>
+</div>
+</nav>
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: stop observing after reveal
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-item').forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+
+    // Auto-scroll logic for carousel (optional enhancement to snap-scroll)
+    const carousel = document.querySelector('.banner-carousel');
+    let isAutoScrolling = true;
+
+    function autoScroll() {
+        if (!isAutoScrolling) return;
+        const width = carousel.offsetWidth;
+        const currentScroll = carousel.scrollLeft;
+        const totalWidth = carousel.scrollWidth;
+
+        if (currentScroll + width >= totalWidth - 1) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: width, behavior: 'smooth' });
+        }
+    }
+
+    let scrollInterval = setInterval(autoScroll, 5000);
+
+    // Pause auto-scroll on manual interaction
+    carousel.addEventListener('touchstart', () => {
+        isAutoScrolling = false;
+        clearInterval(scrollInterval);
+    });
+</script>
+</body></html>

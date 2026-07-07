@@ -1,0 +1,265 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>金币充值 - Ecstasy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "surface-tint": "#c9c6c5",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-primary-fixed-variant": "#474646",
+                    "outline-variant": "#444748",
+                    "on-primary": "#313030",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "on-tertiary-fixed": "#261a00",
+                    "primary-container": "#0a0a0a",
+                    "inverse-surface": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "primary": "#c9c6c5",
+                    "on-tertiary": "#402d00",
+                    "surface-container": "#20201f",
+                    "inverse-primary": "#5f5e5e",
+                    "on-primary-container": "#7b7979",
+                    "surface-container-highest": "#353535",
+                    "outline": "#8e9192",
+                    "surface-variant": "#353535",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-secondary-fixed-variant": "#920028",
+                    "secondary": "#ffb3b6",
+                    "on-background": "#e5e2e1",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "on-secondary": "#68001a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "tertiary": "#f9bd22",
+                    "secondary-container": "#cc003c",
+                    "on-secondary-fixed": "#40000c",
+                    "on-secondary-container": "#ffdcdc",
+                    "primary-fixed": "#e5e2e1",
+                    "on-error": "#690005",
+                    "on-tertiary-container": "#9b7300",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "surface-dim": "#131313",
+                    "tertiary-container": "#100900",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#ffdada",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "surface-bright": "#393939",
+                    "on-surface": "#e5e2e1",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-primary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-margin": "24px",
+                    "card-padding": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Geist"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f9bd22 0%, #b8860b 100%);
+        }
+        .desire-pulse:active {
+            transform: scale(0.96);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .safe-area-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .inner-rim-gold {
+            box-shadow: inset 1px 1px 0px rgba(249, 189, 34, 0.2), inset -1px -1px 0px rgba(204, 0, 60, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md pb-32">
+<!-- Top AppBar (from JSON context) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm flex items-center justify-between px-container-margin h-16">
+<button class="active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-tertiary">金币充值</h1>
+<button class="flex flex-col items-center justify-center active:scale-95 duration-200 hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-lg text-tertiary">history</span><span class="text-[10px] text-on-surface-variant font-medium">充值记录</span></button>
+</header>
+<main class="mt-20 px-container-margin space-y-8">
+<!-- User Profile Card -->
+<section class="glass-card rounded-xl p-card-padding flex items-center gap-4 inner-rim-gold relative overflow-hidden">
+
+<div class="w-16 h-16 rounded-full border-2 border-tertiary/30 p-1">
+<img class="w-full h-full rounded-full object-cover" data-alt="A high-end cinematic close-up portrait of a mysterious, stylish user with subtle golden rim lighting. The background is a blurred, luxury dark-matte interior with warm amber highlights, following the Obsidian Desire aesthetic. Professional photography style, deep shadows and rich textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzV96axHoPzJAIaEoPEA-Jz009G0byMr1VHNou1JNu9XFE8aHpiNODXnV1_Pk5qx5bzDOxA3fA_sD5_Jw4NhJJU4yaNDmbRlyhU4s4Ay2GrGBO0cm55z5p_LTVGTvfN2AMdYM5ps0YJVu812RE_mSsau3ui9eROWmQB-t1r9S6-3G1GJe-XUj2BqvI4BJgomkzvkIwSg6hvZDQCpZDo3mVQOv0v_ILuRnEi52sWnxU2FjKhEq2hl-LHDXyXt2GECbUy9MHqUhiLmg">
+</div>
+<div class="flex-1">
+<h2 class="font-headline-md text-[20px] text-on-surface">皇室成员_0X22</h2>
+
+</div>
+<div class="text-right">
+<p class="text-on-surface-variant font-label-sm">当前金币</p>
+<div class="flex items-center justify-end gap-1 mt-1 text-tertiary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-display-lg-mobile text-[24px] leading-tight">1,240</span>
+</div>
+</div>
+</section>
+<!-- Package Selection -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-[18px] text-on-surface">充值套餐</h3>
+
+</div>
+<div class="grid grid-cols-3 gap-2"><!-- Package 1: 300 -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center border border-white/5 active:border-tertiary transition-colors cursor-pointer group inner-rim-gold aspect-square"><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary/60 text-[18px]">toll</span><span class="font-headline-md text-[18px]">300</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 300</div><span class="text-on-surface-variant font-label-sm text-[12px]">¥30.00</span></div>
+<!-- Package 2: 50 -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center border border-white/5 active:border-tertiary transition-colors cursor-pointer group inner-rim-gold aspect-square"><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary/60 text-[18px]">toll</span><span class="font-headline-md text-[18px]">50</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 50</div><span class="text-on-surface-variant font-label-sm text-[12px]">¥5.00</span></div>
+<!-- Package 3: 100 -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center border border-white/5 active:border-tertiary transition-colors cursor-pointer group inner-rim-gold aspect-square"><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary/60 text-[18px]">toll</span><span class="font-headline-md text-[18px]">100</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 100</div><span class="text-on-surface-variant font-label-sm text-[12px]">¥10.00</span></div>
+<!-- Package 4: 200 -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center border border-white/5 active:border-tertiary transition-colors cursor-pointer group inner-rim-gold aspect-square"><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary/60 text-[18px]">toll</span><span class="font-headline-md text-[18px]">200</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 200</div><span class="text-on-surface-variant font-label-sm text-[12px]">¥20.00</span></div>
+<!-- Package 5: 300 (Recommended) -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center relative group cursor-pointer inner-rim-gold border-tertiary border-2 shadow-[0_0_20px_rgba(249,189,34,0.15)] aspect-square"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-tertiary text-on-tertiary font-label-sm px-2 py-0.5 rounded-full text-[10px]">推荐</div><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary text-[18px]" style="font-variation-settings: 'FILL' 1;">toll</span><span class="font-headline-md text-[18px]">300</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 300</div><span class="text-tertiary font-label-sm text-[12px]">¥30.00</span></div>
+<!-- Package 6: 500 -->
+<div class="package-card glass-card rounded-xl p-1 flex flex-col items-center justify-center border border-white/5 active:border-tertiary transition-colors cursor-pointer group inner-rim-gold aspect-square"><div class="flex items-center gap-1 text-on-surface mb-1"><span class="material-symbols-outlined text-tertiary/60 text-[18px]">toll</span><span class="font-headline-md text-[18px]">500</span></div><div class="text-tertiary font-label-sm text-[10px] mb-1">赠送 500</div><span class="text-on-surface-variant font-label-sm text-[12px]">¥50.00</span></div></div>
+</section>
+<!-- Payment Methods -->
+<section class="space-y-4">
+<h3 class="font-headline-md text-[18px] text-on-surface">支付方式</h3>
+<div class="space-y-3">
+<label class="glass-card rounded-xl px-card-padding h-14 flex items-center justify-between cursor-pointer active:bg-white/5 transition-colors border border-white/5 inner-rim-gold">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#00A3EE] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px]">account_balance_wallet</span>
+</div>
+<span class="font-body-md text-on-surface">支付宝</span>
+</div>
+<input checked="" class="w-5 h-5 text-tertiary bg-transparent border-outline focus:ring-0 focus:ring-offset-0" name="payment" type="radio">
+</label>
+<label class="glass-card rounded-xl px-card-padding h-14 flex items-center justify-between cursor-pointer active:bg-white/5 transition-colors border border-white/5 inner-rim-gold">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-[#07C160] rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[20px]">chat_bubble</span>
+</div>
+<span class="font-body-md text-on-surface">微信支付</span>
+</div>
+<input class="w-5 h-5 text-tertiary bg-transparent border-outline focus:ring-0 focus:ring-offset-0" name="payment" type="radio">
+</label>
+</div>
+</section>
+<!-- Terms -->
+<p class="text-center text-on-surface-variant text-[12px] opacity-60 px-4 leading-relaxed">
+            充值即代表您已阅读并同意《金币充值协议》及《隐私条款》。金币仅限在 Ecstasy 站内消费，不可提现。
+        </p>
+</main>
+<!-- Fixed Bottom Action Button -->
+<div class="fixed bottom-20 left-0 w-full px-container-margin pt-4 pb-8 bg-gradient-to-t from-background via-background/90 to-transparent z-40">
+<button class="gold-gradient w-full h-14 rounded-full font-headline-md text-[18px] text-on-tertiary flex items-center justify-center gap-2 desire-pulse shadow-[0_4px_24px_rgba(249,189,34,0.3)]">
+<span class="">立即充值 300</span>
+</button>
+</div>
+<!-- Bottom Navigation (from JSON context) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(249,189,34,0.1)] flex justify-around items-center h-20 pb-safe px-2"><div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary/80 transition-transform active:scale-90 duration-300">
+<span class="material-symbols-outlined text-[24px]">diversity_3</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-tertiary font-bold scale-110 active:scale-90 transition-transform duration-300">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</div></nav>
+<script>
+        // Micro-interactions for package selection
+        const packages = document.querySelectorAll('.package-card');
+        const payBtnText = document.querySelector('button.gold-gradient span');
+
+        packages.forEach(pkg => {
+            pkg.addEventListener('click', () => {
+                // Clear all styles
+                packages.forEach(p => {
+                    p.classList.remove('border-tertiary', 'border-2', 'shadow-[0_0_20px_rgba(249,189,34,0.15)]');
+                    p.classList.add('border-white/5', 'border');
+                    const text = p.querySelector('span:last-child');
+                    text.classList.replace('text-tertiary', 'text-on-surface-variant');
+                });
+                
+                // Set active style
+                pkg.classList.add('border-tertiary', 'border-2', 'shadow-[0_0_20px_rgba(249,189,34,0.15)]');
+                pkg.classList.remove('border-white/5', 'border');
+                const activeText = pkg.querySelector('span:last-child');
+                activeText.classList.replace('text-on-surface-variant', 'text-tertiary');
+
+                // Update bottom button text
+                const price = activeText.textContent;
+                payBtnText.textContent = `立即充值 ${price}`;
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

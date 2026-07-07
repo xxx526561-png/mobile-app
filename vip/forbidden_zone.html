@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>秘域 VIP Forbidden Zone - 极乐App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Geist:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#f9bd22",
+                        "on-secondary-container": "#ffdcdc",
+                        "inverse-on-surface": "#313030",
+                        "surface-tint": "#c9c6c5",
+                        "on-primary-container": "#7b7979",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-tertiary": "#402d00",
+                        "on-secondary-fixed": "#40000c",
+                        "outline-variant": "#444748",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary": "#68001a",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-tertiary-container": "#9b7300",
+                        "secondary": "#ffb3b6",
+                        "background": "#0a0a0a",
+                        "outline": "#8e9192",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#920028",
+                        "primary": "#c9c6c5",
+                        "on-primary": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container": "#20201f",
+                        "surface-variant": "#353535",
+                        "tertiary-container": "#100900",
+                        "surface": "#131313",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#ffdf9f",
+                        "secondary-fixed": "#ffdada",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-error": "#690005",
+                        "inverse-primary": "#5f5e5e",
+                        "secondary-container": "#cc003c",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-surface-variant": "#c4c7c7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        .rim-light {
+            border-top: 1px solid rgba(249, 189, 34, 0.2);
+            border-left: 1px solid rgba(249, 189, 34, 0.1);
+            border-right: 1px solid rgba(204, 0, 60, 0.1);
+            border-bottom: 1px solid rgba(204, 0, 60, 0.2);
+        }
+        .crimson-glow {
+            box-shadow: 0 0 20px rgba(204, 0, 60, 0.15);
+        }
+        ::-webkit-scrollbar { display: none; }
+        .active-glow {
+            text-shadow: 0 0 10px rgba(255, 179, 182, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container selection:text-white">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 h-16 flex items-center justify-between px-container-margin">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">arrow_back_ios</button>
+<h1 class="font-headline-md text-headline-md tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-secondary via-tertiary to-secondary">秘域 VIP Forbidden Zone</h1>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">search</button>
+</header>
+<main class="pt-20 pb-28 px-container-margin space-y-8">
+<!-- Top Banner Carousel -->
+<section class="relative w-full h-[186px] rounded-xl overflow-hidden group">
+<div class="absolute inset-0 flex transition-transform duration-700 ease-out">
+<div class="min-w-full h-full relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic wide shot of a luxurious high-end private lounge with deep mahogany furniture, velvet textures, and dim amber lighting. A subtle golden mist floats in the air, creating a mysterious and exclusive VIP atmosphere. The style is dark minimalism with sharp highlights on silk fabrics and crystal glassware." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-Q5bazrgIps5ccHap5uZqRS-MbWPkPiQc3oe5K7r6jKnzE5IE3Jp6JDQN5juozkAZKIewN8C6HINI2v7nHEddHkPiGp_PsYnbb2hluXr0YI8HG3JvUNq1BDC60xB5fkFPxGSQAt3BGxAVIB6QV5zry40wf50BGcLMCVAr9MpZkLMMyjGQHWl3F7axXEMXkdCCAkEW-pe5cBZNatBdW3U1BXFRx-OhfyC3iSg8T6UeCIrG9QhbMwIIFfXZXWIOweeFcJLjGkM7M5o')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+<span class="text-tertiary font-label-sm text-label-sm uppercase tracking-widest mb-1">Exclusive Access</span>
+<h2 class="font-headline-md text-headline-md text-white">秘域私享 · 顶级会员专区</h2>
+</div>
+</div>
+</div>
+<!-- Indicators -->
+<div class="absolute bottom-3 right-6 flex gap-1.5">
+<div class="w-8 h-1 bg-secondary rounded-full"></div>
+<div class="w-2 h-1 bg-white/30 rounded-full"></div>
+<div class="w-2 h-1 bg-white/30 rounded-full"></div>
+</div>
+</section>
+<!-- Ad Grid 2x5 -->
+<section class="grid grid-cols-5 gap-3">
+<!-- Icon 1-10 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">diamond</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-tertiary transition-colors">至尊特权</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-secondary transition-colors">私密甜心</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">火爆推荐</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">movie</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">独家影院</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">redeem</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">限时福利</span>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">camera_outdoor</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">实拍基地</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">groups</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">社群交流</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">stars</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">名优馆</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">auto_fix_high</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">AI换脸</span>
+</div>
+<div class="flex flex-col items-center gap-2 group cursor-pointer">
+<div class="w-full aspect-square glass-card rounded-xl rim-light flex items-center justify-center group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">more_horiz</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">更多服务</span>
+</div>
+</section>
+<!-- Category Tabs -->
+<nav class="flex overflow-x-auto gap-4 py-2 border-y border-white/5 no-scrollbar">
+<button class="flex-none px-6 py-2 rounded-full bg-secondary-container text-on-surface font-label-sm text-label-sm crimson-glow active-glow">限时更新</button>
+<button class="flex-none px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-white transition-colors">用户投稿</button>
+<button class="flex-none px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-white transition-colors">独家资源</button>
+<button class="flex-none px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-white transition-colors">日韩</button>
+<button class="flex-none px-6 py-2 rounded-full glass-card text-on-surface-variant font-label-sm text-label-sm hover:text-white transition-colors">欧美</button>
+</nav>
+<!-- Content Section 1: 4+1 Matrix -->
+<section class="space-y-4">
+<div class="flex items-center justify-between border-l-4 border-secondary pl-3">
+<h3 class="font-headline-md text-headline-md">重磅·巅峰禁域</h3>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Large Feature (Occupies 2 cols row 1) -->
+<div class="col-span-2 relative aspect-[16/9] rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A high-fidelity cinematic close-up of a glamorous female model in an elegant obsidian silk dress, standing against a backdrop of glowing neon cityscape lights blurred into soft bokeh. The lighting is moody and dramatic, with deep shadows and vibrant purple and crimson rim-lights highlighting the fine details of the fabric and skin texture. The atmosphere is premium and seductive." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSl6K4XTko5XDJ-f-EbbpU9KoRZ6jQGZ9nydqnU4l7pFue5w5PretPTip7GkpGsBloN6VKFIWLY0Sdp9qFbBgveMfK2pNcCeSRe60oDk1HfSizKNGlkaI_bE5p4nj7crEQLqezOyGVDl0oPz4aMnuP2SqIyKPGWWWCTMdL75I0gcAxr-dnex7oVWHxC_16GBhDiHGeS9UWbaEkEkBdc--JfOm3xi-dGnvPnezTAXHbkc0ZCNJuHSUTyu7ljUsqgYWbgXONfa9xyyM')"></div>
+<div class="absolute top-2 left-2 px-3 py-1 bg-secondary-container text-[10px] font-bold rounded-md">VIP EXCLUSIVE</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-bold text-lg">暗夜流光：顶级模特私密纪录片</p>
+<div class="flex items-center gap-3 mt-1 opacity-70 text-xs">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">visibility</span> 128.5k</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">favorite</span> 12.4k</span>
+</div>
+</div>
+</div>
+<!-- 4 small thumbnails -->
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sophisticated macro shot of luxury lingerie laid across a satin sheet, illuminated by a sharp beam of cold blue and hot pink light. The focus is on the intricate lace patterns and metallic accents. The overall mood is mysterious, high-end, and artistically provocative, maintaining a dark minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZIBgp_YXw6ev0fKIoDvz0ylngEDlQnCMlKzcJdotJMSHotCvMCzi6yODSlhe9EHF4LbwYSNbJiVEt89psjHIVCTiv1A879eCF-XxhqKw9znEN98BgC4dUKd5e5HLX9RYFwolf6z2CTZ6RIylgwq0_N6Tp1w8UDVEluatR19Q4Ih-BM6yJ5VYJM0QkXPPUSFrALunK35crGmV7rN8mi7hCXvZDyf82bS35mu5jjkclRegRGE-P22K-rz6h_w5QzEYfVSIOdoGG9WQ')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">午夜玫瑰</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="An artistic silhouette of a person against a large, circular frosted glass window with a red neon halo effect. The lighting is low and moody, emphasizing shapes and atmosphere over explicit detail. The aesthetic is 'Obsidian Desire', combining dark surfaces with luminous, intense highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdfftMDCj_4iQKWlpCO0IcTCNun2emiDeHGPKm03eyRccPV04LMHpltx_c1wVJw0PNP9KHWKHQkCVdpFoZYUeHt56v9SliNLCKUIbSQ1uPqXawVpoN-FZv25GByXjpPA0-6vP6C-8HQyqFFlJAyUbc0JTGTIWFLT9NDfewNI3w98nj7u1Q70DD8Wc1XWsdt2pTltUzqO0gI6FYWAf1RV4FCWQyxjb9X0yVuvZhc-dYgnDXw64bYIyEhLDynPBtldFx9ODZ0Sln9dE')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">禁忌幻想</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized portrait of an attractive model with shimmering metallic makeup under flickering neon lights. The background is a textured black concrete wall with subtle moisture glisten. Deep reds and golds dominate the color palette, creating a feeling of dangerous luxury and indulgence." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8cLRLxwOb-lyMfVlGobhiHqhh5sS4XLb12uXYVt9hdZmSHuOKICMAxbTumCEbIiT0VgddHOUGpkKk0A-uwySUPZqG6L0l37694WKgQq_lr1y11RNeitNCuYnR1td41G1glroX58yBLyBw--vmF454rX0J29JyrM_eEJG7oJ_YUSqKj11awxYGP2osz0eTwdnUkS3TomWT8-mvEXwfyAccjDh18brR6XQV1uG9bBixkBKiIagNVxTReTmkPWYHEXkWsqHSmmfw80o')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">极致诱惑</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A low-angle shot of a high-speed sports car interior at night, with glowing digital displays reflecting off dark leather and carbon fiber. A mysterious figure is partially visible in the driver seat, wearing silk gloves. The mood is high-stakes, exclusive, and evocative of a midnight getaway." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwV5bCLECDYsDV-U8jSNYv0oZNqC7oxlQGKyu5ROGFxZPZsCapxu3W9Y5so7_1hKD2bFnWFY2YdqbYR2x0tTz65opUQ8CpQvd6xErJjQFChEIv4QxCHDWd0O8nySqGpxqZwh5IASfVMXfC_CTZFy0WVS753jxmdqmSMStcOFPASoq3dLlgk8BajFq89wqQ8ap6oLBi1awDy3wV-XUcQVw-uSeOSnJY8lV7Zm_hpq_XN0RGzmjJF5Li0OG3e7Irv73xGqpmUR_l-p4')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">速度与火</span>
+</div>
+</div>
+</div>
+<!-- Matrix Footer -->
+<div class="flex gap-4 pt-2">
+<button class="flex-1 h-12 glass-card rounded-xl flex items-center justify-center gap-2 font-label-sm text-label-sm text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">refresh</span> 换一换
+                </button>
+<button class="flex-1 h-12 glass-card rounded-xl flex items-center justify-center gap-2 font-label-sm text-label-sm text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">grid_view</span> 更多内容
+                </button>
+</div>
+</section>
+<!-- In-feed Ad Banner -->
+<section class="w-full h-[110px] rounded-xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="A sleek, long horizontal advertising banner featuring a gold-plated luxury membership card resting on a bed of black silk petals. Deep red glow emanates from the background, and sharp white typography highlights 'PREMIUM ACCESS' and 'JOIN THE ELITE'. The design is clean, opulent, and visually arresting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvsbIjtg_R7TG7TW7JOiUaLwB5H7fnDRnAanO2dSuCOSux0yttK36veQ51yC9rqLqffTaTHB2R0hiZle3myxa4tAwGMkVWSD1hG0gsciZF52b7mhcB7Tr_SrrUPj3uIE-KxlCVMDeyQ7c-WgZaucjWF5odhLlQzDlTCfsIvWYU6WjDkb3IWFxhbBvh_WZx4skRFlpgV2N4MKWV7adT4atWjjboN0oGucbxjXrIplL1Kp46eVExFOYKpxUhOK2Cgxy85gaCUm0FDrU')"></div>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-black/40 text-[8px] rounded border border-white/10">AD</div>
+</section>
+<!-- Content Section 2: 4+1 Matrix (Variant) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between border-l-4 border-tertiary pl-3">
+<h3 class="font-headline-md text-headline-md">全球·名门盛宴</h3>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic capture of high-end fashion jewelry glowing under a single spotlight in a pitch-black room. The diamond necklaces and rings sparkle with intense brilliance, throwing colorful light refraction onto the obsidian surface. The mood is one of quiet, expensive elegance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBO4gDhithCsuMJOousGoF7O7OGcFQcLvdvl7qr2qSHc4vzwB5iYcIlma1ZOeZZhLfrxy-Q22srYTtbWRhibGYMoQVqSEOVRGU7eV1mi12Wpm96Ez1c_Ha6UO7ZDHaHExRE-J3dsruVqJxB_kLc31wMb703Ph6T85dS0_iKSnuTNuoPnTy0EhWBnrYHL6vrVd5PiF6ma-7VftP0BPPsi2EJYdpsMa4c3uH5vuEvPB_vL5yAtMk4W4KztRGvYX_5V4TsLXGenb7CHE')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">奢华时刻</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A close-up of champagne bubbles rising in a tall, elegant crystal flute, with soft golden bokeh in the background suggesting a gala event. The atmosphere is bubbly, celebratory, and part of an exclusive high-society gathering." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAF7WNlOlkWZPkMu-ExYtCO8lA7-hcMtROtOAMp_DWrdTnYuzuEzNlokCSg5_0Ppuxq_Y4ObNdyiGcTb1DG9pVNMtxaEifrsZaJ_fTrGLhfQX3uQav5jXdIfLpQ0PPRnR4M8jMZEiDRLJKrpDxS-wy6bkFbP0H5M2hV9P8tgnSUUo3UponH1p49Vjy2mqOnz39_Y3YPhd3ycCHlSNoV-W851GzmAqr-cmFpcTbqkziFUgRiItLY8dDDfCUCRMnR-PY0eHy-Z0AFMYM')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">庆典之约</span>
+</div>
+</div>
+<!-- Large Feature positioned differently -->
+<div class="col-span-2 relative aspect-[16/9] rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A grand staircase in a modern mansion, illuminated by integrated floor-level LEDs and a massive, minimalist chandelier. The architecture is sharp and futuristic, with dark glass walls reflecting the neon purple accents of the lighting. A single figure in a long evening gown is walking up the stairs, seen from behind." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXM4YhVB-C_F354uF3g1DWXQLVl86XhKtFi3KNRjHr1WWyJ21tJTLcX50mY9p6Qge1yhwVQledn3Ie6NhIod_yw7uLJ2WbtzYaiQiM6hNJYxrkofvlY_kvlOfuWAKRR11fXbrnD71AWtTzizDmjtUSvbUV-mhZ8hMCk1WezlyFDYcUiaP2J33ysbHNqvxg-C84vFExzbBKwqcHYszMVRnwlB6Md0mWsS6MCcmtUp_KFjqS4oS9DYelgfkYlLXVUjxHsQc0lhzGEnY')"></div>
+<div class="absolute top-2 left-2 px-3 py-1 bg-tertiary-container text-tertiary text-[10px] font-bold rounded-md">DIAMOND MEMBER</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-4">
+<p class="text-white font-bold text-lg">豪宅秘话：直击名流私生活</p>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="A wide-angle shot of an infinity pool at night, looking out over a city skyline. The water is perfectly still, reflecting the skyscraper lights. A few glowing orbs float on the surface, adding a surreal and magical touch to the high-end resort setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhm20WtFItwfaCjfNoRymFKnObo0ts0xt1sb6Yz-LqrX3F5sFR5VdCjfRip1-c09TsBplymNF_B4BlYaF4cv1KtdcMvz1FOYEH5fwKHnNhAQniOsvxjuq-Xxz-8n_pdaFSYXMoB7oF3t7auj57J2oZQGM4mm6oO-sAlkWDGTuU4RBGlur3TbDKKqYQZFj7cp4ZRrCDXsfuQY2GYSiZRsfwshnWkFl466PRlfqcRCzeA2nZqVemAD9LdipFNBibeLl0AajYeqPXpPM')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">云端之梦</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden glass-card rim-light">
+<div class="w-full h-full bg-cover bg-center" data-alt="Detail shot of a vintage leather armchair in a library, with old books and a glass of amber-colored whiskey on a side table. A warm, soft light comes from a classic table lamp, creating a cozy yet intellectual and prestigious environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCIeIX9OgZZ0Sm7d0g9t0fTzEb2kBDhKTRn58sV8d0kYEtwmzjBcz8IsmHg5Pef_qTIlFLoeCrW-EYOEH00vJsIuRKOQkH_MbmDae5SpTu887uQzXIaL6G86XoGCvoYUcbzPV5Sfp_iBRY9KONc3kVnxK_NBbZ1cCuAyYz3FT7OT_Pjnfn2MnlMshxeZqq4k8uqkcMwfh7Np_LKYzvKL6gfSLHDedXsY2gX_JWfqjGDOI3vXgn_NbNr8n_d4JFHa3VhA_X1lXT_Tk')"></div>
+<div class="absolute inset-0 bg-black/30 flex items-end p-3">
+<span class="text-white text-xs truncate">学者沙龙</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4 pt-2">
+<button class="flex-1 h-12 glass-card rounded-xl flex items-center justify-center gap-2 font-label-sm text-label-sm text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">refresh</span> 换一换
+                </button>
+<button class="flex-1 h-12 glass-card rounded-xl flex items-center justify-center gap-2 font-label-sm text-label-sm text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">grid_view</span> 更多内容
+                </button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center px-4 pb-4 z-50 rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">movie</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</div>
+<!-- Active Tab: 秘域 -->
+<div class="flex flex-col items-center justify-center text-secondary font-bold scale-110 transition-all animate-pulse">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">vpn_key</span>
+<span class="font-label-sm text-label-sm mt-1 active-glow">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</div>
+</nav>
+<!-- Floating Action Button (FAB) - For focus task like 'Post' if needed, but suppressed based on prompt requirements for sub-page focus -->
+<script>
+        // Micro-interactions for horizontal scroll snapping or simple animations
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', () => {
+                btn.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

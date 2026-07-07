@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>积分活动 - 积分商城</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .rim-light {
+            border: 1px solid transparent;
+            border-image: linear-gradient(135deg, rgba(249, 189, 34, 0.2) 0%, rgba(204, 0, 60, 0.1) 100%) 1;
+        }
+        .desire-pulse:active {
+            animation: pulse-red 0.4s ease-out;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(204, 0, 60, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(204, 0, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(204, 0, 60, 0); }
+        }
+        .bottom-nav-shadow {
+            box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#ffb3b6",
+                        "surface-container-highest": "#353535",
+                        "outline-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "inverse-primary": "#5f5e5e",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c7",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-tertiary": "#402d00",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#9b7300",
+                        "surface": "#131313",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-container": "#cc003c",
+                        "surface-bright": "#393939",
+                        "on-primary-container": "#7b7979",
+                        "surface-container-low": "#1c1b1b",
+                        "outline": "#8e9192",
+                        "on-secondary-fixed": "#40000c",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#920028",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#0a0a0a",
+                        "surface-tint": "#c9c6c5",
+                        "primary": "#c9c6c5",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#ffdada",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-container": "#20201f",
+                        "on-secondary-container": "#ffdcdc",
+                        "on-primary": "#313030",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "on-secondary": "#68001a",
+                        "surface-variant": "#353535",
+                        "inverse-on-surface": "#313030",
+                        "background": "#131313",
+                        "tertiary": "#f9bd22",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#100900",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#131313",
+                        "surface-container-high": "#2a2a2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "unit": "8px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+            @keyframes ripple-effect {
+                0% { width: 0; height: 0; opacity: 0.5; }
+                100% { width: 300px; height: 300px; opacity: 0; }
+            }
+        </style></head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container/30">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<button class="material-symbols-outlined text-tertiary hover:opacity-80 transition-opacity active:scale-95 transition-transform">arrow_back</button>
+<h1 class="font-headline-md text-headline-md font-bold text-tertiary">积分活动</h1>
+<button class="font-label-sm text-label-sm text-tertiary hover:opacity-80 transition-opacity active:scale-95 transition-transform uppercase tracking-wider">规则</button>
+</header>
+<main class="pt-20 pb-24 px-container-margin">
+<!-- Sub-tabs -->
+<div class="flex items-center justify-center p-1 bg-surface-container-lowest/90 backdrop-blur-xl rounded-xl border border-tertiary/10 mb-8">
+<div class="grid grid-cols-2 w-full gap-1">
+<button class="flex items-center justify-center py-2 px-4 rounded-lg text-on-surface-variant/60 hover:text-on-surface transition-colors text-label-sm">
+                    积分任务
+                </button>
+<button class="flex items-center justify-center py-2 px-4 rounded-lg bg-gradient-to-r from-[#cc003c] to-[#ff5e00] text-on-background font-bold text-label-sm transition-all shadow-lg">
+                    积分商城
+                </button>
+</div>
+</div>
+<!-- Points Balance Card -->
+<section class="glass-card rounded-2xl p-6 mb-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/10 blur-[60px] -mr-16 -mt-16 rounded-full group-hover:bg-secondary-container/20 transition-all duration-700"></div>
+<div class="flex flex-col space-y-2 relative z-10">
+<span class="text-on-surface-variant font-label-sm tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">wallet</span>
+                    当前积分
+                </span>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-extrabold text-tertiary tracking-tight">12,580</span>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between bg-surface-container-highest/40 p-4 rounded-xl border border-white/5">
+<div class="flex items-center gap-3">
+<div class="bg-gradient-to-br from-tertiary to-on-tertiary-fixed-variant p-1 rounded-lg">
+<span class="material-symbols-outlined text-black font-bold">military_tech</span>
+</div>
+<div>
+<p class="font-bold text-tertiary text-sm">VIP 5 勋章会员</p>
+<p class="text-on-surface-variant text-[10px]">等级越高 权益越多</p>
+</div>
+</div>
+<button class="bg-surface-container-highest px-3 py-1.5 rounded-full text-[10px] font-bold text-tertiary border border-tertiary/20 hover:border-tertiary/50 transition-colors">查看权益</button>
+</div>
+</section>
+<!-- Exchange Grid -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Item 1: VIP -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 hover:border-tertiary/20 transition-all">
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full ring-1 ring-white/10 group-hover:ring-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<h3 class="font-bold text-sm mb-1">VIP会员 (7天)</h3>
+<p class="text-tertiary font-bold text-xs mb-4">5000 积分</p>
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-secondary-container to-[#920028] text-white text-[12px] font-bold desire-pulse transition-transform active:scale-95 shadow-[0_4px_15px_rgba(204,0,60,0.3)]">立即兑换</button>
+</div>
+<!-- Item 2: 100 Coins -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 hover:border-tertiary/20 transition-all">
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full ring-1 ring-white/10 group-hover:ring-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<h3 class="font-bold text-sm mb-1">100枚金币</h3>
+<p class="text-tertiary font-bold text-xs mb-4">1000 积分</p>
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-secondary-container to-[#920028] text-white text-[12px] font-bold desire-pulse transition-transform active:scale-95 shadow-[0_4px_15px_rgba(204,0,60,0.3)]">立即兑换</button>
+</div>
+<!-- Item 3: Avatar Frame -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 hover:border-tertiary/20 transition-all">
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full ring-1 ring-white/10 group-hover:ring-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">pentagon</span>
+</div>
+<h3 class="font-bold text-sm mb-1">专属头像框</h3>
+<p class="text-tertiary font-bold text-xs mb-4">3000 积分</p>
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-secondary-container to-[#920028] text-white text-[12px] font-bold desire-pulse transition-transform active:scale-95 shadow-[0_4px_15px_rgba(204,0,60,0.3)]">立即兑换</button>
+</div>
+<!-- Item 4: 500 Coins -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 hover:border-tertiary/20 transition-all">
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full ring-1 ring-white/10 group-hover:ring-tertiary/30 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<h3 class="font-bold text-sm mb-1">500枚金币</h3>
+<p class="text-tertiary font-bold text-xs mb-4">4500 积分</p>
+<button class="w-full py-2.5 rounded-xl bg-gradient-to-r from-secondary-container to-[#920028] text-white text-[12px] font-bold desire-pulse transition-transform active:scale-95 shadow-[0_4px_15px_rgba(204,0,60,0.3)]">立即兑换</button>
+</div>
+<!-- Item 5: Physical Merchandise (Sold Out) -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 opacity-60">
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full grayscale">
+<span class="material-symbols-outlined text-3xl text-outline-variant">package_2</span>
+</div>
+<h3 class="font-bold text-sm mb-1 text-on-surface-variant">实体周边礼盒</h3>
+<p class="text-outline-variant font-bold text-xs mb-4">敬请期待</p>
+<button class="w-full py-2.5 rounded-xl bg-surface-container-highest text-outline-variant text-[12px] font-bold cursor-not-allowed" disabled="">已售罄</button>
+</div>
+<!-- Item 6: Birthday Gift (Locked) -->
+<div class="glass-card rounded-2xl p-4 flex flex-col justify-between items-center text-center group border-white/5 relative">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-2xl z-20 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-tertiary/40 text-4xl">lock</span>
+</div>
+<div class="w-16 h-16 mb-4 flex items-center justify-center bg-surface-container-low rounded-full ring-1 ring-white/10">
+<span class="material-symbols-outlined text-3xl text-tertiary/40">feature_search</span>
+</div>
+<h3 class="font-bold text-sm mb-1 text-on-surface-variant">生日专享礼包</h3>
+<p class="text-tertiary/50 font-bold text-xs mb-4">V5等级专享</p>
+<button class="w-full py-2.5 rounded-xl border border-tertiary/20 text-tertiary/60 text-[12px] font-bold transition-all hover:bg-tertiary/5 relative z-30">解锁等级</button>
+</div>
+</section>
+<!-- Atmospheric Elements -->
+<div class="mt-12 text-center">
+<div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-tertiary/20 to-transparent mx-auto mt-4"></div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-row justify-around items-center px-1 py-3 pb-safe bg-surface/90 backdrop-blur-2xl border-t border-white/5 bottom-nav-shadow rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="explore">explore</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="movie">movie</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="video_library">video_library</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="security">security</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline-variant flex-1 min-w-0 hover:text-secondary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-xl" data-icon="forum">forum</span>
+<span class="font-label-sm text-[10px] mt-1 truncate">广场</span>
+</div>
+<!-- Active Tab: Person (我的) -->
+<div class="flex flex-col items-center justify-center text-secondary flex-1 min-w-0 active:scale-90 transition-all duration-200">
+<div class="relative flex flex-col items-center">
+<span class="material-symbols-outlined text-xl" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-[10px] mt-1 font-bold truncate">我的</span>
+<div class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-secondary-container rounded-full shadow-[0_0_8px_rgba(204,0,60,0.6)]"></div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for buttons
+        document.querySelectorAll('.desire-pulse').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                let ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.background = 'rgba(255,255,255,0.3)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'translate(-50%, -50%)';
+                ripple.style.animation = 'ripple-effect 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        const rippleStyle = document.createElement('style');
+        rippleStyle.innerHTML = `
+            @keyframes ripple-effect {
+                0% { width: 0; height: 0; opacity: 0.5; }
+                100% { width: 300px; height: 300px; opacity: 0; }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    </script>
+</body></html>

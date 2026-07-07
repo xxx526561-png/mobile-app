@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ecstasy Cinema - 动漫</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05), inset -1px -1px 0px rgba(204, 0, 60, 0.05);
+        }
+        .desire-gradient {
+            background: linear-gradient(135deg, #cc003c 0%, #68001a 100%);
+        }
+        .glow-red {
+            box-shadow: 0 0 20px rgba(204, 0, 60, 0.2);
+        }
+        .glow-gold {
+            box-shadow: 0 0 15px rgba(249, 189, 34, 0.15);
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+        body::-webkit-scrollbar {
+            width: 4px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        body::-webkit-scrollbar-thumb {
+            background: #353535;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#313030",
+                      "inverse-surface": "#e5e2e1",
+                      "inverse-primary": "#5f5e5e",
+                      "tertiary": "#f9bd22",
+                      "surface-variant": "#353535",
+                      "error": "#ffb4ab",
+                      "background": "#131313",
+                      "tertiary-container": "#100900",
+                      "on-secondary": "#68001a",
+                      "surface-bright": "#393939",
+                      "on-secondary-fixed-variant": "#920028",
+                      "outline": "#8e9192",
+                      "primary": "#c9c6c5",
+                      "secondary-fixed": "#ffdada",
+                      "on-error-container": "#ffdad6",
+                      "primary-fixed": "#e5e2e1",
+                      "on-primary-fixed": "#1c1b1b",
+                      "secondary-fixed-dim": "#ffb3b6",
+                      "on-secondary-fixed": "#40000c",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#5c4300",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary-container": "#cc003c",
+                      "outline-variant": "#444748",
+                      "on-primary-container": "#7b7979",
+                      "surface-container-highest": "#353535",
+                      "surface": "#131313",
+                      "on-tertiary-fixed": "#261a00",
+                      "surface-tint": "#c9c6c5",
+                      "on-primary-fixed-variant": "#474646",
+                      "on-tertiary": "#402d00",
+                      "primary-fixed-dim": "#c9c6c5",
+                      "on-surface": "#e5e2e1",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-dim": "#131313",
+                      "primary-container": "#0a0a0a",
+                      "on-background": "#e5e2e1",
+                      "on-surface-variant": "#c4c7c7",
+                      "on-primary": "#313030",
+                      "tertiary-fixed-dim": "#f9bd22",
+                      "on-tertiary-container": "#9b7300",
+                      "secondary": "#ffb3b6",
+                      "surface-container": "#20201f",
+                      "on-secondary-container": "#ffdcdc",
+                      "on-error": "#690005",
+                      "tertiary-fixed": "#ffdf9f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "unit": "8px",
+                      "container-margin": "24px",
+                      "card-padding": "20px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-sm": ["Geist"],
+                      "display-lg-mobile": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Manrope"],
+                      "body-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden pb-32">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/5 h-16 flex items-center px-4 justify-between"><button class="p-2 text-on-surface/80 hover:text-secondary transition-colors"><span class="material-symbols-outlined">menu</span></button><nav class="flex items-center gap-6"><a class="text-body-md font-medium text-on-surface/60 hover:text-secondary transition-colors" href="#">视频</a><div class="relative flex flex-col items-center"><span class="text-body-md font-bold text-secondary">动漫</span><div class="absolute -bottom-2 w-4 h-0.5 bg-secondary rounded-full"></div></div><a class="text-body-md font-medium text-on-surface/60 hover:text-secondary transition-colors" href="#">漫画</a><a class="text-body-md font-medium text-on-surface/60 hover:text-secondary transition-colors" href="#">小说</a></nav><div class="flex items-center gap-2"><button class="p-2 text-on-surface/80 hover:text-secondary transition-colors"><span class="material-symbols-outlined">search</span></button><button class="p-2 text-on-surface/80 hover:text-secondary transition-colors"><span class="material-symbols-outlined">notifications</span></button></div></header>
+<main class="mt-20 px-container-margin space-y-10">
+<!-- Ad Grid Promotion -->
+<section><div class="grid grid-cols-6 gap-y-4 gap-x-3">
+<!-- Row 1 -->
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">bolt</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告1</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">stars</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告2</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">local_fire_department</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告3</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">redeem</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告4</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">diamond</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告5</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">workspace_premium</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告6</span>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">hub</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告7</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">precision_manufacturing</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告8</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">spatial_audio</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告9</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">offline_bolt</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告10</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">key</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告11</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">settings_input_component</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告12</span>
+</div>
+<!-- Row 3 -->
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">rocket_launch</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告13</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">auto_awesome</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告14</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">extension</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告15</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">military_tech</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告16</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">emoji_events</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告17</span>
+</div>
+<div class="flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-2xl">card_giftcard</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告18</span>
+</div>
+</div></section>
+<!-- Dimensional Filters -->
+<section class="space-y-6">
+<div class="flex flex-col gap-4 py-4 border-y border-white/5">
+<!-- Status Filter -->
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-outline min-w-[60px]">状态:</span>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 rounded-full desire-gradient text-on-secondary font-label-sm text-label-sm">全部</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">已完结</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">连载中</button>
+</div>
+</div>
+<!-- Type Filter -->
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-outline min-w-[60px]">类型:</span>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 rounded-full desire-gradient text-on-secondary font-label-sm text-label-sm">免费</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">金币</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">VIP</button>
+</div>
+</div>
+<!-- Sort Filter -->
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-outline min-w-[60px]">排序:</span>
+<div class="flex gap-2"><button class="px-4 py-1.5 rounded-full desire-gradient text-on-secondary font-label-sm text-label-sm">全部</button><button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">最新</button><button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:text-tertiary transition-all">最热</button></div>
+</div>
+</div>
+</section>
+<!-- Latest Updates Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="w-1.5 h-6 desire-gradient rounded-full"></span>
+                最近更新
+            </h2>
+<div class="flex gap-3">
+<button class="flex items-center gap-1.5 px-3 py-1.5 glass-card rounded-lg text-label-sm font-label-sm hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                    换一换
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '欲色之刃', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdmOd5DuVsGM_PrFk-BIu2pVvVwX00p48So0UGTl-x2RL9okB7tq1Ol1_8k4RwkeIcSlTZSVgKlF47cFeqqLQWjRVD8pWVWXUeo5Qzz46Ul8jmVVkN6jA9lHKt2lP_tHFwoZTNXE0UtZhHCZ2JJS3LyhwLcm2o0AoOdNl_awqC27D4Q5nLfad5qVOP30fPW0e8hIBoFPWt8Vb4ml0HsqSEMN5pVw-nkNFry2YZhw26GMp8W9L0eGJ97iUwn465GGWNWeo1DICLpfk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    1.2M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">欲色之刃</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '黑曜之夜', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNzGqSajyhceHiFrRWwB9q4AMvufqbzdSxjtkxjonmEGRiDrfSTdrWl4NAoWnvPe84EBRZPenOi0EL0sYMfdCz0jnHsrqDOIAylVKb7I9PT59fKymH3sghg4Q8YHUqIqS_TOLZtBQOzNDqDTUt7V0D52M83tqTnEuXqExSKZtIxo2l_lm99lwAVWbIEzmihOoy2KDwvYdAzJJDkG9iTuQ6F9Ws_4f_xCL-6clVWrjRIvC6PF47ht_xWyv_1UYnxmdWedHC6ODiunY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    980K
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">黑曜之夜</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '绯红天命', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8QqhWQjAf3fQuvBOeqlVmr5cjq1AA_-n0m_q_gFT9bWKp4gZ7NuY4AtaZRLCrpeA1Whq-SwFZQTK7jcb6uigZ5HI413961q9Q35uN6BN7HGrxU5f6sVhvXBDTYcFvfGYxxrNarceAZVV4ejmX8R1C2KaNWREi08Il5S-6Wfmd6ZeaAvagBhSwKsg7-a20dJwFQcs4ytO1HvQ4ByAHYgRUPP2cfL9v8SpRNsFgPJG4Lv8B4XgWmbgZWI8NefmsbTXsE1wtKiFqg5E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    2.4M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">绯红天命</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '霓虹之影', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUl11MYtZ7vsmc1eh8iBC5tYrqM4ZK1Au95d1DIwcL0eZao66efzdHDRE-P1ssud_7Wf0O-cQqyC0TnzVYkloD7v3SfkEDUmIMH7H1hS43r-psuR_uAoGUzVGAG6xlLsYKqWefWt4HT7j9KuEQKUDLrta1M0ZKBmZM-2v8paW-1Xc9R6oOZoThy_jAxCnA0psZDQ6aP2eKtu4p8_4nrJhRluJoeZczXSM0Ocyrfc8UQODHBU04ziFm5eqRFgik5HCkdYulAeIaKiQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    750K
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">霓虹之影</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '金色低语', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjbwa0M1_gp9SiVjv2TucBVGsG18LYQjm6nJWKWsX20TqMYqOMHYUIrz1RLMcsgsCRNKW1bUiJr1R3R5og9qKpQxz53faMrr5KCf24FHroVLBTDiwHA0zsIQ4ahsFRnfAYzoxZItI07Ijvg6D9zkoyRlLT1fsR55z7CqZghqDupcvLVdE_nYvxnLpvDZnwKLvR8QP5oetDPMbKBQEqGlJOUVDJ_z4M3wNJCTTc0t5pUVPls9ve9o0ww8GHazovMPzy-d8N8VjmB14"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    1.5M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">金色低语</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<img class="w-full h-full object-cover" data-alt="A cinematic anime poster for '空灵之锁', featuring a dark fantasy theme with glowing flame red accents and gold outlines. High-end art style with dramatic lighting and intricate character designs on a matte black background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7IefabAaAG25wJU9ldou76jBEwnhVrhoVHi3-boS_2OMwau4JbCMCVIgI0sP2MwMyM03nM2VEojJK_0Y-_ewlX_RnfMb3PW1ay-lQ0ipzMJEHJv7pE696TJjfnvva2evJkLYNHxEGKgU5J8DtlG0L0w4xgTpNvYTDyB4kuqufWFz1hpGUTbGPV4znehghhfxvQ83TJf0q-0YQtlPmCaTfF9ao1cC5FCkPVbCQtX9qWw416_82qA3slesBqHeN2vI479hmebzbhYA" style="transform: translateY(0px);"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+                                    1.1M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">空灵之锁</h3>
+</div>
+</div>
+</section>
+<!-- Trending Hits Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="w-1.5 h-6 desire-gradient rounded-full"></span>
+                人气热播
+            </h2>
+<div class="flex gap-3">
+<button class="flex items-center gap-1.5 px-3 py-1.5 glass-card rounded-lg text-label-sm font-label-sm hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                    换一换
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '丝绒法则' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB1M0IpSLLkCaLCA7U1JyJdTSz3ed-jSsX4g3xIOx7X7TUZqQ8qCj6j2R3i5_D_O06U5ZfmY-uT0VIyyRfo4N6r90P3zP2f2Z3Z5pzgMjhttg0Wki5-v_SqHfC55dsxbxXVYlwU2qQsHeQsJTaDgVTDydjPWoO8RgaPvL5QvVrFEyU7oWg5U1iWtdQdzIfKj7SUjs78HO2AgxpWKaRN6VdHxBGA2_eD5DMCpUXxMQNYiFltxh2tl6R0x6a6MCdmSBZfL50v4xQUwSI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    3.2M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">丝绒法则</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '赛博玫瑰' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSDeClT8Hn9W3eCuuJ-9M-WV0lIbEvY7DUCzpsLIBmDK-U0dXN-YfMlCBaGGdt9IC3_1QAvLkdhyOAupo6Vskg9-XrLHkTFDRqmDxy50f21hzmKaXclMyFb0jRcsegh7PwraNbCRAog6o2quTpCwm0FeT21Rk13WSTmI1s_OmZoeX8f42Rv_M5ntA0ZOR9KZeF27AmrzzP5anHgvOWAgQvFmdRWwKv0Gh69lTMmeGnSPzuQTDSOmgmQx0gybKycKCxcAhEoDHTjFg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    2.1M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">赛博玫瑰</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '午夜面纱' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChbmAe46CsRKnlDsuW-Q5ucem77ikJrzfChmjAuRvwV7BLG1674SBFhi7c0ro6SJLgY-7mP9s8YzPXHy_ilYb4OL537n27aAFUDzHJ5KrYnefr4fEHPZqgwdrtOrS6wsYm_xeIBWOoZlGMsOeE1ZN375tyzhKhOPfdu11V0GWIUl1mW_AmX80lpe4hhF46alCk0QTPwPQTQpjESkKes6BOKQ03eaHtsm-BZtjmMg0yBWylWBVf7ruUAnmneuyUViyufkNdVH6vT4Q')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    4.5M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">午夜面纱</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '钢铁莲花' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_uczL6xsyDD8rl2kUy55dj4jY-rAMnAk3SoNm7B13V5mWfvLA3o24IyHZUOCUytZshsTKzDSWG_dtogCp1rzBDBJ04vlDLfiePgrzK3E-djZvO8c_MAUl0K2jGpo0ozVSJEjiA2UA1b0Ap6PWoDu0cPVnu-sAHYHOf3a4LhC8rLsgOYEmUnlzEDXQG1Q3lbZEZDluXivRw8GITEKluEWiM9NFZMJabC_FVLRhq9I-oZlxbN-4dvZucTFlnkBQcMyNpe3v4T57DhY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    1.8M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">钢铁莲花</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '欲望引擎' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_g39L0qgAm2ezeGtQi8Oh2ZDWR7u3I5SKfIG-65rDp_wjpyQEOkZ0Hpbu4tziYbnlf6Fd2FcprNalqe-nJEoBdRxw--Jj8p3zPi82TSk5TmEHS3sUfKhWPGO953dgej5yq317zZzOijYXk_2MGN6dToDtslMVAY5exJExspg2QLLHc2KCPEfB8CJQEAXVbflP_rCenOPC7GLPXVagMOXdl2FOYoiqxrhop7e0dd_sQ7k879STCjEyMsCTZthN4Nf9vhVQMtYnF1o')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    2.9M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">欲望引擎</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card mb-3 transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Premium anime art for '幻影脉冲' illustrating a cyberpunk underworld with neon lights and deep shadows. The color palette features electric gold and fiery crimson. The style is highly detailed and cinematic, suitable for a luxury media app." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBh5PuJfDARmzwImO4_qhMoYbI3qscep5fzywAK8Jlj9uxJaQIya_p5EVnAyhLZ7_BTRnopfyi_7bqJYvKb1tfcmJy4AwMe6v16kC3L7o35SPxHOCE7tUNTFAVla0rhlNHJxFRDuB2IXZNJq0XiCGQoXbuvrVOcd1oEwRQceNQn32Her8PpWqvlhmlJZ-eaH7d5p7milUGdIjZvdtwseUJDlDVhdO-fO1EO0a7xGeyhAdh-suTDIiuletE59lKuO0IOxatc4UkHP8A')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute top-3 left-3 desire-gradient w-8 h-8 rounded-full flex items-center justify-center text-on-secondary font-bold text-xs glow-red">TOP</div>
+<div class="absolute bottom-3 left-3 flex items-center gap-2">
+<span class="text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1 bg-black/40 px-2 py-1 rounded-md backdrop-blur-sm">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+                                    2.2M
+                                </span>
+</div>
+</div>
+<h3 class="font-body-lg text-body-lg text-on-surface line-clamp-1 group-hover:text-tertiary transition-colors">幻影脉冲</h3>
+</div>
+</div>
+</section>
+<section class="mt-10"><div class="grid grid-cols-6 gap-y-4 gap-x-3"><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">bolt</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告1</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">stars</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告2</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">local_fire_department</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告3</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">redeem</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告4</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">diamond</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告5</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">workspace_premium</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告6</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">hub</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告7</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">precision_manufacturing</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告8</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">spatial_audio</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告9</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">offline_bolt</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告10</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">key</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告11</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">settings_input_component</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告12</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">rocket_launch</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告13</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">auto_awesome</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告14</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">extension</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告15</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">military_tech</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告16</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">emoji_events</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告17</span></div><div class="flex flex-col items-center gap-1.5 group cursor-pointer"><div class="aspect-square w-full glass-card rounded-xl flex items-center justify-center transition-all group-hover:border-tertiary/40"><span class="material-symbols-outlined text-tertiary text-2xl">card_giftcard</span></div><span class="text-[10px] font-label-sm text-on-surface/60 group-hover:text-tertiary transition-colors">广告18</span></div></div></section>
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(204,0,60,0.1)] rounded-t-xl z-50">
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer group">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary-container bg-secondary/10 rounded-xl p-2 animate-pulse-subtle transition-transform cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline p-2 hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</div>
+</footer>
+<script>
+    // Micro-interactions for buttons
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.add('scale-90');
+            setTimeout(() => this.classList.remove('scale-90'), 150);
+        });
+    });
+
+    // Atmospheric parallax on scroll
+    window.addEventListener('scroll', () => {
+        const scroll = window.scrollY;
+        document.querySelectorAll('.glass-card img').forEach((img, i) => {
+            const speed = 0.05 + (i * 0.01);
+            img.style.transform = `translateY(${scroll * speed}px)`;
+        });
+    });
+</script>
+</body></html>

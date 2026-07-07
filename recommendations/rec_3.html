@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DesireVLOG - 在线赚钱</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#920028",
+                    "on-surface-variant": "#c4c7c7",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "on-primary": "#313030",
+                    "outline-variant": "#444748",
+                    "outline": "#8e9192",
+                    "inverse-surface": "#e5e2e1",
+                    "on-tertiary": "#402d00",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-background": "#e5e2e1",
+                    "surface-tint": "#c9c6c5",
+                    "on-secondary-fixed": "#40000c",
+                    "error": "#ffb4ab",
+                    "surface": "#131313",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#e5e2e1",
+                    "surface-bright": "#393939",
+                    "primary-container": "#0a0a0a",
+                    "on-surface": "#e5e2e1",
+                    "secondary-container": "#cc003c",
+                    "on-secondary": "#68001a",
+                    "on-primary-container": "#7b7979",
+                    "tertiary-container": "#100900",
+                    "on-tertiary-container": "#9b7300",
+                    "tertiary": "#f9bd22",
+                    "surface-container-highest": "#353535",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "secondary-fixed": "#ffdada",
+                    "surface-variant": "#353535",
+                    "tertiary-fixed": "#ffdf9f",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "primary": "#c9c6c5",
+                    "on-secondary-container": "#ffdcdc",
+                    "error-container": "#93000a",
+                    "surface-dim": "#131313",
+                    "on-tertiary-fixed": "#261a00",
+                    "background": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container": "#20201f",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-error": "#690005",
+                    "secondary": "#ffb3b6",
+                    "inverse-primary": "#5f5e5e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "container-margin": "24px",
+                    "card-padding": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "label-sm": ["Geist"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid transparent;
+            border-image: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(204,0,60,0.1) 100%) 1;
+            pointer-events: none;
+        }
+        .desire-button {
+            background: linear-gradient(135deg, #cc003c 0%, #68001a 100%);
+            transition: all 0.3s ease;
+        }
+        .desire-button:active {
+            transform: scale(0.95);
+            filter: brightness(1.2);
+        }
+        .pulse-glow {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(204, 0, 60, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(204, 0, 60, 0.7); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-active {
+            border-bottom: 2px solid #ffb3b6;
+            color: #ffb3b6;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<!-- Category Sub-Nav (Specific for Promotional Hub) -->
+<header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-2xl border-b border-white/5 px-4 pb-3">
+<div class="flex gap-4 overflow-x-auto no-scrollbar py-2 mt-2 snap-x snap-mandatory">
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">推荐</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">极乐约炮</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">性药商城</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-secondary-container text-white text-sm font-bold pulse-glow snap-start">在线赚钱</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">成人游戏</div>
+</div>
+</header>
+<main class="pb-24 px-container-margin max-w-lg mx-auto mt-1"><section class="mb-gutter">
+<div class="w-full h-[186px] rounded-xl overflow-hidden shadow-2xl relative">
+<div class="bg-cover bg-center w-full h-full transform hover:scale-105 transition-transform duration-700" data-alt="A high-end cinematic advertising banner for an exclusive earning program. The visual features a sleek, deep black background with glowing neon red and gold typography that reads 'HIGH COMMISSION'. In the foreground, a stack of high-quality digital currency coins radiates a soft gold light. The mood is seductive, luxurious, and high-stakes, matching a dark minimalism aesthetic with sharp highlights and premium glass-like textures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-4">
+<span class="text-secondary font-bold text-label-sm tracking-widest uppercase">Limited Offer</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">最高返佣 50% 现金立提</h2>
+</div>
+</div>
+</section>
+<!-- Hero Banner -->
+<section class="mb-gutter">
+<div class="grid grid-cols-2 gap-3"><!-- Ad Slot 1 -->
+<div class="flex flex-col gap-2">
+<div class="glass-card rounded-xl h-24 flex items-center justify-center overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/10 to-transparent opacity-50"></div>
+<span class="text-label-sm text-on-surface-variant/60 uppercase tracking-widest">AD Slot</span>
+</div>
+<div class="text-center">
+<span class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-label-sm">广告位说明</span>
+</div>
+</div>
+<!-- Ad Slot 2 -->
+<div class="flex flex-col gap-2">
+<div class="glass-card rounded-xl h-24 flex items-center justify-center overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/10 to-transparent opacity-50"></div>
+<span class="text-label-sm text-on-surface-variant/60 uppercase tracking-widest">AD Slot</span>
+</div>
+<div class="text-center">
+<span class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-label-sm">广告位说明</span>
+</div>
+</div>
+<!-- Ad Slot 3 -->
+<div class="flex flex-col gap-2">
+<div class="glass-card rounded-xl h-24 flex items-center justify-center overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-50"></div>
+<span class="text-label-sm text-on-surface-variant/60 uppercase tracking-widest">AD Slot</span>
+</div>
+<div class="text-center">
+<span class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-label-sm">广告位说明</span>
+</div>
+</div>
+<!-- Ad Slot 4 -->
+<div class="flex flex-col gap-2">
+<div class="glass-card rounded-xl h-24 flex items-center justify-center overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
+<span class="text-label-sm text-on-surface-variant/60 uppercase tracking-widest">AD Slot</span>
+</div>
+<div class="text-center">
+<span class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-label-sm">广告位说明</span>
+</div>
+</div></div>
+</section><section class="mb-gutter">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 text-center">优质APP推荐</h3>
+<div class="flex flex-col gap-4">
+<!-- App Item 1 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="皇冠体育" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">皇冠体育</h4>
+<p class="text-[10px] text-on-surface-variant/60">年度最火电子，注册赠礼888元</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold pulse-glow">下载</button>
+</div>
+<!-- App Item 2 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="677棋牌" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">677棋牌</h4>
+<p class="text-[10px] text-on-surface-variant/60">官方直营，开元棋牌</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold pulse-glow">下载</button>
+</div>
+<!-- App Item 3 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="PG电子" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">PG电子</h4>
+<p class="text-[10px] text-on-surface-variant/60">最专业的综合游戏网站</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold pulse-glow">下载</button>
+</div>
+</div>
+</section>
+<!-- Earning Stats Card -->
+<!-- Task List Section -->
+<!-- App Recommendations Section -->
+</main>
+<!-- Bottom Navigation Bar -->
+<footer class="fixed bottom-0 w-full z-50 bg-surface/80 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-4px_20px_rgba(255,179,182,0.1)] flex justify-around items-center h-20 px-2">
+<!-- Label: 导航页 -->
+<a class="flex flex-col items-center justify-center text-secondary scale-110 font-bold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</a>
+<!-- Label: 视频 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</a>
+<!-- Label: VLOG -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</a>
+<!-- Label: 秘域 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">lock</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</a>
+<!-- Label: AI科技 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</a>
+<!-- Label: 广场 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</a>
+<!-- Label: 我的 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</a>
+</footer>
+<script>
+        // Micro-interaction: Task card click effect
+        document.querySelectorAll('.bg-surface-container-low').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.add('scale-98');
+                setTimeout(() => this.classList.remove('scale-98'), 150);
+            });
+        });
+
+        // Floating ambient effect
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.className = 'fixed rounded-full pointer-events-none opacity-20 bg-secondary';
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            document.body.appendChild(particle);
+            
+            const animation = particle.animate([
+                { transform: 'translateY(0) scale(1)', opacity: 0.2 },
+                { transform: `translateY(-${Math.random() * 100 + 50}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'ease-out'
+            });
+
+            animation.onfinish = () => particle.remove();
+        };
+
+        setInterval(createParticle, 500);
+    </script>
+<div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 5.29611px; height: 5.29611px; left: 86.4371vw; top: 21.4403vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.61044px; height: 4.61044px; left: 22.6283vw; top: 19.5071vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.05649px; height: 3.05649px; left: 65.3961vw; top: 95.2017vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 5.39919px; height: 5.39919px; left: 80.8036vw; top: 29.7427vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 5.06499px; height: 5.06499px; left: 86.2876vw; top: 82.2387vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.79891px; height: 4.79891px; left: 88.1466vw; top: 77.2822vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.10228px; height: 3.10228px; left: 20.268vw; top: 18.7081vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 2.4142px; height: 2.4142px; left: 37.4635vw; top: 45.3805vh;"></div>
+<div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 2.94677px; height: 2.94677px; left: 8.283vw; top: 32.712vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.90601px; height: 4.90601px; left: 12.931vw; top: 85.4361vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.59427px; height: 3.59427px; left: 74.8988vw; top: 46.405vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 2.81821px; height: 2.81821px; left: 41.9376vw; top: 34.0647vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.15466px; height: 3.15466px; left: 81.3515vw; top: 23.5346vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.05127px; height: 3.05127px; left: 58.1139vw; top: 37.8357vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.55474px; height: 4.55474px; left: 70.0178vw; top: 98.9956vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.837px; height: 3.837px; left: 39.9245vw; top: 78.3825vh;"></div>
+<div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 5.05359px; height: 5.05359px; left: 2.21185vw; top: 25.5391vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.84746px; height: 4.84746px; left: 59.5694vw; top: 78.0285vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.37685px; height: 3.37685px; left: 21.7895vw; top: 30.2921vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 2.09642px; height: 2.09642px; left: 94.7019vw; top: 89.9668vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 3.86666px; height: 3.86666px; left: 37.8233vw; top: 50.3234vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 4.03748px; height: 4.03748px; left: 58.1679vw; top: 14.2646vh;"></div><div class="fixed rounded-full pointer-events-none opacity-20 bg-secondary" style="width: 5.92562px; height: 5.92562px; left: 6.40705vw; top: 57.4889vh;"></div></body></html>

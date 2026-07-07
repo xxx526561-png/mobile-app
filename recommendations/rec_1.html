@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>极乐App - 成人游戏</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Manrope:wght@400;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+        }
+        .desire-glow {
+            box-shadow: 0 0 20px rgba(204, 0, 60, 0.2);
+        }
+        .active-underline {
+            position: relative;
+        }
+        .active-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: #cc003c;
+            border-radius: 2px;
+            box-shadow: 0 0 8px #cc003c;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "surface-variant": "#353535",
+                        "primary": "#c9c6c5",
+                        "on-surface": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "tertiary": "#f9bd22",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "inverse-primary": "#5f5e5e",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-secondary-fixed": "#40000c",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c4c7c7",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#9b7300",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary": "#68001a",
+                        "surface-tint": "#c9c6c5",
+                        "on-tertiary-fixed": "#261a00",
+                        "tertiary-container": "#100900",
+                        "surface-container-highest": "#353535",
+                        "on-secondary-fixed-variant": "#920028",
+                        "on-tertiary": "#402d00",
+                        "on-primary-container": "#7b7979",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-container": "#cc003c",
+                        "on-secondary-container": "#ffdcdc",
+                        "surface": "#131313",
+                        "outline": "#8e9192",
+                        "secondary-fixed": "#ffdada",
+                        "on-primary": "#313030",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "surface-bright": "#393939",
+                        "secondary": "#ffb3b6",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed": "#1c1b1b",
+                        "outline-variant": "#444748",
+                        "on-primary-fixed-variant": "#474646"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "20px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "body-lg": ["Manrope"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background min-h-screen pb-24 overflow-x-hidden">
+<!-- Top Navigation Bar (Sync with Navigation Hub) -->
+<header class="sticky top-0 z-50 bg-background/90 backdrop-blur-2xl border-b border-white/5 px-4 pb-3">
+<!-- Category Selector -->
+<nav class="flex gap-4 overflow-x-auto hide-scrollbar py-2 mt-2 snap-x snap-mandatory" style="scroll-padding-left: 16px;"><div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">推荐</div><div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">极乐约炮</div><div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">性药商城</div><div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">在线赚钱</div><div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-secondary-container text-white text-sm font-bold snap-start active-underline">成人游戏</div></nav>
+</header>
+<main class="px-4 max-w-lg mx-auto mt-1 space-y-4"><!-- Hero Section: Scrolling Banner -->
+<section class="relative w-full aspect-[336/186] rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="absolute bottom-4 left-6 z-20">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-sm text-[10px] font-bold tracking-widest mb-2 inline-block">HOT GAME</span>
+<h2 class="font-headline-md text-headline-md text-white">终极欲望：3D重制版</h2>
+<p class="text-[12px] text-white/70">次世代画质，极致感官诱惑</p>
+</div>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A cinematic 3D rendering of a luxury penthouse interior at night with neon red and gold lighting. In the foreground, a sleek high-end console gaming interface is visible. The scene is rendered in a photorealistic dark minimalism style, emphasizing deep shadows and sharp, luminous highlights to evoke a premium adult gaming atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7hwxgOnRMiw2UrCPcuJhRZ1wiZPCseC3jd6QWQ5BBt5htc4zeSEqRuTV05qOrs_l0_k34zYXhaocH6cdMJgxIPVMB8aWELJ2PWfnpgiE6LxOa-Cj3Dux8ItsolNJB1vMaRrRJrcGvGoOTClWxP-3vI1K-rNHnSiLbsh-Mch2QcsX83QG532B04-huWUZLvBGGIgG_o8u5m8VyQ4phU25s-bMufP1f7ARNQHM89SyBVFyp5CyXZ02mRuWQP4XsShXOiLwO72-GNUc"/>
+<div class="absolute bottom-4 right-4 flex space-x-1.5 z-20">
+<div class="w-2 h-2 rounded-full bg-secondary desire-glow"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+</div>
+</section>
+<!-- Ad Matrix: Game Categories -->
+<!-- Featured Games: Vertical List -->
+<section class="space-y-4"><div class="flex justify-between items-end mb-4"><h3 class="font-headline-md text-headline-md border-l-4 border-secondary pl-3">精品推荐</h3><span class="text-[12px] text-tertiary font-label-sm cursor-pointer hover:underline">查看更多</span></div><div class="grid grid-cols-2 gap-4"><div class="glass-card rounded-xl overflow-hidden flex flex-col hover:bg-white/5 transition-all cursor-pointer group"><div class="aspect-[16/9] overflow-hidden border-b border-white/5"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz0ygKZieb3UsmIprYMZPcVBGe-S_gY7PXLeFgYo_xw_KiCaHRZZLW_wSsvg6FBjyErpK7xTrvO3-GHUnTMgPWcG20U6Rq_iEPo46O2DbGIliH0mkOy-85ySIjUhdoYZewXk8gYULaNsn0VAyAkrW2q7f64ijj_oI5-Zbep_2DwEWzGIbOhOoRfpUm7tj47ojZZPA4yiesbCoBBd_8o1qtOWXXCqQUCgj4G6_zsmpvjv9BXZ66BanPK1O3D7aqu9ucwJ_eLfdMk4E"/></div><div class="p-3 flex-grow flex flex-col"><h4 class="font-bold text-on-surface text-sm mb-1 line-clamp-1">欲望学院</h4><p class="text-[10px] text-on-surface-variant line-clamp-1 mb-2">沉浸式校园恋爱，揭开禁忌的秘密。</p><div class="flex items-center justify-between mt-auto"><div class="flex items-center space-x-2 text-[10px] text-on-surface-variant"><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">visibility</span>12.5w</div><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">download</span>8.2k</div></div><button class="bg-secondary-container text-white px-2 py-1 rounded-full text-[10px] font-bold desire-glow">下载</button></div></div></div><div class="glass-card rounded-xl overflow-hidden flex flex-col hover:bg-white/5 transition-all cursor-pointer group"><div class="aspect-[16/9] overflow-hidden border-b border-white/5"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8z19z24gqFEgJlLHR1UuQ0oT8AIzksOZvgbLTdoIsoZ4QGsXucaOYq-znyPrjDA3NWolrMy6bgB5kBcOVdkiFCncSLx4kXNDU7wt-9WKkZX9RPGd1fZ5zJzLswFpQo17lPCXBNg4JUvg7GpEAWQGx6GFMeRkhIKPk6L_rI9skGCO7iZ3I704DMyUSZbc4FgS6EutUwxEDKd67UHM1R53yAg0FS6AIMX33sj3NU9jJuzDv2E9VRpK6f0YBdAkNysLSCcXAbhZ_lQ"/></div><div class="p-3 flex-grow flex flex-col"><h4 class="font-bold text-on-surface text-sm mb-1 line-clamp-1">3D极乐麻将</h4><p class="text-[10px] text-on-surface-variant line-clamp-1 mb-2">真人联机竞技，赢取丰厚私密礼品。</p><div class="flex items-center justify-between mt-auto"><div class="flex items-center space-x-2 text-[10px] text-on-surface-variant"><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">visibility</span>45.2w</div><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">download</span>15w</div></div><button class="bg-secondary-container text-white px-2 py-1 rounded-full text-[10px] font-bold desire-glow">下载</button></div></div></div><div class="glass-card rounded-xl overflow-hidden flex flex-col hover:bg-white/5 transition-all cursor-pointer group"><div class="aspect-[16/9] overflow-hidden border-b border-white/5"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYjoyYSAFGCKNu6dt4Z_WbtNQTMu9m_rwjuDiv--R6LfItccVzQ6yp1OrxCYEdHN-YdayNKDMJNwZlwAdHVd3Hh6T3Biu1wGCzYTkl_QnzB1OzvZt0f4aZywhgM_IKvRSjvnJbxsPDQ7zLaO4Y1Ez2OXv3uWEFk08jrBb2RbzkfUG7lDLWDDhbo49JAfp9iszTN3YsEqa_39l4pEyWzGy_ugAhjbD5r7L6vVd4lVzW6RIfEiYWyGJro_CtEBLE9xnnYpfq9BVZcdQ"/></div><div class="p-3 flex-grow flex flex-col"><h4 class="font-bold text-on-surface text-sm mb-1 line-clamp-1">性感荷官OL</h4><p class="text-[10px] text-on-surface-variant line-clamp-1 mb-2">第一视角感官冲击，实时语音互动。</p><div class="flex items-center justify-between mt-auto"><div class="flex items-center space-x-2 text-[10px] text-on-surface-variant"><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">visibility</span>8.9w</div><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">download</span>2.1k</div></div><button class="bg-secondary-container text-white px-2 py-1 rounded-full text-[10px] font-bold desire-glow">下载</button></div></div></div><div class="glass-card rounded-xl overflow-hidden flex flex-col hover:bg-white/5 transition-all cursor-pointer group"><div class="aspect-[16/9] overflow-hidden border-b border-white/5"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCmAhAfWfuxpvaFOIeAGrcWALevU1XF_tHBZ07aqTDeQF_LvU64JR6gV1OTPfcDIWB8yA3N--Zrs_ijN28crz36yejIWVnin2CkvEmslqeJNn0cRY4ePnrK-H1uEuSyNWg44DRNvDG0n8eLfGnwb_00_E6a42ndr42zyzFlqbBvXxtHKFfPbVr5iz5lz1J-pSwN2lE3hqLJ6vvl9kUJw6r8CcRmzJIuYz_CDu23yMcISg6rqhqsCTPNkwg-pK0fHtKZ27XSsMUnL4"/></div><div class="p-3 flex-grow flex flex-col"><h4 class="font-bold text-on-surface text-sm mb-1 line-clamp-1">赛博夜之城</h4><p class="text-[10px] text-on-surface-variant line-clamp-1 mb-2">未来的罪恶都市，定制你的私人AI女仆。</p><div class="flex items-center justify-between mt-auto"><div class="flex items-center space-x-2 text-[10px] text-on-surface-variant"><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">visibility</span>22.1w</div><div class="flex items-center"><span class="material-symbols-outlined text-[12px] mr-0.5">download</span>5.4k</div></div><button class="bg-secondary-container text-white px-2 py-1 rounded-full text-[10px] font-bold desire-glow">下载</button></div></div></div></div></section><section class="space-y-4 mt-4">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-4 text-center">优质APP推荐</h3>
+<div class="flex flex-col gap-4">
+<!-- App Item 1 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="皇冠体育" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">皇冠体育</h4>
+<p class="text-[10px] text-on-surface-variant/60">年度最火电子，注册赠礼888元</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold desire-glow">下载</button>
+</div>
+<!-- App Item 2 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="677棋牌" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">677棋牌</h4>
+<p class="text-[10px] text-on-surface-variant/60">官方直营，开元棋牌</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold desire-glow">下载</button>
+</div>
+<!-- App Item 3 -->
+<div class="glass-card p-4 rounded-xl flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="PG电子" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbf9M9I8k208Ii7yq8_8gJWXuPr38iWRpDnI-pkZRolY1TnFWpQuc2zb-80l61kkcqybpXRNFmgSSQNTEUjZfcWJh8XwtHqXvFGTCRIG27mH28sNhmrOios4t7VWyq9eNWW4RWp6LvIPAZKiflgM5yvMnMLVDpE5W9QWxVkBCrYDb8Fp_Scaww4WYkqH54F__m54nPi_YlQeBsKDZzcq6ctYTLJOB590Cy0od3u59GswAAbGvsUDbQ-eUULlaub_Y7ReVXqATgxNI"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-surface font-bold">PG电子</h4>
+<p class="text-[10px] text-on-surface-variant/60">最专业的综合游戏网站</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-sm font-bold desire-glow">下载</button>
+</div>
+</div>
+</section></main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 bg-surface-container-lowest/90 backdrop-blur-2xl flex justify-around items-center px-4 pb-4 border-t border-white/5 z-50 rounded-t-xl shadow-[0_-10px_30px_rgba(204,0,60,0.15)]">
+<div class="flex flex-col items-center justify-center text-secondary font-bold scale-110 transition-all animate-pulse">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-label-sm">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="text-[10px] font-label-sm">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">camera</span>
+<span class="text-[10px] font-label-sm">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">vpn_key</span>
+<span class="text-[10px] font-label-sm">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="text-[10px] font-label-sm">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-[10px] font-label-sm">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-sm">我的</span>
+</div>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Hover glow effect on cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

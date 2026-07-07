@@ -1,0 +1,251 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>小说详情 - Ecstasy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,800&amp;family=Manrope:wght@400;500;700&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#c4c7c7",
+                    "on-secondary-fixed-variant": "#920028",
+                    "inverse-primary": "#5f5e5e",
+                    "background": "#131313",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "on-secondary": "#68001a",
+                    "secondary-container": "#cc003c",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#ffdf9f",
+                    "primary": "#c9c6c5",
+                    "tertiary": "#f9bd22",
+                    "surface-bright": "#393939",
+                    "surface-tint": "#c9c6c5",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#ffdcdc",
+                    "surface-container-highest": "#353535",
+                    "error": "#ffb4ab",
+                    "outline": "#8e9192",
+                    "on-tertiary": "#402d00",
+                    "on-primary": "#313030",
+                    "inverse-on-surface": "#313030",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "surface": "#131313",
+                    "secondary-fixed": "#ffdada",
+                    "secondary": "#ffb3b6",
+                    "primary-container": "#0a0a0a",
+                    "surface-variant": "#353535",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed": "#261a00",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#20201f",
+                    "primary-fixed": "#e5e2e1",
+                    "on-primary-fixed-variant": "#474646",
+                    "on-secondary-fixed": "#40000c",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "tertiary-container": "#100900",
+                    "outline-variant": "#444748",
+                    "on-primary-container": "#7b7979",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "inverse-surface": "#e5e2e1",
+                    "on-tertiary-container": "#9b7300",
+                    "primary-fixed-dim": "#c9c6c5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "container-margin": "24px",
+                    "card-padding": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Geist"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .rim-light {
+            border-top: 1px solid rgba(249, 189, 34, 0.1);
+            border-left: 1px solid rgba(249, 189, 34, 0.1);
+            border-bottom: 1px solid rgba(204, 0, 60, 0.1);
+            border-right: 1px solid rgba(204, 0, 60, 0.1);
+        }
+        .desire-glow {
+            box-shadow: 0 0 20px rgba(204, 0, 60, 0.2);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353535;
+            border-radius: 2px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- Top Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-gutter h-16 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors active:scale-95 duration-200" style="font-size: 24px;">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">小说详情</h1>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors active:scale-95 duration-200" style="font-size: 24px;">
+            share
+        </button>
+</header>
+<main class="flex-grow pt-16 pb-32">
+<!-- Scrolling Banner -->
+<section class="w-full px-4 mt-4">
+<div class="relative w-full aspect-[355/110] rounded-xl overflow-hidden rim-light desire-glow">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic and high-end promotional banner for a dark romance novel. The image features a silhouette of a couple in a dimly lit, luxurious obsidian-themed room with deep red velvet textures and golden rim lighting. The atmosphere is mysterious, indulgent, and dangerous, utilizing a dark minimalist luxury aesthetic with subtle ember-like particles floating in the air." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDimxVtBiIN6M6_TthP7UGTyrdwRTj5D7b_l9vqGC-n9TuRXsrpki6FX-8O8YHwxHvCVBPg55KjmTpSXTrnFiGSRKJTlN3JBjhUpZbE_SEEG_Qm59_P5O_pIT7Ofj6EVygm_08Ryi8YHLTdlJKmzX-mZQ7ACNFmp0LqnvJoHgFBWaul3YiyPLu9RVNJ3sjLayHuA4LppShABJ_V5o0_m6EDWErzJCWcOarC3vf0xD5i2ZbRIeCXaVR1-6pwQ5DhLMRwDPY1Bh_go_4')"></div>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-secondary-container text-white px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Premium Edition</span>
+</div>
+</div>
+</section>
+<!-- Content Area -->
+<article class="px-container-margin mt-8 max-w-2xl mx-auto">
+<header class="mb-10">
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-tertiary italic tracking-tighter mb-2">第128章：夜色下的极乐</h2>
+
+</header>
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface leading-relaxed tracking-wide">
+<p class="">落地窗外的霓虹灯火像是一场永不落幕的幻梦，将这间位于六十层的私人酒廊染上了一层暧昧的紫调。陆景深站在阴影里，手中琥珀色的液体微微晃动，冰块撞击杯壁的声音在死寂的房间里显得格外清晰。</p>
+<p class="">“你还是来了。”他的声音低沉而富有磁性，像是大提琴最深沉的拨弦，在空气中激起阵阵涟漪。他没有回头，但空气中那抹若有若无的清冷香气已经出卖了来人的身份。</p>
+<p class="">苏晚月停在距离他三步之遥的地方，指尖下意识地攥紧了裙摆。这里的空气仿佛被抽干了氧气，每一次呼吸都带着灼人的热度。她看着那个挺拔而孤寂的背影，心中涌起一种前所未有的危机感。那是危险的味道，却又带着致命的诱惑，让她明知前面是万丈深渊，却仍不由自主地想要靠近。</p>
+<p class="">“你说过，只要我来，你就会放过苏家。”她的声音有些颤抖，在这空旷的房间里显得愈发单薄。</p>
+<p class="">陆景深缓缓转身，半张脸隐匿在黑暗中，唯有那双如鹰隼般锐利的眼眸透着令人心惊胆战的寒光。他勾起一抹残忍而绝美的弧度，迈开长腿，一步步向她逼近。随着他的靠近，那种属于顶级掠食者的压迫感几乎让她窒息。</p>
+<p class="">“晚月，看来你还没明白。在这场游戏里，规矩是由我定的。”他抬起手，修长的手指若有若无地划过她紧绷的下颌线，微凉的触感让她忍不住打了个寒颤。他的动作优雅而缓慢，仿佛在欣赏一件即将到手的艺术品，那种极端的掌控欲在此刻展露无遗。</p>
+<p class="">窗外的雷声闷响，一道闪电划破长空，短暂地照亮了房间里交错的身影。黑色的真丝衬衫下，他的肌肉线条紧绷，透出一种禁欲而又狂野的美感。这不仅仅是一个夜晚的开始，更是一场关于权力、欲望与沉沦的序幕。在这极致的黑与金交织的空间里，所有的理智都开始逐渐瓦解，只剩下最原始的本能在这夜色下疯狂滋长。</p>
+</div>
+<!-- Content Footer -->
+<div class="mt-16 flex flex-col items-center gap-6 pb-12 border-t border-white/5 pt-10">
+<p class="text-on-surface-variant/40 font-label-sm text-label-sm italic">—— 本章完 ——</p>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-6 py-2 rounded-full border border-tertiary/20 text-tertiary font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">favorite</span> 赞赏作者
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2 rounded-full border border-white/10 text-on-surface font-label-sm text-label-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined">bookmark</span> 加入书架
+                    </button>
+</div>
+</div>
+</article>
+</main>
+<!-- Reading Controls (Floating) -->
+<div class="fixed bottom-20 left-0 w-full z-40 px-gutter pb-4">
+<div class="glass-card rim-light rounded-full h-14 flex items-center justify-around px-6 shadow-lg">
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary transition-colors">上一章</button>
+<div class="w-px h-4 bg-white/10"></div>
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary transition-colors">目录</button>
+<div class="w-px h-4 bg-white/10"></div>
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary transition-colors">下一章</button>
+</div>
+</div>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center h-20 px-2 pb-safe shadow-[0_-8px_32px_rgba(204,0,60,0.15)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</div>
+<!-- Active Tab -->
+<div class="flex flex-col items-center justify-center text-secondary active-tab-glow active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">vape_free</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">memory</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">groups</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction: Progress scroll indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            // You could add a progress bar here if needed
+        });
+
+        // Hover pulse effect for desire buttons
+        const desireButtons = document.querySelectorAll('.desire-glow');
+        desireButtons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.boxShadow = "0 0 30px rgba(204, 0, 60, 0.4)";
+                btn.style.transition = "box-shadow 0.3s ease";
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.boxShadow = "0 0 20px rgba(204, 0, 60, 0.2)";
+            });
+        });
+    </script>
+
+
+</body></html>

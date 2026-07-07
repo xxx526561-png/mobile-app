@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>极乐App - 动漫频道</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "on-secondary-fixed": "#40000c",
+                    "on-primary": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface": "#131313",
+                    "on-primary-container": "#7b7979",
+                    "secondary-fixed": "#ffdada",
+                    "on-error": "#690005",
+                    "surface-bright": "#393939",
+                    "inverse-primary": "#5f5e5e",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "surface-tint": "#c9c6c5",
+                    "background": "#0a0a0a",
+                    "on-tertiary-container": "#9b7300",
+                    "on-secondary-fixed-variant": "#920028",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "secondary-container": "#cc003c",
+                    "error-container": "#93000a",
+                    "outline": "#8e9192",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed": "#ffdf9f",
+                    "surface-container-low": "#1c1b1b",
+                    "outline-variant": "#444748",
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface-variant": "#353535",
+                    "secondary": "#ffb3b6",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary": "#402d00",
+                    "on-primary-fixed-variant": "#474646",
+                    "surface-container": "#20201f",
+                    "inverse-surface": "#e5e2e1",
+                    "primary": "#c9c6c5",
+                    "surface-container-highest": "#353535",
+                    "on-secondary": "#68001a",
+                    "error": "#ffb4ab",
+                    "tertiary": "#f9bd22",
+                    "tertiary-container": "#100900",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#261a00",
+                    "surface-dim": "#131313",
+                    "primary-container": "#0a0a0a",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-container": "#ffdcdc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.8rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "16px",
+                    "card-padding": "20px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Manrope"],
+                    "label-sm": ["Geist"],
+                    "headline-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #0a0a0a; color: #e5e2e1; }
+        .glass-card { background: rgba(26, 26, 26, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 223, 159, 0.1); }
+        .rim-light { border-top: 1px solid rgba(255, 223, 159, 0.2); border-left: 1px solid rgba(255, 223, 159, 0.2); border-bottom: 1px solid rgba(204, 0, 60, 0.1); border-right: 1px solid rgba(204, 0, 60, 0.1); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glow-red { box-shadow: 0 0 20px rgba(204, 0, 60, 0.2); }
+        .glow-gold { box-shadow: 0 0 20px rgba(249, 189, 34, 0.15); }
+        .active-tab-line { position: relative; }
+        .active-tab-line::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 12px; height: 3px; background: #cc003c; border-radius: 99px; box-shadow: 0 0 8px #cc003c; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top AppBar (JSON Mapping: TopAppBar) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(201,198,197,0.1)] flex justify-between items-center px-container-margin h-16"><div class="flex items-center justify-between w-full gap-6"><div class="flex items-center gap-6"><span class="material-symbols-outlined text-primary cursor-pointer hover:text-tertiary transition-colors">chevron_left</span><div class="flex items-center gap-6"><button class="text-label-sm font-label-sm text-tertiary border-b-2 border-tertiary pb-1 transition-all">动漫</button><button class="text-label-sm font-label-sm text-outline hover:text-white transition-all">漫画</button><button class="text-label-sm font-label-sm text-outline hover:text-white transition-all">小说</button></div></div><div class="flex items-center gap-4"><span class="material-symbols-outlined text-primary cursor-pointer hover:text-tertiary transition-colors">search</span><span class="material-symbols-outlined text-primary cursor-pointer hover:text-tertiary transition-colors">notifications</span></div></div></header>
+<!-- Sub-Navigation Horizontal Scroll -->
+<main class="pb-32 px-container-margin pt-20">
+<!-- 1. Top Banner Carousel (336x186 equivalent ratio) -->
+<!-- 2. Ad Grid (2x5 Icons) -->
+<section class="mb-10">
+<div class="grid grid-cols-5 gap-y-6 gap-x-4">
+<!-- Row 1 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">人气榜</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">撩拨欲</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">尊享区</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">新番热</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">同人社</span>
+</div>
+<!-- Row 2 -->
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">movie</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">短漫</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">casino</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">福利</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">theater_comedy</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">声优馆</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">gamepad</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">游漫</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl glass-card rim-light flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface-variant">社区</span>
+</div>
+</div>
+</section>
+<!-- 3. Video Grid: Latest Updates (4+1 Layout) -->
+<section class="mb-10 flex flex-col gap-4">
+<!-- Filter Row 1: Category -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center overflow-x-auto hide-scrollbar gap-4 px-2">
+<span class="text-label-sm font-label-sm text-outline shrink-0">筛选</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-label-sm font-medium">全部</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">推荐</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">完结</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">连载</button>
+</div>
+</div>
+</div>
+<!-- Filter Row 2: Payment -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center overflow-x-auto hide-scrollbar gap-4 px-2">
+<span class="text-label-sm font-label-sm text-outline shrink-0">付费</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface text-label-sm font-medium">免费</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">金币</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">VIP</button>
+</div>
+</div>
+</div>
+<!-- Filter Row 3: Sort -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center overflow-x-auto hide-scrollbar gap-4 px-2">
+<span class="text-label-sm font-label-sm text-outline shrink-0">排序</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface text-label-sm font-medium">观看量</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">点赞量</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-white text-label-sm transition-colors">收藏量</button>
+</div>
+</div>
+</div>
+</section><section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<div class="w-1 h-6 bg-secondary glow-red"></div>
+<h3 class="font-headline-md text-headline-md">最近更新</h3>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDccIy4HkmpuQq71Q88HGU6Az8H5Z05IsW7UfQ0lFZebFKvXaCwVeEKCkL9tgudepimvaHhqsRX_5M2tYhvGc_grWctxsSZKyMHMQ60Ft9INTbjNsh03HIAqm2S2eV8s3mmWmKKTw01aZ3v0Heb4lYWX6C87Ekov-MNu2d7aucMyGkU_J_ssVis0ItDYyWDs_ytvK9OtwU13iq1oWSa-UZ31Rf6ko28ZXYqBudY_p3UadH9r0cmsWVmd30Oz0prHLIlaHpOFDjGiYM"/>
+</div>
+<p class="text-sm font-medium truncate">绝色深渊</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0pvF6uaXX74n842KoCb4jAro6jY5cVgV0y9qDcI7RrLq1XKPJTor02toTSJ2kyud_4qB4HEr0zumwhDNPaZFtKrjXG4HB1alLwO_su53qHZ-7zb5dQsOsPNGekQassNLCdluwEp6SPEZK0n7kdtdCkdHL64FCq7jlm6ZPFCmIY0mxA6f23D4XLqU26UYVrpUyDO2WXHme-unA_Fy_JI1tAJ4d62ZsEWAsfFgEFLlNfGeBeapJhQwLiM0EOIJ4ES01onvJ3wMa_Wg"/>
+</div>
+<p class="text-sm font-medium truncate">银发巫女</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKFu_m1mhSe2xUVSkPNCEl85tR2sLtES6skISjz9eUXWnlQjGS5DW_E0r-BE8MCa8HzMVXApJgb-FpdULg2Ml7xg7txvFzt5npiW2CJBOdQyRB8VEqpbIdvetjhe4STRsGBq7za6b3jDjF2qIo9XA_Xaomg8tHMBeBQQSdzgZf6ikMnn0xjECyHiJEHr3f8Kjs4o_e9gafqh9YoS41MgadZ8VJaAaL2xa83QezwxIMa2F5JsPm4E2xuYrtSmaN_vG4E-Gpn1q0o2w"/>
+</div>
+<p class="text-sm font-medium truncate">豪赌博弈录</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbWNcetvVLYh0lDhPAsV0-iaII3LP59Ve44cnjWZ9OPKZoeYqPNci6PKCWYTHfsuxj_fkCMBM6Whhwp_AYsrbnFlxJ6d-dYc5eFU-my4MwIsIhuohe2yY-dz6yZdchYdvKIAVXq_F6oM1R-T7kd8eA53Eh02GAc7R3HaMIYrvcNoMbuWyJGlBIhKkw6uhq3rpNNmVBhpOyCm7HRapEmnC2NWI8i7jLT_SB3DSMP-aZY1MQivpQOW5XZw8EvO1YDRr5ou4_bSUIO18"/>
+</div>
+<p class="text-sm font-medium truncate">幽灵堡主</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVGtAqlkp4OY-FmH5piMXYB7NNpLZ4oNd8y7J3PESA7I54FpOVgT-G2ZFVu-2ophYJ9T2go4SEkiIszywTpbZeVSKATAlnyXBNlOgkloth52ftS4_YgYCqvZAE8Uk8qsB0G5VPBSD7M6JBa6BVHNmT1SVNZHibmk8XrPRQ3EQ3ItfssSYoskO4Kz0nGuUbzls2zOPdAUdRs2lOpc9A7LS6wzTud2ou386Hh8xICEsTm9XqGJBCmg820mAMqHKSM6t8onPBDnSSCkE"/>
+</div>
+<p class="text-sm font-medium truncate">机械之心</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVu5FyKcBxboysYvAXDC2_Dmxnigzf9BZ2tpdLstcEXBE6gA5JClCaQrx3ufQo2yViTNgG3OCOkNQ2GLNG4hTblSoSi8X95pIKQQj-K-aWt1e4OWOVafhisM-uxys4tm4SymQFWmel_VOvMW26k0omm3I3Y1MJpBbYC9A-vBXdlNBldl9_mxusgTAV6kqhThuNvPE0YI2njEgHVpB0RwlfxjI2O4BmCE8QrKAH6zFzQXhOkRRub9x5b3kWsPj0sVlkNtIOriLZSgs"/>
+</div>
+<p class="text-sm font-medium truncate">绯红之刃</p>
+</div>
+</div><div class="flex items-center justify-center gap-4 mt-6">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg glass-card rim-light text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">sync</span>
+    换一换
+  </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg glass-card rim-light text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+    更多内容
+    <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- 3. Video Grid: Hot Recommendations (4+1 Layout) -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2">
+<div class="w-1 h-6 bg-tertiary glow-gold"></div>
+<h3 class="font-headline-md text-headline-md">人气热播</h3>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDWNQagn4c7S5QFvohVwUL_DNq5zglI66tD_rukqM5tckogz5tiRzRwct_TiAnBF0uV9GOFGsrYcpc4DtgeAVxXo1BiJkYMNANe6DDVsH6yVZBdspEDET2WdaYlM9vMOJ0-t5nVrdjJYO_kIQ7U8ZWL7VAj4EB64qGzfd6AM3LvuaxpzHlGvoBBIAJnqwCQhWcmKbBK1wyHNXCSBWLgATwRqyEiSnx1EfyeC-1tkwzPoCHmi_UdF_IXcozMOPJRhQpsusfHdhnLDo"/>
+</div>
+<p class="text-sm font-medium truncate">弑神之战</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQTSv1X_1t14Xy8oW4csogZf7wXLeinOjHwfrw95Ikoc0AQjo7awNkbuXyOzA0SQeR2LnDNX2QTss5eBZgAPjcRUDc9-j0C-t2XAPOYniUSK7Td6nflN4ffPbHNrMtJuTf8pVB9e2OdB9BBStPnDPqPEjTGi-GIvfjjycsovRgGlBmydllc7qwxKlRlcop-eItHwN3PnUf5kZGid0vhU2y4XF6i9eirYwpjZLwsvR6f0PWAoFU3UsrMBcNpJO2FShjv5i7UglUQ7E"/>
+</div>
+<p class="text-sm font-medium truncate">造物计划</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsA1zK8g2E3sxzCS3PzY6T3UtgT8B4VitptS5iDzSbBMBdWqX5sO1QPSd0MYAA7BPSgU3kqJTvV6xjb_vb0blUlDfokyHL4ca_rzKiLIDUIiv4_p1XNhAEPALZ1kQ_4dwZPJi32B_HzNna2Ew_XbGuhQCWoV1zZ_zZVbghAX9WSylG0KVeK-2AEgsHgDlpIPjumrPY0UPnnkkVmjZDRzOsjK2v1nVpKKai7KAqn6GxMS0Wrr_aLa_w98eLWj1tAE03JIxBVfNZndI"/>
+</div>
+<p class="text-sm font-medium truncate">霓虹都市</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABegqPn2yt0-B6ovpg5iQfWbtDv1dcucrYQ4sfHVRjc2bG5jzVLkmJhtwlV9cHAmzr71a1sbQnbV3G8BkPIW7BvHCi3Lx5Sz-kp4mbUyWKed60khrHYdRTehfyh-KC6YY7-gKxsU0fymyUwmYcVWmziS1RMcualnVRZL3mW6FuqNZALq_5ibqCWkE38r1CZHkZC18894P3uN_Jc5WPxI8nki0iD6gglzTFY5_JP6y343MliQjoDUWY-QfCPL9L_62Ap7GVzyE1hGQ"/>
+</div>
+<p class="text-sm font-medium truncate">禁断魔法书</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDccIy4HkmpuQq71Q88HGU6Az8H5Z05IsW7UfQ0lFZebFKvXaCwVeEKCkL9tgudepimvaHhqsRX_5M2tYhvGc_grWctxsSZKyMHMQ60Ft9INTbjNsh03HIAqm2S2eV8s3mmWmKKTw01aZ3v0Heb4lYWX6C87Ekov-MNu2d7aucMyGkU_J_ssVis0ItDYyWDs_ytvK9OtwU13iq1oWSa-UZ31Rf6ko28ZXYqBudY_p3UadH9r0cmsWVmd30Oz0prHLIlaHpOFDjGiYM"/>
+</div>
+<p class="text-sm font-medium truncate">夜之华</p>
+</div>
+<div class="flex flex-col gap-2 cursor-pointer">
+<div class="aspect-[3/4] rounded-lg overflow-hidden glass-card rim-light">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0pvF6uaXX74n842KoCb4jAro6jY5cVgV0y9qDcI7RrLq1XKPJTor02toTSJ2kyud_4qB4HEr0zumwhDNPaZFtKrjXG4HB1alLwO_su53qHZ-7zb5dQsOsPNGekQassNLCdluwEp6SPEZK0n7kdtdCkdHL64FCq7jlm6ZPFCmIY0mxA6f23D4XLqU26UYVrpUyDO2WXHme-unA_Fy_JI1tAJ4d62ZsEWAsfFgEFLlNfGeBeapJhQwLiM0EOIJ4ES01onvJ3wMa_Wg"/>
+</div>
+<p class="text-sm font-medium truncate">契约之印</p>
+</div>
+</div><div class="flex items-center justify-center gap-4 mt-6">
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg glass-card rim-light text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">sync</span>
+    换一换
+  </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg glass-card rim-light text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">
+    更多内容
+    <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (JSON Mapping: BottomNavBar) -->
+<footer class="fixed bottom-0 left-0 w-full h-20 bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center px-4 pb-4 z-50 rounded-t-xl shadow-[0_-10px_30px_rgba(204,0,60,0.15)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航</span>
+</div>
+<!-- Active Tab -->
+<div class="flex flex-col items-center justify-center text-secondary font-bold scale-110 transition-all animate-pulse cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">video_library</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">vpn_key</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-sm text-label-sm">社区</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.cursor-pointer').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('touchend', () => {
+                el.style.transform = '';
+            });
+        });
+    </script>
+</body></html>

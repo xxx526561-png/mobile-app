@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI科技 - 图片脱衣</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#444748",
+                    "surface-container-low": "#1c1b1b",
+                    "primary-fixed": "#e5e2e1",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "inverse-primary": "#5f5e5e",
+                    "secondary": "#ffb3b6",
+                    "tertiary": "#f9bd22",
+                    "on-primary-container": "#7b7979",
+                    "tertiary-container": "#100900",
+                    "on-secondary": "#68001a",
+                    "surface": "#131313",
+                    "surface-dim": "#131313",
+                    "primary": "#c9c6c5",
+                    "tertiary-fixed-dim": "#f9bd22",
+                    "on-secondary-fixed-variant": "#920028",
+                    "on-background": "#e5e2e1",
+                    "surface-variant": "#353535",
+                    "surface-tint": "#c9c6c5",
+                    "secondary-fixed-dim": "#ffb3b6",
+                    "on-tertiary-container": "#9b7300",
+                    "on-secondary-fixed": "#40000c",
+                    "secondary-container": "#cc003c",
+                    "on-tertiary": "#402d00",
+                    "on-secondary-container": "#ffdcdc",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed": "#ffdada",
+                    "on-surface-variant": "#c4c7c7",
+                    "on-primary": "#313030",
+                    "surface-container-high": "#2a2a2a",
+                    "outline": "#8e9192",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#5c4300",
+                    "surface-container-highest": "#353535",
+                    "inverse-on-surface": "#313030",
+                    "inverse-surface": "#e5e2e1",
+                    "on-tertiary-fixed": "#261a00",
+                    "error-container": "#93000a",
+                    "error": "#ffb4ab",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#ffdf9f",
+                    "surface-container": "#20201f",
+                    "on-primary-fixed-variant": "#474646",
+                    "primary-container": "#0a0a0a",
+                    "surface-bright": "#393939",
+                    "on-error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "card-padding": "20px",
+                    "container-margin": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Geist"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+        }
+        .rim-lit {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05), inset -1px -1px 0px rgba(204, 0, 60, 0.1);
+        }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(249, 189, 34, 0.3);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden pb-24">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-gutter h-16 shadow-sm"><button class="flex items-center text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 w-20 justify-start">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</button>
+<h1 class="font-bold text-[20px] tracking-tight text-tertiary flex-1 text-center">图片脱衣</h1>
+<button class="flex items-center space-x-1 text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 w-20 justify-end whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="text-[14px] font-medium">AI记录</span>
+</button></header>
+<!-- Content Canvas -->
+<main class="pt-20 px-container-margin"><!-- Upload Section -->
+<div class="flex flex-col space-y-gutter">
+<!-- 2:3 Vertical Upload Card -->
+<div class="aspect-square w-full glass-card rounded-xl flex flex-col items-center justify-center border-dashed border-2 border-white/10 hover:border-tertiary/50 transition-colors cursor-pointer active:scale-[0.98] duration-150">
+<div class="flex flex-col items-center space-y-4">
+<div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-tertiary">add_photo_alternate</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-body-lg">点击上传图片</p>
+<p class="text-label-sm text-on-surface-variant opacity-60 mt-1">支持 JPG, PNG 格式</p>
+</div>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-14 bg-secondary-container text-on-secondary-container font-bold rounded-xl shadow-lg active:scale-95 transition-transform flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined">auto_fix_high</span>
+<span class="">立即提交</span>
+</button>
+<!-- Tips/Instructions -->
+<div class="p-card-padding bg-surface-container-low rounded-xl border border-white/5">
+<h3 class="text-tertiary font-bold mb-2 flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-1">info</span>
+      使用说明
+    </h3>
+<ul class="text-label-sm text-on-surface-variant space-y-1 opacity-80">
+<li class="">• 请上传清晰的全身或半身人像照片</li>
+<li class="">• 避免遮挡物或过于复杂的背景</li>
+<li class="">• 生成过程大约需要 10-30 秒</li>
+</ul>
+</div><div class="p-card-padding bg-surface-container-low rounded-xl border border-white/5 space-y-4">
+<h3 class="text-tertiary font-bold flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-1">compare</span>
+      效果对比
+    </h3>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-2">
+<div class="aspect-[2/3] w-full glass-card rounded-lg overflow-hidden border border-white/10">
+<img alt="原图" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7HRn4YQ1M4QTvnUBkMHSCkf752aCcb-EsD6zA-q3I30CGSBOrdieGHxAhgaC7HaUaOLTshEQt7wBLPZuDoNaqf8g9ia_bo7L4iizGMlAbfeQSZ5tV1BCp_4nJS9EWGV7l65e3o-TQKTqvoaraXtX84XBs01VvJW4DR8SHxtY-bPSm9SL1OHTAr4JBHovWveaNkOxs5NB3qD1we3AaXj1tLOOPjP6eLHusfWJKWwj2937DoV3CuRgIH0nOcOjiOU1Pu0iNiv45s8g"/>
+</div>
+<p class="text-label-sm text-center text-on-surface-variant">原图</p>
+</div>
+<div class="space-y-2">
+<div class="aspect-[2/3] w-full glass-card rounded-lg overflow-hidden border border-tertiary/30 relative">
+<img alt="效果图" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAmHa_9EPfwOYKw2YOIHyQ8Bf80y936AgqUI2i254vzGKcPayxErRQMZu02KoCfLEZZJtRMwWfulsO1_mY4SyJhDjtsqoucuqzJ-0yYUwWl2_wbMCVbP3T_7UTDiGd40BMI8zJPmBC2YzwbG3KMWPmk0-kOiEOz_03os-kz5s7qlZYjIdIpItNqdks3WZ1FUiUKXMq1zCOebcEX4pTFez8p64-diwpiwSD-Te68ljL1tQEQ74U9r_glRrj6HRjJciSS8HU0yUokl4"/>
+<div class="absolute top-2 right-2 bg-tertiary text-on-tertiary text-[10px] px-1.5 py-0.5 rounded font-bold">AI 生成</div>
+</div>
+<p class="text-label-sm text-center text-tertiary font-medium">效果图</p>
+</div>
+</div>
+</div>
+</div></main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-8px_24px_rgba(0,0,0,0.5)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</a>
+<a class="flex flex-col items-center justify-center text-tertiary dark:text-tertiary scale-110 transition-transform active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm font-bold">AI科技</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</a>
+</nav>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Haptic simulation if available
+                if (window.navigator && window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+        
+        // Handle sorting icon rotation for demo
+        document.querySelectorAll('button .material-symbols-outlined').forEach(icon => {
+            if(icon.innerText === 'unfold_more') {
+                icon.parentElement.addEventListener('click', () => {
+                    if(icon.innerText === 'unfold_more' || icon.innerText === 'expand_more') {
+                        icon.innerText = 'expand_less';
+                    } else {
+                        icon.innerText = 'expand_more';
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Ecstasy App - 漫画详情</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary": "#f9bd22",
+                "primary-container": "#0a0a0a",
+                "on-tertiary": "#402d00",
+                "on-secondary-fixed-variant": "#920028",
+                "primary-fixed": "#e5e2e1",
+                "on-error-container": "#ffdad6",
+                "tertiary-container": "#100900",
+                "on-primary": "#313030",
+                "secondary": "#ffb3b6",
+                "on-secondary-fixed": "#40000c",
+                "error": "#ffb4ab",
+                "inverse-primary": "#5f5e5e",
+                "surface-container-low": "#1c1b1b",
+                "on-surface": "#e5e2e1",
+                "on-secondary-container": "#ffdcdc",
+                "on-tertiary-fixed": "#261a00",
+                "tertiary-fixed-dim": "#f9bd22",
+                "on-tertiary-container": "#9b7300",
+                "inverse-surface": "#e5e2e1",
+                "error-container": "#93000a",
+                "surface-container-highest": "#353535",
+                "surface-tint": "#c9c6c5",
+                "secondary-container": "#cc003c",
+                "on-primary-container": "#7b7979",
+                "surface": "#131313",
+                "on-secondary": "#68001a",
+                "surface-bright": "#393939",
+                "primary-fixed-dim": "#c9c6c5",
+                "on-error": "#690005",
+                "secondary-fixed-dim": "#ffb3b6",
+                "surface-dim": "#131313",
+                "inverse-on-surface": "#313030",
+                "surface-container": "#20201f",
+                "secondary-fixed": "#ffdada",
+                "primary": "#c9c6c5",
+                "outline": "#8e9192",
+                "tertiary-fixed": "#ffdf9f",
+                "on-surface-variant": "#c4c7c7",
+                "outline-variant": "#444748",
+                "on-primary-fixed-variant": "#474646",
+                "on-primary-fixed": "#1c1b1b",
+                "surface-variant": "#353535",
+                "surface-container-lowest": "#0e0e0e",
+                "on-background": "#e5e2e1",
+                "background": "#131313",
+                "surface-container-high": "#2a2a2a",
+                "on-tertiary-fixed-variant": "#5c4300"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "gutter": "16px",
+                "card-padding": "20px",
+                "unit": "8px",
+                "container-margin": "24px"
+            },
+            "fontFamily": {
+                "display-lg-mobile": ["Plus Jakarta Sans"],
+                "label-sm": ["Geist"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Manrope"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 1px 1px 0px rgba(249, 189, 34, 0.05), inset -1px -1px 0px rgba(204, 0, 60, 0.05);
+        }
+
+        .desire-btn {
+            background: linear-gradient(135deg, #cc003c 0%, #68001a 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .desire-btn:active {
+            transform: scale(0.96);
+        }
+
+        .pulse-hover:hover {
+            animation: pulse-desire 2s infinite;
+        }
+
+        @keyframes pulse-desire {
+            0% { box-shadow: 0 0 0 0 rgba(204, 0, 60, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(204, 0, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(204, 0, 60, 0); }
+        }
+
+        .rim-light {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(204, 0, 60, 0.1);
+            border-right: 1px solid rgba(204, 0, 60, 0.1);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cc003c;
+            border-radius: 10px;
+        }
+
+        .active-tab-glow {
+            filter: drop-shadow(0 0 8px rgba(204, 0, 60, 0.6));
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md pb-44 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-gutter h-16 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors active:scale-95 duration-200" style="font-size: 24px;">
+            arrow_back
+        </button>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">漫画详情</h1>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-secondary transition-colors active:scale-95 duration-200" style="font-size: 24px;">
+            share
+        </button>
+</header>
+<main class="pt-20 px-gutter space-y-5">
+<!-- Top Ad Banner -->
+<div class="relative w-full overflow-hidden rounded-xl glass-card rim-light shadow-lg" style="aspect-ratio: 355 / 110;">
+<div class="flex w-full h-full transition-transform duration-500 ease-out">
+<div class="relative flex-shrink-0 w-full h-full">
+<img alt="Banner 1" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhQRfzVIYbFFMZe6CIOT-4ogHqijABMsr5a0o8POUoBOrySsMJV2m_V3_gqaSFVrIL81gZtcOwCmzoF2oWU5c78I04ur3525hgrMmOIss0ZsDSODyxgOLGicDo7TrN7Rb3NIebhSmeNaQ3n3qKxg5o04ZO5Ky53XXy5vBivW_vdCWliMiQlp04_7gTbMZULApWBiA5Rrv2M2IuJV07GCq82LiXc71szKfLwf_vK93K-DP8i6V7nA170fGSzEAkd1X6UYbqjw7-e9E">
+<div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-4">
+<span class="text-secondary font-label-sm tracking-widest uppercase">Featured</span>
+<h3 class="text-primary font-headline-md text-lg leading-tight">New Release: Shadow Realm</h3>
+</div>
+</div>
+</div>
+<div class="absolute bottom-2 right-4 flex space-x-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white/20"></div>
+</div>
+</div>
+<!-- Metadata Row -->
+
+<!-- Summary Section -->
+
+<!-- Content Area (Manga Strip) -->
+<div class="flex flex-col space-y-4 pb-4">
+<img alt="Comic Page 1" class="w-full rounded-xl shadow-lg object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtdKE6TMtTSv7JCBUHvSbwPyJ0QkDa-Y4GlFbUdHAJ0KGc0AQV9xe-bHkUiBsTJWVV4Ql2RH_G7BhzIEVTxwke80Gb1EMpWzDkHD6Yok3bYqbM_YOiqj14UN-NSnc5bwamIxC--a57gUpNvtT7VwfM1qZh1KF6OVR2CBr4FLKdPrLoMZxS0P7L0B_Fh_uGfQVTKcpLgjHJsrU4iObj0BTFzhD2KN-PuCHRDYq8qlsjG6SauQp1DdWRTIQ">
+<img alt="Comic Page 2" class="w-full rounded-xl shadow-lg object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuhck759-2UCyaPVQgCgX47P4ETDTyBVPOMov3gHOeutq5BJ2rwbMsuc6-hyzTGz-QydKtqKZgv11G8FCjndL9tQlQ5z9mno0gu2KsYXP1KNFRIBWknIZv30R5Wp2rQbXDsQAqoSCuPdKeaKnpClltrUSHPZHWy0ps6jVireun6wGAec81KSR4gbDDVWf226M3d0ojJL9JKtD0EQ_fE798ncUTPt-KmhdPk-K0Ws3VxBZQp4q2MNe2rjJQ">
+</div>
+</main>
+<!-- Floating Controls -->
+<div class="fixed bottom-24 left-0 w-full z-40 px-gutter">
+<div class="glass-card rim-light rounded-full h-14 flex items-center justify-around px-6 shadow-2xl backdrop-blur-3xl border border-white/10">
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary active:text-secondary transition-colors">上一章</button>
+<div class="w-px h-5 bg-white/10"></div>
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary active:text-secondary transition-colors">目录</button>
+<div class="w-px h-5 bg-white/10"></div>
+<button class="text-primary font-label-sm uppercase tracking-widest hover:text-secondary active:text-secondary transition-colors">下一章</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center h-20 px-2 pb-safe shadow-[0_-8px_32px_rgba(204,0,60,0.15)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</div>
+<!-- Active Tab -->
+<div class="flex flex-col items-center justify-center text-secondary active-tab-glow active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">vape_free</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">memory</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">groups</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-secondary/80 active:scale-90 transition-transform duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined" style="font-size: 24px;">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</div>
+</nav>
+<script>
+    // Micro-interactions
+    document.querySelectorAll('button, div[role="button"]').forEach(el => {
+        el.addEventListener('mousedown', () => el.classList.add('active:scale-95'));
+        el.addEventListener('mouseup', () => el.classList.remove('active:scale-95'));
+    });
+
+    // Handle active nav state
+    const navItems = document.querySelectorAll('nav > div');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            navItems.forEach(i => {
+                i.classList.remove('text-secondary', 'active-tab-glow');
+                i.classList.add('text-on-surface-variant/60');
+                const span = i.querySelector('span:first-child');
+                if(span) span.style.fontVariationSettings = "'FILL' 0";
+            });
+            item.classList.add('text-secondary', 'active-tab-glow');
+            item.classList.remove('text-on-surface-variant/60');
+            const span = item.querySelector('span:first-child');
+            if(span) span.style.fontVariationSettings = "'FILL' 1";
+        });
+    });
+</script>
+
+
+</body></html>

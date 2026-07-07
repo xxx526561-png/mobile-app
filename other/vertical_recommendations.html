@@ -1,0 +1,350 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ecstasy App - Anime Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        @layer base {
+            body {
+                background-color: #0a0a0a;
+                color: #e5e2e1;
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 1px 1px 0px rgba(255, 179, 182, 0.1), inset -1px -1px 0px rgba(204, 0, 60, 0.05);
+        }
+        .desire-gradient {
+            background: linear-gradient(135deg, #cc003c 0%, #68001a 100%);
+        }
+        .pulse-hover:active {
+            transform: scale(0.98);
+            filter: brightness(1.1);
+        }
+        .rim-light-gold {
+            border-top: 1px solid rgba(249, 189, 34, 0.2);
+            border-left: 1px solid rgba(249, 189, 34, 0.2);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "secondary-fixed": "#ffdada",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-surface-variant": "#c4c7c7",
+                        "secondary-container": "#cc003c",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-container": "#20201f",
+                        "surface-variant": "#353535",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed": "#ffdf9f",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#100900",
+                        "surface": "#131313",
+                        "outline": "#8e9192",
+                        "secondary": "#ffb3b6",
+                        "background": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#920028",
+                        "primary": "#c9c6c5",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-tint": "#c9c6c5",
+                        "on-primary-container": "#7b7979",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#f9bd22",
+                        "on-secondary-container": "#ffdcdc",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-tertiary-container": "#9b7300",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary": "#68001a",
+                        "on-primary-fixed-variant": "#474646",
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#402d00",
+                        "on-secondary-fixed": "#40000c",
+                        "outline-variant": "#444748",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background overflow-x-hidden pb-32"><header class="fixed top-0 left-0 w-full z-50 h-14 bg-surface-container-lowest/90 backdrop-blur-2xl border-b border-primary/20 flex items-center px-container-margin">
+  <button class="absolute left-container-margin flex items-center justify-center w-10 h-10 text-on-surface active:scale-95 transition-transform">
+    <span class="material-symbols-outlined">arrow_back_ios</span>
+  </button>
+  <h1 class="w-full text-center font-headline-md text-lg text-on-surface">动漫详情</h1>
+</header>
+<!-- Top Header & Media -->
+<!-- Content Wrapper -->
+<main class="px-container-margin relative z-20 pt-14">
+<!-- Main Info -->
+<div class="space-y-4"><div class="flex gap-4 items-start pt-8">
+<div class="w-[40%] flex-shrink-0">
+<div class="aspect-[2/3] rounded-xl glass-card overflow-hidden border border-secondary/20">
+<img alt="Poster" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdstuGL5f5tooZIz030BF7IvOCs0AgayfrMuDcHnJ6axO8V5AaNOY76B0WKtmMVYVIZjgNuVy4lRi8RNSfwHaD99UdzmLPVgOy9gB90E57Oa_OLptjieMyi-XLbBGfMWNN0NDlzMB_PYcWqnhnaXFuK1GcKYbs8NXEyACTzvnG5Fn61gBObbMBte7BoAaWd8IOkelipvIkhI08fymuDpYvk9o8IWWv2n0Axo6wIdC0Enxt2fevk1OaxH114LZXx41Xu5i9bulgSus">
+</div>
+</div>
+<div class="w-[60%] space-y-3">
+<h1 class="font-display-lg-mobile text-2xl text-secondary tracking-tighter leading-tight">血源战线：幻界</h1>
+<div class="flex items-center gap-4 py-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant/60">visibility</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface">1.2亿</span>
+<span class="text-[8px] text-on-surface-variant/60 uppercase tracking-tighter">观看量</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant/60">thumb_up</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface">8.5万</span>
+<span class="text-[8px] text-on-surface-variant/60 uppercase tracking-tighter">点赞量</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant/60">favorite</span>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface">12万</span>
+<span class="text-[8px] text-on-surface-variant/60 uppercase tracking-tighter">收藏</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded glass-card text-[10px] font-label-sm text-tertiary">ADVENTURE</span>
+<span class="px-2 py-0.5 rounded glass-card text-[10px] font-label-sm text-tertiary">ACTION</span>
+<span class="px-2 py-0.5 rounded glass-card text-[10px] font-label-sm text-tertiary">SCIFI</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">
+            在不远的未来，地球与异世界“幻界”重合。原本宁静的都市变成了充满奇迹与危险的混沌地带。秘密组织“莱布拉”为了维护世界的脆弱平衡...
+        </p>
+<button class="w-full h-10 desire-gradient rounded-lg flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(204,0,60,0.2)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="font-bold text-sm text-white">立即播放</span>
+</button>
+</div>
+</div></div>
+<!-- Synopsis Section -->
+<!-- Characters Section -->
+<!-- Episodes Grid -->
+<section class="space-y-3 mt-4">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-secondary border-l-4 border-secondary-container pl-3">选集播放</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">已更新至 12 集</span>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-secondary border-l-2 border-secondary">01</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">02</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">03</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">04</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">05</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">06</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant">07</button>
+<button class="h-12 glass-card rounded-lg flex items-center justify-center font-headline-md text-headline-md text-on-surface-variant bg-surface-container-highest/20">
+<span class="material-symbols-outlined text-sm">more_horiz</span>
+</button>
+</div>
+</section>
+<!-- Promo Banner Section -->
+<section class="mt-8">
+<div class="w-full overflow-x-auto hide-scrollbar rounded-xl">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-full aspect-[355/110] relative rounded-xl overflow-hidden glass-card">
+<img alt="Promotion Banner" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY_Z3S-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z-G_R0L43_X-w9R4L-9Z">
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex flex-col justify-center px-6">
+<span class="text-secondary font-bold tracking-widest text-xs mb-1">EXCLUSIVE EVENT</span>
+<h3 class="text-white font-headline-md text-lg leading-tight">幻界：秘密特辑即将开启</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Guess You Like (16:9 Grid) -->
+<section class="mt-8 space-y-3">
+<h2 class="font-headline-md text-headline-md text-secondary border-l-4 border-secondary-container pl-3">猜你喜欢</h2>
+<div class="grid grid-cols-2 gap-4 pb-2">
+<!-- Recommendation 1 -->
+<div class="flex flex-col">
+<div class="aspect-[2/3] rounded-xl glass-card overflow-hidden mb-2 relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI8qIGRyxKfwT_trUgzWSZ8Dmr6uyinSzDvBUVDgh5SWC1cPxpjBgoMPBdP_dBpGCDWfwTClwLv-aFl61FWtM9Qor9dgOQSxkMMBW63uWlD0q0op09dR0v6bVZ15JRjtph4_iC2GrMyAN5crL4Q3cHWNDiLifhMmgQ3ffeOKHyYYJlvTeK__puK4lfP5CoLWVFIvFkK2bZAABtozEp4lTzRiCb2SmOoYcbfECsdhOS7Kv9I4aRHmYnDRh8k8QfhZYKwgWdcTQ8Fhk">
+
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 rounded text-[10px] font-bold text-white">1.2亿 播放</div></div>
+<p class="font-body-md text-body-md text-on-surface truncate">咒术回战：涉谷事变</p>
+
+</div>
+<!-- Recommendation 2 -->
+<div class="flex flex-col">
+<div class="aspect-[2/3] rounded-xl glass-card overflow-hidden mb-2 relative">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABN4RcgK7Eonw9w7v5xd7K4Dywb0HNAsyEkMWwYFV1tu-SiHFqbKGq2g1YtNzgG4IM-AQG3G9Zy_72M_fllkTohc8biIl9nCrue1U6UyuGkJ07AnFwht2EvOVb2NXHTBcJ89FP29QiP2X8_VlVignADg3TlL59nNtYSzJUDiTUUfeK7R3P9kbLh95fuUhPSK05_tIX8bXBatdD9uk5AfDJUbHTstMfJ12ywKYCTkRfZBhsstgnRKKJh6Sb45m17SqDOeiUbev8ybo">
+
+<div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 rounded text-[10px] font-bold text-white">9800万 播放</div></div>
+<p class="font-body-md text-body-md text-on-surface truncate">赛博朋克：边缘行者</p>
+
+</div>
+</div>
+</section>
+<!-- Review Section -->
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-primary/20 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-2">
+<!-- Tab: 导航 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航</span>
+</a>
+<!-- Tab: 视频 (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary gap-1 scale-110 transition-transform active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</a>
+<!-- Tab: VLOG -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</a>
+<!-- Tab: 秘域 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</a>
+<!-- Tab: AI科技 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</a>
+<!-- Tab: 广场 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</a>
+<!-- Tab: 我的 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</a>
+</nav>
+<script>
+        function toggleSynopsis() {
+            const p = document.getElementById('synopsis');
+            const btn = event.currentTarget;
+            if (p.classList.contains('line-clamp-3')) {
+                p.classList.remove('line-clamp-3');
+                btn.innerHTML = '收起 <span class="material-symbols-outlined text-sm ml-1">keyboard_arrow_up</span>';
+            } else {
+                p.classList.add('line-clamp-3');
+                btn.innerHTML = '展开更多 <span class="material-symbols-outlined text-sm ml-1">keyboard_arrow_down</span>';
+            }
+        }
+
+        // Particle floating effect for background atmosphere
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-1';
+        canvas.style.pointerEvents = 'none';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<30; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speedY: -Math.random() * 0.5,
+                    opacity: Math.random() * 0.5
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.fillStyle = '#cc003c';
+            particles.forEach(p => {
+                ctx.globalAlpha = p.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+                p.y += p.speedY;
+                if(p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script><canvas width="390" height="1075" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas><canvas height="1823" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; z-index: -1; pointer-events: none;" width="390"></canvas>
+
+
+</body></html>

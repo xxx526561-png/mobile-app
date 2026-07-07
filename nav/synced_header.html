@@ -1,0 +1,260 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdada",
+                        "primary": "#c9c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "outline-variant": "#444748",
+                        "on-secondary-fixed": "#40000c",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#313030",
+                        "surface-bright": "#393939",
+                        "background": "#131313",
+                        "surface-variant": "#353535",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#c9c6c5",
+                        "on-tertiary-container": "#9b7300",
+                        "on-primary-fixed-variant": "#474646",
+                        "tertiary-container": "#100900",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#8e9192",
+                        "surface-container-highest": "#353535",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#920028",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-container": "#cc003c",
+                        "primary-container": "#0a0a0a",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-primary-fixed": "#1c1b1b",
+                        "tertiary": "#f9bd22",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "surface": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#ffb3b6",
+                        "on-secondary-container": "#ffdcdc",
+                        "on-tertiary": "#402d00",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary": "#68001a",
+                        "on-background": "#e5e2e1",
+                        "inverse-primary": "#5f5e5e",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#7b7979"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "unit": "8px",
+                        "card-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script></head><body class="min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-tertiary/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex items-center justify-between px-container-margin h-16">
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-tertiary active:scale-95 transition-transform cursor-pointer" data-icon="arrow_back" data-original-icon="arrow_back">arrow_back</span>
+    </div>
+    <h1 class="font-headline-md text-headline-md-mobile text-tertiary tracking-widest">签到中心</h1>
+    <div class="flex items-center gap-2">
+        <button class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors">规则</button>
+        
+    </div>
+</header>
+
+<main class="pt-20 px-container-margin">
+    <!-- Tab Switcher (Updated to match SCREEN_161 style) -->
+    <div class="flex items-center justify-center p-1 bg-surface-container-lowest/90 backdrop-blur-xl rounded-xl border border-tertiary/10 mb-6">
+        <div class="grid grid-cols-2 w-full gap-1">
+            <button class="flex items-center justify-center py-2 px-4 rounded-lg text-on-surface-variant/60 hover:text-on-surface transition-colors text-label-sm">
+                日常签到
+            </button>
+            <button class="flex items-center justify-center py-2 px-4 rounded-lg bg-gradient-to-r from-[#cc003c] to-[#ff5e00] text-on-background font-bold text-label-sm transition-all shadow-lg">
+                活动签到
+            </button>
+        </div>
+    </div>
+
+<!-- Statistics Card -->
+<section class="glass-card rounded-xl p-card-padding mb-8 relative overflow-hidden">
+<!-- Subtle-->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-tertiary/10 blur-[80px] rounded-full"></div>
+<div class="absolute -bottom-20 -left-20 w-40 h-40 bg-secondary-container/10 blur-[80px] rounded-full"></div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="font-label-sm text-label-sm text-outline mb-1">活动剩余时间</p>
+<div class="flex items-center gap-1 font-headline-md text-headline-md text-secondary">
+<span id="countdown" class="">05:02:06</span>
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="timer">timer</span>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-outline mb-1">已获活动奖励</p>
+<p class="font-headline-md text-headline-md text-tertiary">880</p>
+</div>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-secondary-container to-on-secondary-fixed-variant rounded-lg font-body-lg text-body-lg font-bold text-white desire-glow pulse-heart active:scale-[0.98] transition-transform mb-3">立即签到</button>
+<p class="text-center font-label-sm text-label-sm text-outline/60 italic">
+                注：活动积分可兑换限时特权
+            </p>
+</section>
+<!-- Event Check-in Grid -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-headline-md-mobile text-headline-md-mobile text-on-surface">限时盛典 7天签到任务</h2>
+<span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-4 gap-3">
+<!-- Day 1 (Checked) -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3 opacity-60 border-none bg-surface-container">
+<span class="font-label-sm text-label-sm text-outline mb-2">第1天</span>
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="diamond">diamond</span>
+<div class="absolute -bottom-1 -right-1 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center border-2 border-surface-container">
+<span class="material-symbols-outlined text-white text-[10px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-2">+50</span>
+</div>
+<!-- Day 2 (Checked) -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3 opacity-60 border-none bg-surface-container">
+<span class="font-label-sm text-label-sm text-outline mb-2">第2天</span>
+<div class="relative">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="diamond">diamond</span>
+<div class="absolute -bottom-1 -right-1 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center border-2 border-surface-container">
+<span class="material-symbols-outlined text-white text-[10px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-2">+80</span>
+</div>
+<!-- Day 3 (Active/Today - Event Chest) -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3 ring-2 ring-secondary-container desire-glow scale-105 z-10">
+<span class="font-label-sm text-label-sm text-secondary-fixed mb-2 font-bold">第3天</span>
+<div class="relative animate-bounce">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="card_giftcard" style="font-variation-settings: 'FILL' 1;">card_giftcard</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-2">中级盛典包</span>
+</div>
+<!-- Day 4 -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3">
+<span class="font-label-sm text-label-sm text-outline mb-2">第4天</span>
+<span class="material-symbols-outlined text-primary/40 text-3xl" data-icon="diamond">diamond</span>
+<span class="font-label-sm text-label-sm text-outline mt-2">+120</span>
+</div>
+<!-- Day 5 -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3">
+<span class="font-label-sm text-label-sm text-outline mb-2">第5天</span>
+<span class="material-symbols-outlined text-primary/40 text-3xl" data-icon="diamond">diamond</span>
+<span class="font-label-sm text-label-sm text-outline mt-2">+150</span>
+</div>
+<!-- Day 6 -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3">
+<span class="font-label-sm text-label-sm text-outline mb-2">第6天</span>
+<span class="material-symbols-outlined text-primary/40 text-3xl" data-icon="diamond">diamond</span>
+<span class="font-label-sm text-label-sm text-outline mt-2">+200</span>
+</div>
+<!-- Day 7 (Final Chest) -->
+<div class="glass-card aspect-square rounded-xl flex flex-col items-center justify-center p-3 ring-1 ring-tertiary/30 col-span-3">
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-tertiary mb-1 font-bold">最终盛典奖励 · 第7天</span>
+<span class="font-headline-md text-headline-md text-on-surface">终极盛典包</span>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-tertiary text-5xl" data-icon="redeem" style="font-variation-settings: 'FILL' 1;">redeem</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Decorative element -->
+<div class="mt-12 flex justify-center opacity-20">
+<div class="h-[1px] w-1/3 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-2xl border-t border-white/5 flex justify-around items-center h-20 pb-safe px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm mt-1">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="play_circle">play_circle</span>
+<span class="font-label-sm text-label-sm mt-1">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="videocam">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="vpn_key">vpn_key</span>
+<span class="font-label-sm text-label-sm mt-1">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm mt-1">AI科技</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors cursor-pointer active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary filter drop-shadow-[0_0_8px_rgba(255,179,182,0.4)] active:scale-90 duration-150">
+<span class="material-symbols-outlined text-2xl" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm mt-1">我的</span>
+</div>
+</nav>
+<script class="">
+        // Simple interactive countdown
+        function updateTimer() {
+            const timerEl = document.getElementById('countdown');
+            let [h, m, s] = timerEl.innerText.split(':').map(Number);
+            
+            s--;
+            if (s < 0) {
+                s = 59;
+                m--;
+                if (m < 0) {
+                    m = 59;
+                    h--;
+                }
+            }
+            
+            timerEl.innerText = [h, m, s].map(v => v.toString().padStart(2, '0')).join(':');
+        }
+        setInterval(updateTimer, 1000);
+
+        // Click interaction for grid items</script></body></html>

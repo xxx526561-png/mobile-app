@@ -1,0 +1,371 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>极乐商城 - 性药商城</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Manrope:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 179, 182, 0.1);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .flame-gradient {
+            background: linear-gradient(135deg, #cc003c 0%, #920028 100%);
+        }
+        .gold-text {
+            color: #f9bd22;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .active-tab-glow {
+            position: relative;
+        }
+        .active-tab-glow::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #cc003c;
+            box-shadow: 0 0 10px #ffb3b6;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdada",
+                        "primary": "#c9c6c5",
+                        "on-secondary-fixed-variant": "#920028",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-primary-container": "#7b7979",
+                        "on-background": "#e5e2e1",
+                        "on-secondary-container": "#ffdcdc",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary": "#ffb3b6",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#20201f",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "secondary-container": "#cc003c",
+                        "on-tertiary-container": "#9b7300",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "tertiary-fixed": "#ffdf9f",
+                        "outline": "#8e9192",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-surface": "#e5e2e1",
+                        "surface-variant": "#353535",
+                        "on-secondary": "#68001a",
+                        "inverse-primary": "#5f5e5e",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-fixed": "#40000c",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "surface-tint": "#c9c6c5",
+                        "background": "#131313",
+                        "primary-container": "#0a0a0a",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#444748",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#100900",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-tertiary": "#402d00",
+                        "on-primary": "#313030",
+                        "tertiary": "#f9bd22",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-highest": "#353535",
+                        "surface": "#131313",
+                        "surface-container-high": "#2a2a2a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "card-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface pb-32">
+<!-- Top Navigation Bar (Consistent with Prediction) -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-2xl border-b border-white/5 flex flex-col pt-2"><div class="flex gap-4 overflow-x-auto hide-scrollbar py-2 mt-2 snap-x snap-mandatory px-4">
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">推荐</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">极乐约炮</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-secondary-container text-white text-sm font-bold shadow-[0_0_15px_rgba(204,0,60,0.4)] snap-start">性药商城</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">在线赚钱</div>
+<div class="flex-shrink-0 px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-sm snap-start">成人游戏</div>
+</div></header>
+<main class="pt-16 pb-24 px-container-margin max-w-lg mx-auto">
+<!-- Scrolling Banner (336x186) -->
+<section class="relative">
+<div class="w-full max-w-[336px] h-[186px] mx-auto rounded-xl overflow-hidden glass-card relative group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-end cinematic product shot of a luxury health supplement bottle placed on a polished black obsidian surface. Soft, moody crimson lighting highlights the elegant gold typography on the dark matte bottle. The background is a soft-focus intimate bedroom setting with silken textures and warm golden glows, conveying an atmosphere of private indulgence and premium wellness in a dark-mode aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe47_myWycdiaumSS0e8c7_0oqmmmC3df_zkEulzb3QRudhMyn4D5O-AP9AykvTkR5HNvk9j82W4c176iN-RjnDYv6iJLsAPRd6vsUqCW4i40tw7FGgVfrfDbo2AFWp2tm9Lv9cG-ZJ1bonGfwZpLAKVzwNk6kD3Xj_fkVq7M_E15wsJNg3Q31Fb4Y_MlR-4Ko0vf33B06IVQiIycqQuSV_PbYtdDKaKvrUI0EEunDq17AzTsI-w3ICpcMttDwnFg7-DGvmN9Pp50')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">限时甄选</span>
+<h2 class="font-headline-md text-headline-md leading-tight text-white">暗夜觉醒：巅峰能效套装</h2>
+<p class="text-xs text-on-surface-variant line-clamp-1 mt-1">解锁前所未有的感官盛宴</p>
+</div>
+</div>
+<!-- Pagination indicator -->
+<div class="flex justify-center mt-3 gap-1.5">
+<div class="h-1 rounded-full w-4 flame-gradient shadow-[0_0_8px_rgba(204,0,60,0.5)]"></div>
+<div class="h-1 rounded-full w-1.5 bg-white/20"></div>
+<div class="h-1 rounded-full w-1.5 bg-white/20"></div>
+</div>
+</section>
+<!-- Category Filter -->
+<section class="flex gap-2 overflow-x-auto no-scrollbar">
+<button class="px-4 py-2 rounded-full glass-card text-xs font-semibold whitespace-nowrap bg-secondary-container/20 border-secondary/30 text-secondary">全部商品</button>
+<button class="px-4 py-2 rounded-full glass-card text-xs font-semibold whitespace-nowrap text-on-surface-variant/80">勃起增强</button>
+<button class="px-4 py-2 rounded-full glass-card text-xs font-semibold whitespace-nowrap text-on-surface-variant/80">持久喷雾</button>
+<button class="px-4 py-2 rounded-full glass-card text-xs font-semibold whitespace-nowrap text-on-surface-variant/80">费洛蒙香水</button>
+<button class="px-4 py-2 rounded-full glass-card text-xs font-semibold whitespace-nowrap text-on-surface-variant/80">私密护理</button>
+</section>
+<!-- Product Grid -->
+<section class="grid grid-cols-2 gap-gutter">
+<!-- Product 1 -->
+<div class="glass-card rounded-xl p-0 flex flex-col overflow-hidden group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A minimalist product shot of a sleek, matte black spray bottle for men, featuring sharp metallic gold accents. The bottle is backlit by a subtle flame-red aura against a dark textured background. The lighting is low and dramatic, highlighting the premium craftsmanship and secretive nature of the high-end sexual health product in an Obsidian Desire aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChpKQb5I_u4zUz-U64k5iyjUJuiDFKWT2up6a0JD08kcIesfX9OAJ8621jd3IN1Y1HCxjEZS1sa2XJogxKZFgoFDjd50Eo7bxgJafzzpIs3NgS5E96oZMOUa6BS2VzSA_neFLlaVqH4NDb7G41UNXv_b56izDIqjoj2FZ1wlrOuYbPesycXzSGdRrQsR5IqqZV1GzguBryAFyoZthUUud2-pb32D6xiaODHTZsM0Ph8FpDy_xmGWucSylWkIqpmfzLidvyIWvZgnA">
+<div class="absolute top-2 right-2 px-2 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-bold text-secondary border border-secondary/20">HOT</div>
+</div>
+<div class="p-3 flex-1 flex flex-col">
+<h3 class="text-sm font-bold line-clamp-1 mb-1">黑曜石持久喷雾</h3>
+<p class="text-[10px] text-on-surface-variant line-clamp-2 leading-relaxed mb-3">采用天然植萃精华，极速吸收，奢享持久愉悦。</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="gold-text font-bold text-lg">¥299</span>
+<button class="w-8 h-8 rounded-full flame-gradient flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="glass-card rounded-xl p-0 flex flex-col overflow-hidden group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Intimate portrait of an elegant luxury lubricant bottle made of frosted dark glass. The liquid inside reflects a deep red shimmer. The setting is a rich velvet background with sharp, golden rim lighting that emphasizes the bottle's sensual curves. The overall mood is mysterious, high-end, and indulgent, following a dark minimalism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi8YnR3z8X4JoBPfijQ681u0N8qvJXyUnMRldNqOYs6n1qdWAHqNSNGd26_j7yfs0CW1v8IGnedgm-TERvmDfT16K2BRMRRpG4HxNj0kaW1WMSZp_fPF0oFUVRVkWjPTznqw8pBe-n7p23XDgJDAxqzzGzi4PJQ8U--6-SySFaCTfFULsoMkhpykA8eEseh8E8o01d36Cm_bfLTt_JxHylVo5AFB3izq1-beFgBHyqde2UGTdP2I4CVrOxNqr_dIk6C_cMTb7UvOs">
+</div>
+<div class="p-3 flex-1 flex flex-col">
+<h3 class="text-sm font-bold line-clamp-1 mb-1">丝滑欲望润滑液</h3>
+<p class="text-[10px] text-on-surface-variant line-clamp-2 leading-relaxed mb-3">极致亲肤感触，如丝绸般顺滑，提升互动快感。</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="gold-text font-bold text-lg">¥158</span>
+<button class="w-8 h-8 rounded-full flame-gradient flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="glass-card rounded-xl p-0 flex flex-col overflow-hidden group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional product photograph of high-end libido capsules in a dark glass jar. The jar has a luxury gold label and sits on a charcoal-colored marble surface. Luminous flame red glows emanate from beneath the marble, casting a seductive light on the scene. The atmosphere is sophisticated and medical yet intimate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANirkeV91vphK4mKq_g9xYNC72SGOMamDdwhwlIInbsYnKb7-DvgPZBC4KokBKwdDmJ4HnHVaow3QscE5MqrtfjLzhmJnA8O9_faHT1JmcoCejflcwjFTYxs25JZZyAfcgWZ2kWiQq4gqyOdqWCfgHvpj_G0j55imVpARiAo8zZ2Yj5t6rT0sxCzDU4ZEnyglziDHNS-wbjFSm7Ms5AdZCXAVXVUsUAjawMyXYJHtis-EL2zMAsg8n4a_fVymUz-Nk8vwhWLPOOag">
+</div>
+<div class="p-3 flex-1 flex flex-col">
+<h3 class="text-sm font-bold line-clamp-1 mb-1">极速动力胶囊</h3>
+<p class="text-[10px] text-on-surface-variant line-clamp-2 leading-relaxed mb-3">天然促睾酮配方，增强体能，重塑男性能量。</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="gold-text font-bold text-lg">¥420</span>
+<button class="w-8 h-8 rounded-full flame-gradient flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="glass-card rounded-xl p-0 flex flex-col overflow-hidden group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A stylish dark-themed pheromone perfume bottle with a metallic red cap. The bottle is positioned among soft silk fabrics with high-contrast lighting that creates long, dramatic shadows. Tiny gold dust particles float in the air around the bottle, suggesting a magical attraction effect. Premium dark-mode photography style with intense visual focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB38WihONW3wkWoHzxaSPTY5TH6kUXr1IQnyn-cKXC2voYfqQe50mVGOodRMOCXKbq99Kd3payGjpvGGKRMtxdd25-S7aVK6Oxjyd9GRyDoEUEMJ7aqu7wVH8v2W8PFYHxnTujf8Rp8ihzR-EDoYNfK6H_7QFQNjD-S_1XPzx3Bqb7aLddAGiWMlr7pO-yTzAuxwU1MR-kj9SNUsoFE0H_r0seYAdFQqWH-zaowBoD8HOdRqH9Ew6iO3My5LXgZTpXO8d8eTwpHPn8">
+<div class="absolute top-2 right-2 px-2 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-bold text-secondary border border-secondary/20">限时</div>
+</div>
+<div class="p-3 flex-1 flex flex-col">
+<h3 class="text-sm font-bold line-clamp-1 mb-1">魅惑灵魂费洛蒙</h3>
+<p class="text-[10px] text-on-surface-variant line-clamp-2 leading-relaxed mb-3">独特费洛蒙香调，无形中散发致命吸引力。</p>
+<div class="mt-auto flex justify-between items-end">
+<span class="gold-text font-bold text-lg">¥368</span>
+<button class="w-8 h-8 rounded-full flame-gradient flex items-center justify-center text-white shadow-lg active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy & Quality Trust Badges -->
+<section class="grid grid-cols-3 gap-4 py-4 border-y border-white/5">
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-2xl">verified_user</span>
+<span class="text-[10px] font-semibold text-on-surface-variant">正品溯源</span>
+</div>
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-2xl">visibility_off</span>
+<span class="text-[10px] font-semibold text-on-surface-variant">隐私发货</span>
+</div>
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-2xl">local_shipping</span>
+<span class="text-[10px] font-semibold text-on-surface-variant">顺丰即日</span>
+</div>
+</section>
+<!-- Empty Space for Bottom Nav -->
+<section class="mb-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="w-1 h-6 bg-tertiary rounded-full"></span>
+      优质APP推荐
+    </h3>
+</div>
+<div class="flex flex-col gap-4">
+<!-- App Item 1 -->
+<div class="glass-card rounded-xl p-3 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="皇冠体育" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM3nabjOV7mm1blKv75XHuX0f7zL3XEsnCjnCHqSawj-QsBDONesAY_OljxgnDJjh5cjiy3E3YUDArqaRvAKXZBGioWkf_753VgNzbpp5j6eXQMYnkXy9p9-RHKTmWr5D2EP7D_41en2gxYA6Dx3r_jysW0lg4Z7zz8rw9ITaoS7L918PZISAjp5WsqMCk9cJ3L-Own8Gq1z6oxm_4LiXQF0fdv4xMfo8vyvajaA4_89Fe_U2UIb7AVGjjdp-KojEKZOiDccwR9fI">
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">皇冠体育</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5">年度最火电子，注册赠礼888元</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-[0_0_10px_rgba(204,0,60,0.3)]">下载</button>
+</div>
+<!-- App Item 2 -->
+<div class="glass-card rounded-xl p-3 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="PG电子" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGViX731PVYF2gyPKTsZ882y_pz8rMuxjtreBI3Yb0_kJXN5I-c-zflc4x74P_hHFw1oVwu8RP_jq3VCH8j2UDrB1BIDxlMhNXsp0FbSp5UKV22IMFmxvfzJMxLtwwyL_UQH-8vVNy2OhSVj85Tm8YXpYf5zFiobaNUnXN21SoH-yvHlSCs-aMi6XoKGx5-qznNFIQeMRudG2tSQ1NqDjBsmFQ9uX24pDubaYWulxQxd5iLu6dkOTZ0fC0Awy9BffwfxLSWZbNpSM">
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">PG电子</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5">最专业的综合游戏网站</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-[0_0_10px_rgba(204,0,60,0.3)]">下载</button>
+</div>
+<!-- App Item 3 -->
+<div class="glass-card rounded-xl p-3 flex items-center gap-4 active:scale-[0.98] transition-transform">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-white/10">
+<img alt="开云乐游" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV6bT00XKeMIyOXR7SeNgRa10euwUr4fSPBTo2ymQesuODVuopnXCHY_w3Jg5SLFm4kyuPlA1EMOhucWRXU5sDmRu-I2r5AvmYmoY_wKpGM560b18UxgSt0to7rht7n9Mw0Zctfg10HRsFiPXEER_VM2S7IUMY8aLjwusiVxP05vwKd_Brlhid878w_Kt7HkEaEGqY4txWi50zUCk6qMWKZw7fgCGxl_5e1vvmpxw66KTAUDIYs_ulBpzRgrXhxHKDJmAXbRFExzI">
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-on-surface">开云乐游</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5">无限返水，上不封顶</p>
+</div>
+<button class="bg-secondary-container text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-[0_0_10px_rgba(204,0,60,0.3)]">下载</button>
+</div>
+</div>
+</section><div class="h-20"></div>
+</main>
+<!-- Bottom Navigation Bar (MANDATORY 7 TABS) -->
+<footer class="fixed bottom-0 w-full z-50 bg-surface/80 backdrop-blur-2xl rounded-t-xl border-t border-white/5 shadow-[0_-4px_20px_rgba(255,179,182,0.1)]">
+<div class="flex justify-around items-center h-20 px-2 max-w-screen-xl mx-auto">
+<!-- Active Tab: 导航页 -->
+<a class="flex flex-col items-center justify-center text-secondary scale-110 font-bold transition-all" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">videocam</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">lock</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">psychology</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</a>
+</div>
+</footer>
+<!-- Floating Desire Action Button (Contextual for Mall) -->
+
+<script>
+        // Micro-interaction for cart buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Simple ripple effect or feedback
+                if(this.classList.contains('flame-gradient')) {
+                    const originalBg = this.style.background;
+                    this.style.opacity = '0.8';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 150);
+                }
+            });
+        });
+
+        // Banner auto-scroll simulation visual enhancement
+        let bannerIndex = 0;
+        const bannerIndicators = document.querySelectorAll('.h-1.rounded-full');
+        setInterval(() => {
+            bannerIndex = (bannerIndex + 1) % bannerIndicators.length;
+            bannerIndicators.forEach((ind, i) => {
+                if(i === bannerIndex) {
+                    ind.classList.add('w-4', 'flame-gradient', 'shadow-[0_0_8px_rgba(204,0,60,0.5)]');
+                    ind.classList.remove('w-1.5', 'bg-white/20');
+                } else {
+                    ind.classList.remove('w-4', 'flame-gradient', 'shadow-[0_0_8px_rgba(204,0,60,0.5)]');
+                    ind.classList.add('w-1.5', 'bg-white/20');
+                }
+            });
+        }, 3000);
+    </script>
+
+
+</body></html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .rim-light-gold {
+            box-shadow: inset 0 1px 0 0 rgba(249, 189, 34, 0.1);
+        }
+        .comment-input-glow:focus-within {
+            box-shadow: 0 0 15px rgba(204, 0, 60, 0.3);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .pulse-red:active {
+            animation: heartbeat 0.3s ease-in-out;
+            color: #cc003c;
+        }
+        .drag-handle {
+            width: 36px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        /* Fix for iOS bottom safe area padding in fixed footer */
+        .pb-safe-extra {
+            padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-secondary-container": "#ffdcdc",
+                        "surface-tint": "#c9c6c5",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353535",
+                        "primary": "#c9c6c5",
+                        "outline": "#8e9192",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffdf9f",
+                        "tertiary-container": "#100900",
+                        "background": "#131313",
+                        "tertiary": "#f9bd22",
+                        "outline-variant": "#444748",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed": "#261a00",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "inverse-on-surface": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#68001a",
+                        "surface-bright": "#393939",
+                        "primary-container": "#0a0a0a",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "surface-container": "#20201f",
+                        "secondary-fixed": "#ffdada",
+                        "surface": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary": "#313030",
+                        "secondary": "#ffb3b6",
+                        "on-surface-variant": "#c4c7c7",
+                        "inverse-primary": "#5f5e5e",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#402d00",
+                        "on-secondary-fixed-variant": "#920028",
+                        "on-primary-container": "#7b7979",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#9b7300",
+                        "on-secondary-fixed": "#40000c",
+                        "surface-variant": "#353535",
+                        "secondary-container": "#cc003c",
+                        "primary-fixed": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "24px",
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden selection:bg-secondary-container/30">
+<!-- Video Background Mockup (Dimmed) -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-black/60 z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A moody, cinematic short video frame of a neon-lit cyberpunk street at night in Shanghai. Rain reflects the deep reds and purples of digital billboards on the dark asphalt. High-end aesthetic with professional color grading, deep shadows, and sharp highlights. 4k resolution, high-end photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3V6mBdajnFfNbDu2eZJb3o8GeQt_dIBoI2RAEyjSHbJnjSBBl8mRpLviZcKtXHh17TouU5IB59AK-w4uR2K2BYtt9YDNPfH9pGK8dRRWQj6IGiyoHcujyWYpxJIU0Dvvyed0BdEIShvq9MAz52prW8jZdIDWrggaGeHQFqLPuUiGkaT6iT5o0zEXI_Agjw00huYgi4lrN2L6gzlmDPa7f9Wh5Wgja85p3Z-o3XBpajGbaXhSMgnFyVijzO0RL-s0AX903SzEV7oM">
+</div>
+<!-- Bottom Navigation Shell (Consistent with JSON Blueprint) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-4"><div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary drop-shadow-[0_0_8px_rgba(255,179,182,0.6)] animate-pulse cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">vpn_key</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</div><div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-secondary-fixed transition-colors active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</div></nav>
+<!-- Bottom Sheet Container -->
+<div class="fixed inset-x-0 bottom-0 h-[82vh] glass-panel rounded-t-[32px] flex flex-col rim-light-gold translate-y-0 transition-transform duration-500 ease-out overflow-hidden mb-20 z-[45]" id="commentSheet">
+<!-- Drag Handle Area -->
+<div class="flex justify-center pt-3 pb-1 cursor-grab active:cursor-grabbing shrink-0">
+<div class="drag-handle"></div>
+</div>
+<!-- Header -->
+<header class="px-6 py-4 flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">评论</h2>
+<span class="text-on-surface-variant/60 font-body-md">(1.2k)</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors" onclick="document.getElementById('commentSheet').style.transform = 'translateY(100%)'">
+<span class="material-symbols-outlined text-on-surface">close</span>
+</button>
+</header>
+<!-- Comment List Container -->
+<!-- Added massive padding-bottom to prevent fixed input covering last items -->
+<div class="flex-1 overflow-y-auto px-6 space-y-8 pb-32">
+<!-- Comment Item 1 -->
+<div class="flex gap-4">
+<img class="w-10 h-10 rounded-full border border-white/10 object-cover shrink-0" data-alt="Close up profile portrait of a mysterious elegant woman with sharp features and cinematic lighting. Soft rim lighting in flame red, high fashion aesthetic, deep black background. Professional portrait photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTgJDVWEd7_rb8AAsn8-CE83ddaX0lmh3Jjtntn397BKmaT5p5wN-8yd4vlaLIt8RxBCWAyUbSMYAJK1pizSWSauUP0XzuGsq7yl4ySCWDX_ZYPrVeo9015k4prj_-bnInT0VfSNULdRtJgIp1PZymiNkLxIsQSLxMsLejo81kN2Qb3UzhyDCsbGMgWnad5eRb8Qws4xidxN6xy6AIID3UgQAM7eA2qRQyIZN9B1sg6kLSXPpWpuRXUbT_Hi4cxV-tDakGYlNGbgY">
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<span class="font-bold text-on-surface-variant text-body-md">ShadowMuse</span>
+<div class="flex flex-col items-center gap-1 group">
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-secondary-container transition-colors pulse-red cursor-pointer">favorite</span>
+<span class="text-[10px] text-on-surface-variant/40 font-label-sm">428</span>
+</div>
+</div>
+<p class="text-on-surface leading-relaxed pr-8">这种午夜的氛围感真的绝了，每一帧都像是在燃烧。那个转场是怎么做出来的？🔥</p>
+<div class="flex items-center gap-4 pt-1">
+<span class="text-on-surface-variant/30 text-xs font-label-sm">2小时前</span>
+<button class="text-on-surface-variant/50 text-xs font-semibold hover:text-tertiary transition-colors">回复</button>
+</div>
+<!-- Threaded Replies -->
+<div class="mt-4 space-y-6 border-l border-white/5 pl-4">
+<div class="flex gap-3">
+<img class="w-7 h-7 rounded-full border border-white/10 object-cover shrink-0" data-alt="Minimalist avatar of a stylish man with glasses, looking away, cool lighting, high contrast, dark luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWiwmqN4W4MHPC736eGmCQbmRViXYDuC7pdt0cI7PMD7zgtSQBgCwebOXbv2dx91vqh_nwpz3PIyj2iBo1ds8QWBJIsYq7U3cCVZAEEPYOLXJETYA523GWJysX3sjCq09ztZ4Jz5tlqaXS6JjYUoUDY7odwyEnvAL1EJjApUUkFv8oL41NsoRmwEXVpyOnpI5ngynPE1lcfg6af-LexKI5eboAi138sQw720MhetszttYswLl5zATJSP7N0Adqdkvl0r9Y6kdAzTM">
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<span class="font-semibold text-on-surface-variant/80 text-sm">NeonVibe</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant/40 hover:text-secondary-container cursor-pointer">favorite</span>
+</div>
+<p class="text-on-surface/90 text-sm">应该是用了光流插帧配合自定义色域，质感拉满了。</p>
+<span class="text-on-surface-variant/30 text-[10px] font-label-sm">1小时前</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Banner Ad -->
+<div class="relative group cursor-pointer mt-4 mb-4">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-secondary-container/20 to-tertiary/20 rounded-xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative aspect-[355/110] w-full overflow-hidden rounded-xl border border-white/10 bg-surface-container-low">
+<img alt="Promotional Banner" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3V6mBdajnFfNbDu2eZJb3o8GeQt_dIBoI2RAEyjSHbJnjSBBl8mRpLviZcKtXHh17TouU5IB59AK-w4uR2K2BYtt9YDNPfH9pGK8dRRWQj6IGiyoHcujyWYpxJIU0Dvvyed0BdEIShvq9MAz52prW8jZdIDWrggaGeHQFqLPuUiGkaT6iT5o0zEXI_Agjw00huYgi4lrN2L6gzlmDPa7f9Wh5Wgja85p3Z-o3XBpajGbaXhSMgnFyVijzO0RL-s0AX903SzEV7oM">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[10px] font-label-sm text-tertiary uppercase tracking-widest bg-tertiary/10 px-2 py-0.5 rounded-full">Sponsored</span>
+<h3 class="text-sm font-bold text-white mt-1">探索霓虹秘域：限时数字艺术展</h3>
+</div>
+<span class="material-symbols-outlined text-white/60 group-hover:text-white transition-colors">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Comment Item 2 -->
+<div class="flex gap-4">
+<img class="w-10 h-10 rounded-full border border-white/10 object-cover shrink-0" data-alt="Close up of a person's eyes with intense golden lighting reflecting in the iris. Dark, artistic, atmospheric style with heavy shadows and fine detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFDNOZm3dFIGNZvVvU4hY3uTyLA8_bUEDpHL2griMoQAfIsvL5PKAvmrbMTS-6sFl6bEiZtMmg1fnuwJaOX27Kpxtimy54CkVzKoM7_zo-u7zZnHZFYpt4l5CgIQaHakHhbdtk6HwGuMS-IUHCJvVyaF4q2_nxhPvXtGgftZtOpDvI2bav4ijriCt8HAX9XzeZIfBdRb-yKmadQU0Qi8gBt4V92mTPCmMJvfvJtRV0zFRXCyfAY_onspapyZGHkbd-k4ILaj_N3PA">
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<span class="font-bold text-on-surface-variant text-body-md">GoldenHour</span>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container fill-icon pulse-red cursor-pointer">favorite</span>
+<span class="text-[10px] text-secondary-container font-label-sm">1.1k</span>
+</div>
+</div>
+<p class="text-on-surface leading-relaxed pr-8">这就是我向往的「秘域」生活。期待下一期的VLOG更新！✨</p>
+<div class="flex items-center gap-4 pt-1">
+<span class="text-on-surface-variant/30 text-xs font-label-sm">5小时前</span>
+<button class="text-on-surface-variant/50 text-xs font-semibold hover:text-tertiary transition-colors">回复</button>
+</div>
+</div>
+</div>
+<!-- Comment Item 3 -->
+<div class="flex gap-4">
+<img class="w-10 h-10 rounded-full border border-white/10 object-cover shrink-0" data-alt="Abstract aesthetic profile photo of silk fabric flowing in water, illuminated by a deep violet light. Luxurious, soft, organic shapes, dark minimal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvxUQYxCYu5RxEMp6E2K0cYre9ej_q2_yqZoOW75WbCSiFRxDvFKd0f9KZDaEdTkAIAZE83FOPTstUxgPnYOQsx1ZTnz0JhOKK_mDxpD_X7ZJ3GM-OLt1I-popRYHLbhYDlX13SHNZ5lxtQ3NTfIKAueCQoM3afC9sxhvZFlvzWDOPMtEeLnQ3Tmipr2ZxsBEfposFS0IEVS6MrLGh7dmeFs7AcGt4azSt_Yn7xr-Bz20WeCK8wPIhE_PqNjBXHGjMii4jOzP6yUY">
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<span class="font-bold text-on-surface-variant text-body-md">VelvetDream</span>
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-on-surface-variant/40 hover:text-secondary-container pulse-red cursor-pointer">favorite</span>
+<span class="text-[10px] text-on-surface-variant/40 font-label-sm">86</span>
+</div>
+</div>
+<p class="text-on-surface leading-relaxed pr-8">音乐和画面的卡点太准了，极度舒适。想问背景音乐叫什么名字？</p>
+<div class="flex items-center gap-4 pt-1">
+<span class="text-on-surface-variant/30 text-xs font-label-sm">8小时前</span>
+<button class="text-on-surface-variant/50 text-xs font-semibold hover:text-tertiary transition-colors">回复</button>
+</div>
+</div>
+</div>
+</div>
+<!-- FIXED BOTTOM INPUT BAR -->
+<div class="absolute bottom-0 inset-x-0 p-4 pb-safe-extra glass-panel border-t border-white/10 z-[60]">
+<div class="flex items-center gap-3">
+<img alt="User Avatar" class="w-9 h-9 rounded-full border border-white/10 object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWiwmqN4W4MHPC736eGmCQbmRViXYDuC7pdt0cI7PMD7zgtSQBgCwebOXbv2dx91vqh_nwpz3PIyj2iBo1ds8QWBJIsYq7U3cCVZAEEPYOLXJETYA523GWJysX3sjCq09ztZ4Jz5tlqaXS6JjYUoUDY7odwyEnvAL1EJjApUUkFv8oL41NsoRmwEXVpyOnpI5ngynPE1lcfg6af-LexKI5eboAi138sQw720MhetszttYswLl5zATJSP7N0Adqdkvl0r9Y6kdAzTM">
+<div class="flex-1 relative comment-input-glow transition-all duration-300 rounded-full bg-white/5">
+<input class="w-full bg-transparent border-none rounded-full py-2.5 px-5 text-on-surface placeholder:text-on-surface-variant/40 focus:ring-1 focus:ring-tertiary/20 text-sm" placeholder="说点什么..." type="text">
+</div>
+<button class="text-on-surface-variant/60 hover:text-tertiary transition-colors shrink-0">
+<span class="material-symbols-outlined">mood</span>
+</button>
+<button class="font-bold bg-secondary-container text-white px-5 py-2.5 rounded-full active:scale-95 transition-all text-sm shadow-[0_4px_16px_rgba(204,0,60,0.4)] shrink-0">
+                发送
+            </button>
+</div>
+</div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+    // Simple drag simulation for the sheet
+    let startY;
+    let sheet = document.getElementById('commentSheet');
+    
+    sheet.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+
+    sheet.addEventListener('touchmove', (e) => {
+        let currentY = e.touches[0].clientY;
+        let diff = currentY - startY;
+        if (diff > 0) {
+            sheet.style.transform = `translateY(${diff}px)`;
+        }
+    });
+
+    sheet.addEventListener('touchend', (e) => {
+        let currentY = e.changedTouches[0].clientY;
+        let diff = currentY - startY;
+        if (diff > 150) {
+            sheet.style.transform = 'translateY(100%)';
+        } else {
+            sheet.style.transform = 'translateY(0)';
+        }
+    });
+
+    // Add heartbeat to like buttons
+    document.querySelectorAll('.pulse-red').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.classList.toggle('fill-icon');
+            this.classList.toggle('text-secondary-container');
+            this.classList.toggle('text-on-surface-variant/40');
+            
+            let countSpan = this.nextElementSibling;
+            if(countSpan) {
+                let countText = countSpan.innerText.replace('k', '');
+                let count = parseFloat(countText);
+                let isK = countSpan.innerText.includes('k');
+                
+                if(this.classList.contains('fill-icon')) {
+                    if(isK) countSpan.innerText = (count + 0.1).toFixed(1) + 'k';
+                    else countSpan.innerText = count + 1;
+                    countSpan.classList.add('text-secondary-container');
+                } else {
+                    if(isK) countSpan.innerText = (count - 0.1).toFixed(1) + 'k';
+                    else countSpan.innerText = Math.max(0, count - 1);
+                    countSpan.classList.remove('text-secondary-container');
+                }
+            }
+        });
+    });
+</script>
+
+
+</body></html>

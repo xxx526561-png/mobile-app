@@ -1,0 +1,313 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "primary": "#c9c6c5",
+                        "on-primary": "#313030",
+                        "primary-container": "#0a0a0a",
+                        "on-secondary-fixed-variant": "#920028",
+                        "on-secondary-fixed": "#40000c",
+                        "on-tertiary": "#402d00",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#ffb3b6",
+                        "surface-dim": "#131313",
+                        "on-secondary-container": "#ffdcdc",
+                        "on-secondary": "#68001a",
+                        "surface-variant": "#353535",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "surface-container-highest": "#353535",
+                        "on-surface": "#e5e2e1",
+                        "outline-variant": "#444748",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#9b7300",
+                        "inverse-primary": "#5f5e5e",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "outline": "#8e9192",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-container": "#7b7979",
+                        "tertiary": "#f9bd22",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#20201f",
+                        "surface-tint": "#c9c6c5",
+                        "on-surface-variant": "#c4c7c7",
+                        "secondary-fixed": "#ffdada",
+                        "on-error": "#690005",
+                        "tertiary-container": "#100900",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-container": "#cc003c",
+                        "tertiary-fixed": "#ffdf9f",
+                        "background": "#131313",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface": "#131313",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed": "#261a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "card-padding": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }]
+                    }
+                },
+            },
+        }
+    }catch(_e){}</script></head><body class="min-h-screen pb-24">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-tertiary/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex items-center justify-between px-container-margin h-16">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-tertiary active:scale-95 transition-transform cursor-pointer" data-original-icon="arrow_back">arrow_back</span>
+        </div>
+        <h1 class="font-headline-md text-headline-md-mobile text-tertiary tracking-widest">签到中心</h1>
+        <button class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors">规则</button>
+    </header>
+
+    <main class="pt-20 px-container-margin space-y-6">
+        <div class="flex items-center justify-center p-1 bg-surface-container-lowest/90 backdrop-blur-xl rounded-xl border border-tertiary/10 mb-6">
+            <div class="grid grid-cols-2 w-full gap-1">
+                <button class="flex items-center justify-center py-2 px-4 rounded-lg bg-gradient-to-r from-[#cc003c] to-[#ff5e00] text-on-background font-bold text-label-sm transition-all shadow-lg">
+                    日常签到
+                </button>
+                <button class="flex items-center justify-center py-2 px-4 rounded-lg text-on-surface-variant/60 hover:text-on-surface transition-colors text-label-sm">
+                    活动签到
+                </button>
+            </div>
+        </div>
+
+        <!-- User Status Card -->
+        <section class="glass-card rim-lit rounded-xl p-card-padding mb-6 space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-1">
+                    <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase">已签到天数</p>
+                    <p class="font-headline-md text-headline-md-mobile text-tertiary font-bold">3<span class="text-sm font-normal ml-1">天</span></p><button class="mt-3 px-3 py-1 rounded-full bg-gradient-to-r from-[#cc003c] to-[#ff5e00] text-on-background font-bold text-[10px] shadow-lg active:scale-95 transition-transform uppercase tracking-wider">立即签到</button>
+                </div>
+                <div class="space-y-1 text-right">
+                    <p class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase">累计奖励</p>
+                    <p class="font-headline-md text-headline-md-mobile text-secondary font-bold">150<span class="text-sm font-normal ml-1">金币</span></p>
+                <p class="text-[10px] text-on-surface-variant/40 italic mt-1">注：奖励可叠加</p></div>
+            </div>
+            
+        </section>
+
+        <!-- Reward Track (30-Day Grid) -->
+        <section class="space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-headline-md text-headline-md-mobile text-on-surface">30天连签挑战</h3>
+                <span class="text-xs text-on-surface-variant/50">当前进度：3/30</span>
+            </div>
+
+            <!-- Full Grid Display (5 columns) -->
+            <div class="grid grid-cols-5 gap-2 pb-4">
+                <!-- Day 1-3: Claimed -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 opacity-40 h-16 grayscale">
+                    <span class="text-[8px] text-on-surface-variant font-bold">第1天</span>
+                    <span class="material-symbols-outlined text-xs text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 opacity-40 h-16 grayscale">
+                    <span class="text-[8px] text-on-surface-variant font-bold">第2天</span>
+                    <span class="material-symbols-outlined text-xs text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 opacity-40 h-16 grayscale">
+                    <span class="text-[8px] text-on-surface-variant font-bold">第3天</span>
+                    <span class="material-symbols-outlined text-xs text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                </div>
+
+                <!-- Day 4: Current -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 border-secondary/40 glow-red ring-1 ring-secondary/20 h-16 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-secondary/5"></div>
+                    <span class="text-[8px] text-secondary font-bold z-10">第4天</span>
+                    <span class="material-symbols-outlined text-xs text-secondary animate-pulse z-10" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+                </div>
+
+                <!-- Day 5-6 -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">第5天</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">第6天</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+
+                <!-- Day 7: Primary Milestone (Visual Distinct) -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 bg-gradient-to-br from-tertiary/10 to-surface-container-lowest border-tertiary/40 h-16 relative group"><span class="text-[8px] text-tertiary font-bold glow-gold">第7天</span><span class="material-symbols-outlined text-sm text-tertiary glow-gold">card_giftcard</span><span class="text-[6px] text-tertiary/80 absolute bottom-1 font-bold">初级礼包</span></div>
+
+                <!-- Days 8-19 -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">第8天</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D9</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D10</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D11</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D12</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D13</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D14</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D15</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D16</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D17</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D18</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D19</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+
+                <!-- Day 20: Intermediate Milestone (Visual Distinct) -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 bg-gradient-to-br from-secondary/10 to-surface-container-lowest border-secondary/40 h-16 relative overflow-hidden"><div class="absolute inset-0 bg-secondary/5 animate-pulse"></div><span class="text-[8px] text-secondary font-bold glow-red z-10">第20天</span><span class="material-symbols-outlined text-sm text-secondary glow-red z-10">redeem</span><span class="text-[6px] text-secondary/80 absolute bottom-1 font-bold z-10">中级礼包</span></div>
+
+                <!-- Days 21-29 -->
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D21</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D22</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D23</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D24</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D25</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D26</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D27</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D28</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+                <div class="glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 h-16">
+                    <span class="text-[8px] text-on-surface-variant/40 font-bold">D29</span>
+                    <span class="material-symbols-outlined text-xs text-on-surface-variant/40">monetization_on</span>
+                </div>
+
+                <!-- Day 30: Advanced Milestone (Visual Distinct - Span the remaining row) -->
+                <div class="col-span-1 glass-card rim-lit rounded-lg p-2 flex flex-col items-center justify-center space-y-1 bg-gradient-to-br from-[#cc003c] via-surface-container-high to-[#ff5e00] border-tertiary/60 shadow-[0_0_15px_rgba(204,0,60,0.3)] h-16 relative overflow-hidden"><div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] opacity-30"></div><span class="text-[8px] text-tertiary font-bold glow-gold z-10">第30天</span><span class="material-symbols-outlined text-lg text-tertiary glow-gold animate-bounce z-10">diamond</span><span class="text-[6px] text-on-background absolute bottom-1 font-bold z-10">终极大奖</span></div>
+            </div>
+        </section>
+
+        <!-- Main Action Button -->
+        
+    </main>
+
+    <!-- BottomNavBar -->
+    <nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-tertiary/20 z-50 rounded-t-xl shadow-[0_-10px_40px_rgba(204,0,60,0.1)]"><!-- 导航页 -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">explore</span>
+    <span class="font-label-sm text-[10px]">导航页</span>
+</div>
+<!-- 视频 -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">play_circle</span>
+    <span class="font-label-sm text-[10px]">视频</span>
+</div>
+<!-- VLOG -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">videocam</span>
+    <span class="font-label-sm text-[10px]">VLOG</span>
+</div>
+<!-- 秘域 -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">vpn_key</span>
+    <span class="font-label-sm text-[10px]">秘域</span>
+</div>
+<!-- AI科技 -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">smart_toy</span>
+    <span class="font-label-sm text-[10px]">AI科技</span>
+</div>
+<!-- 广场 -->
+<div class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:text-tertiary transition-all active:scale-110 duration-300">
+    <span class="material-symbols-outlined">diversity_3</span>
+    <span class="font-label-sm text-[10px]">广场</span>
+</div>
+<!-- 我的 (Active) -->
+<div class="flex flex-col items-center justify-center text-secondary drop-shadow-[0_0_8px_rgba(255,179,182,0.6)] active:scale-110 duration-300">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+    <span class="font-label-sm text-[10px]">我的</span>
+</div></nav>
+
+    <script class="">
+        // Micro-interaction for the sign-in button
+        const signInBtn = document.querySelector('.pulse-desire');
+        if (signInBtn) {
+            signInBtn.addEventListener('click', function() {
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> 正在签到...';
+                this.classList.remove('pulse-desire');
+                this.classList.add('opacity-80');
+                
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-symbols-outlined">check_circle</span> 签到成功';</script></body></html>

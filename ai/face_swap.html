@@ -1,0 +1,227 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>AI科技 - 图片换脸</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#444748",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535",
+                        "background": "#0a0a0a",
+                        "on-primary": "#313030",
+                        "surface": "#131313",
+                        "secondary": "#ffb3b6",
+                        "primary-fixed": "#e5e2e1",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "inverse-primary": "#5f5e5e",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary-fixed-variant": "#920028",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-container": "#ffdcdc",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffdada",
+                        "on-secondary-fixed": "#40000c",
+                        "primary": "#c9c6c5",
+                        "tertiary": "#f9bd22",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-container": "#7b7979",
+                        "surface-container-highest": "#353535",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#9b7300",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary": "#68001a",
+                        "inverse-on-surface": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "tertiary-container": "#100900",
+                        "surface-tint": "#c9c6c5",
+                        "secondary-container": "#cc003c",
+                        "primary-container": "#0a0a0a",
+                        "on-tertiary": "#402d00",
+                        "outline": "#8e9192",
+                        "on-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "container-margin": "24px",
+                        "unit": "8px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(249, 189, 34, 0.1) 0%, transparent 40%, rgba(204, 0, 60, 0.1) 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .active-tab-indicator {
+            position: relative;
+        }
+        .active-tab-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 2px;
+            background: #f9bd22;
+            border-radius: 2px;
+            box-shadow: 0 0 8px #f9bd22;
+        }
+    </style>
+</head>
+<body class="pb-32 antialiased overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-gutter h-16 shadow-sm"><button class="flex items-center text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 w-20 justify-start">
+  <span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</button><h1 class="font-bold text-[20px] tracking-tight text-tertiary flex-1 text-center">图片换脸</h1><button class="flex items-center space-x-1 text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 w-20 justify-end whitespace-nowrap"><span class="material-symbols-outlined text-[20px]">history</span><span class="text-[14px] font-medium">AI记录</span></button></header>
+<main class="px-gutter mt-16">
+<!-- Category Navigation -->
+<nav class="flex justify-between items-center py-2 whitespace-nowrap no-scrollbar">
+<a class="text-[16px] font-bold bg-secondary-container/80 text-white px-4 py-1 rounded-full" href="#">全部</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">明星</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">精选</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">制服</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">异国</a>
+</nav>
+<!-- Filter Bar -->
+<div class="flex justify-between items-center py-4 border-b border-white/5 mb-4 w-full">
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-tertiary">推荐</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">价格</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">使用次数</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">上架时间</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Upload Image Box -->
+<div class="aspect-[2/3] glass-card rounded-xl flex flex-col items-center justify-center border-dashed border-2 border-tertiary/20 group cursor-pointer hover:border-tertiary/40 transition-all">
+<div class="w-14 h-14 rounded-full bg-tertiary/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary text-[32px]">add_a_photo</span>
+</div>
+<span class="text-[14px] font-bold text-tertiary">上传图片</span>
+<span class="text-[11px] text-on-surface-variant/60 mt-1">支持JPG, PNG</span>
+</div>
+<!-- Template 1 -->
+<div class="aspect-[2/3] relative rounded-xl overflow-hidden glass-card group cursor-pointer active:scale-[0.98] transition-transform"><img alt="Template 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuDXXda05HV4mSR71IUnWmFFaNrIVRifWshs1MLOUpcAY460NHFzb0nSLQ-kw0pD8vPEGBG7T7d6Vzhu4_nWz4obCYtxCAbcJJiFgNP0afn-DSh_iZUr9BvopxlsUQfkWdBYpaGjaf46ld7gkJ3ns14IySaS_VRZDpki-SITFaQJOT_hq-Qx0nFasAJtlbySgh0g2zfRyRh0FKnvm6ujpEqAuH9Pvr-h7kta2zJIg7ExLgpiINSrkPGyw"><div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"><div class="flex items-center space-x-1 text-tertiary"><span class="material-symbols-outlined text-[16px]">monetization_on</span><span class="text-[13px] font-bold">10 金币</span></div></div></div>
+<!-- Template 2 -->
+<div class="aspect-[2/3] relative rounded-xl overflow-hidden glass-card group cursor-pointer active:scale-[0.98] transition-transform"><img alt="Template 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLuhck759-2UCyaPVQgCgX47P4ETDTyBVPOMov3gHOeutq5BJ2rwbMsuc6-hyzTGz-QydKtqKZgv11G8FCjndL9tQlQ5z9mno0gu2KsYXP1KNFRIBWknIZv30R5Wp2rQbXDsQAqoSCuPdKeaKnpClltrUSHPZHWy0ps6jVireun6wGAec81KSR4gbDDVWf226M3d0ojJL9JKtD0EQ_fE798ncUTPt-KmhdPk-K0Ws3VxBZQp4q2MNe2rjJQ"><div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"><div class="flex items-center space-x-1 text-tertiary"><span class="material-symbols-outlined text-[16px]">monetization_on</span><span class="text-[13px] font-bold">5.0 金币</span></div></div></div>
+<!-- Template 3 -->
+<div class="aspect-[2/3] relative rounded-xl overflow-hidden glass-card group cursor-pointer active:scale-[0.98] transition-transform"><img alt="Template 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLvy1Af3alAoLdmlKAA_QhzuJEdipJwYovoA2RvRDPzrRNu5Nbzk-Bimfi29e3JoqP7Ntq3A_lOLXbpclFYHLcvS2xo6WTndCc2B-XevWGMV57S_RNFC2do_OwMHJxWlFO7MWEaRn89Z24CjmRhduBBGW-TxpRfVec0OnTSTGmlCnOmAVp7tKD0Qh_e4bd1-ruFgPQL0rLMaZp9E05sEEl7w-z2hPnHbqBN4Fn2hP5sr7cGPpG4X5sKj_Q"><div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"><div class="flex items-center space-x-1 text-tertiary"><span class="material-symbols-outlined text-[16px]">monetization_on</span><span class="text-[13px] font-bold">15 金币</span></div></div></div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-2">
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-[10px] mt-1 font-label-sm">导航页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">play_circle</span>
+<span class="text-[10px] mt-1 font-label-sm">视频</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">movie_edit</span>
+<span class="text-[10px] mt-1 font-label-sm">VLOG</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">vpn_key</span>
+<span class="text-[10px] mt-1 font-label-sm">秘域</span>
+</a>
+<!-- Active Tab: AI科技 -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold scale-110 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[10px] mt-1 font-label-sm">AI科技</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">stadium</span>
+<span class="text-[10px] mt-1 font-label-sm">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] mt-1 font-label-sm">我的</span>
+</a>
+</nav>
+<script>
+        // Simple interaction for category selection
+        const categoryLinks = document.querySelectorAll('nav:not(.fixed) a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach(l => {
+                    l.classList.remove('text-tertiary', 'font-bold', 'active-tab-indicator');
+                    l.classList.add('text-on-surface-variant/80');
+                });
+                link.classList.add('text-tertiary', 'font-bold', 'active-tab-indicator');
+                link.classList.remove('text-on-surface-variant/80');
+            });
+        });
+    </script>
+
+
+</body></html>

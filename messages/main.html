@@ -1,0 +1,351 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Messages - Ecstasy App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#5e3f3b",
+                    "on-primary-fixed": "#410002",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#ffb4ab",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "primary-container": "#ff544a",
+                    "error-container": "#93000a",
+                    "tertiary-container": "#909191",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-tertiary": "#2f3131",
+                    "on-error": "#690005",
+                    "tertiary": "#c6c6c7",
+                    "on-primary": "#690005",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container": "#201f1f",
+                    "secondary-fixed": "#e5e2e1",
+                    "background": "#131313",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "primary-fixed": "#ffdad6",
+                    "on-primary-container": "#5c0004",
+                    "surface": "#131313",
+                    "on-primary-fixed-variant": "#93000b",
+                    "on-background": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#474746",
+                    "primary": "#ffb4ab",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-secondary": "#313030",
+                    "outline": "#ae8783",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-secondary-container": "#b7b5b4",
+                    "surface-dim": "#131313",
+                    "surface-container-highest": "#353534",
+                    "secondary": "#c8c6c5",
+                    "secondary-container": "#474746",
+                    "surface-bright": "#3a3939",
+                    "inverse-primary": "#c00013",
+                    "on-surface-variant": "#e8bcb7",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-tertiary-container": "#282a2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "stack-md": "16px",
+                    "container-padding-desktop": "40px",
+                    "gutter": "16px",
+                    "container-padding-mobile": "16px",
+                    "stack-lg": "32px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-caps": ["Space Grotesk"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "meta-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "meta-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .flame-glow {
+            box-shadow: 0 0 12px rgba(255, 84, 74, 0.3);
+        }
+        .message-unread-indicator {
+            position: absolute;
+            left: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 3px;
+            background: #ff544a;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 2px 0 8px rgba(255, 84, 74, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .vip-badge {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-padding-mobile h-16">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">消息</h1>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">search</span>
+</button>
+</header>
+<main class="pt-20 pb-24 px-container-padding-mobile max-w-2xl mx-auto">
+<!-- Notification Categories -->
+<section class="flex justify-between mb-stack-lg animate-in fade-in slide-in-from-top duration-700">
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">官方公告</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<!-- Unread dot -->
+<div class="absolute top-4 right-4 w-2.5 h-2.5 bg-primary-container rounded-full flame-glow"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">互动消息</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">系统通知</span>
+</div>
+<div class="flex flex-col items-center gap-stack-sm group cursor-pointer">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">站内信</span>
+</div></section>
+<!-- Message List -->
+<section class="space-y-4">
+<!-- Message Item 1 (Unread) -->
+<div class="relative bg-surface-container rounded-xl p-4 flex items-center gap-4 border border-white/5 group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="message-unread-indicator"></div>
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a stylish young Asian woman with edgy makeup and short dark hair, set against a dark moody obsidian background with subtle red rim lighting. High-fashion cinematic photography style, sharp focus on eyes, luxurious texture, dark aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDndysTl_dqSjsMjvJWGD2sk7Dx0EAL5b3VAsk65oenJ0Coby5PIvePmoEme7BLfNq8-fRG5soG71jg4XnCapNKvJgc4Ey4pPFZAJMnLLBxmNUBWMbS30SK_H_9g3019p6yEk5lRgwf1II5a0lYTbZGl-HVOQwRcaAs6iB2qUP8-4MencQlKTPM0DmbOh0UNxpsV-_Qf453AAfyyLd3kBMMZfSYd2hnq3WCw-_ylPwaKkx-g5ckrO9lkQrBGtejGxczBMSl47t-dWQ">
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-highest px-1.5 rounded-full border border-white/10">
+<span class="text-[10px] vip-badge">V8</span>
+</div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-end mb-1">
+<h3 class="font-bold text-on-surface truncate">星野樱子</h3>
+<span class="font-meta-sm text-meta-sm text-on-surface-variant">14:30</span>
+</div>
+<p class="text-on-surface-variant text-sm truncate font-medium">刚刚看了你的新视频，那段赛博朋克风格的剪辑真的太顶了！期待合作...</p>
+</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center flame-glow">2</div>
+</div>
+<!-- Message Item 2 -->
+<div class="bg-surface-container/50 rounded-xl p-4 flex items-center gap-4 border border-white/5 group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A ruggedly handsome male model with sharp jawline and slicked back hair, wearing a high-collared black leather jacket. Dark cinematic atmosphere with red neon reflections on his face. Premium obsidian aesthetic, dramatic shadows, professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1aru3l3xVZEpVm7hX9IBqkTjXbOVTPRzEWEznTDexaW8I67z4ocsQrqSySoWk_bgr8L5EBNJRUXQFcaishBonxzb8wrx3LZP_9vPEXoRHKIkTu3OFQspheXzMYDUL4mqbCdaQvjXV1rpm_xt_xDJ9WZM2WWux18Faln7A4Q_0ZA5nMzFkpVtJrEZbUbPh7upXZ482Q7OH56Mo_sFJiZMODx8Ut-1jDFebAv0miQ6T2oddwdGRrBiLHqDFUCny5lE2w9k5xdPK6Lg">
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-highest px-1.5 rounded-full border border-white/10">
+<span class="text-[10px] vip-badge">V5</span>
+</div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-end mb-1">
+<h3 class="font-bold text-on-surface truncate">JASON_X</h3>
+<span class="font-meta-sm text-meta-sm text-on-surface-variant">11:05</span>
+</div>
+<p class="text-secondary text-sm truncate">好的，那我们约在明天晚上八点连线。</p>
+</div>
+</div>
+<!-- Promotion Banner -->
+<div class="py-2">
+<div class="w-full h-[110px] rounded-xl overflow-hidden relative group cursor-pointer shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A luxury promotional banner for a high-end night club event. Sleek abstract red light trails moving through a dark obsidian space with glass shards. Large elegant typography reading EXCLUSIVE NIGHT in Chinese and English. Dark cinematic vibe, hyper-realistic, 8k resolution, premium advertising style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyJNYKizpx2HA--7pnTeS9j57AYMMO2ZW6lc5Fu5wDBWVKZo99W0C6cgSd_43XvbBehCKs2-ixPHgr7EdIz_aOOtuEq36uuBq1TfEoh6C_LAgg6qK7gNSmH8VB5j00BaI5kTJCQPEyNRQgDzo4Brq6lAGXgpxrjNsGfn3n6nCSqIS5-4yP2nQ63PSidlz0seC_f2AppqGML2UgllcX0bO1bak_yOwXka5FsjebYk1GrWpS27lhySR4QCHVFS8Z3QSiZ2t0U1K7F8">
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center px-6">
+<div>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider mb-2 inline-block">AD Promotion</span>
+<p class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-white leading-tight">秘域私人派对<br><span class="text-primary">即刻预约</span></p>
+</div>
+</div>
+<div class="absolute bottom-2 right-4 text-[10px] text-white/40">广告</div>
+</div>
+</div>
+<!-- Message Item 3 -->
+<div class="bg-surface-container/50 rounded-xl p-4 flex items-center gap-4 border border-white/5 group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of an ethereal beauty with silver hair and luminous skin, wearing intricate digital jewelry. The background is deep space black with tiny red floating particles. Ethereal, mysterious, obsidian desire aesthetic, high-end 3D render style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvOPJRUv2wnY2evJwl96oRyR9UTkG4sweiJidEpkc0NpzC7GUamY9VLgdBr2GgDzXm8HeamreeRe_R0ZxoH-z48kaxCnsQXx3Uco33ZTT-pxUTADK4L6UeI20dQ5bhoZBwbu8SJbdIffZPFi32nrBWuoMUd00ggK_uU5uBYtruqfJ8roDtdLJcYf8CLBwj3-7cdUtyYp6G2kLh-1rwwAAYyhg_Ed63LJehkblmxGyJ3QggkQlGyEOhvuGRw2mzt5XQvpIMXDl0z3w">
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-highest px-1.5 rounded-full border border-white/10">
+<span class="text-[10px] vip-badge">V12</span>
+</div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-end mb-1">
+<h3 class="font-bold text-on-surface truncate">Luna Cyber</h3>
+<span class="font-meta-sm text-meta-sm text-on-surface-variant">昨天</span>
+</div>
+<p class="text-secondary text-sm truncate">[语音消息] 0:12</p>
+</div>
+</div>
+<!-- Message Item 4 (Unread) -->
+<div class="relative bg-surface-container rounded-xl p-4 flex items-center gap-4 border border-white/5 group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="message-unread-indicator"></div>
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylish urban portrait of a young man with neon red sunglasses reflecting a futuristic city. Minimalist black hoodie, dark urban setting, obsidian aesthetic, sharp lighting, cinematic mood, 8k professional photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_lh9pzfVIA0ap2rLOlAinbBvoGMtoSI63cZjdPgAkhUcgoS9TkwcT1VvKgQtlJREvu9WuyqLaMZKw-04RBDMZY36uWOOKIDALlsanqLwP4u4pnq_f_ebbhbEj_v_JeN1xyVyFuLd6rBIriDG4N610x9NMQv4SF_x64VsUriy1uJ_F9gYSHU-VaistJ28OxDKYQzzgJvv79gXrGJwl3AlpwjAYeK-_kznoTgXntCnI2cRxSMTJZtlLnxquQ3LkbVWlSO4Ya82Hw0E">
+</div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-end mb-1">
+<h3 class="font-bold text-on-surface truncate">穿西装的猫</h3>
+<span class="font-meta-sm text-meta-sm text-on-surface-variant">昨天</span>
+</div>
+<p class="text-on-surface-variant text-sm truncate font-medium">那个AI插件的教程发我一份呗，多谢老铁！</p>
+</div>
+<div class="bg-primary-container text-on-primary-container text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center flame-glow">1</div>
+</div>
+<!-- Message Item 5 -->
+<div class="bg-surface-container/50 rounded-xl p-4 flex items-center gap-4 border border-white/5 group hover:bg-surface-container-high transition-colors cursor-pointer opacity-80">
+<div class="relative flex-shrink-0">
+<div class="w-14 h-14 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a highly detailed futuristic VR headset with glowing red pulse lines. Tech-noir style, obsidian desire aesthetic, dark room with faint atmospheric smoke, high-tech luxury feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeuq4fuCyqPjd_l2xzL-t8zW0_tV0Sk6q6vX9MHCPbNn_wlM7_QvzqXdcUO3YtyQ_mBtJvl5Q-VbvyaCo_NYzl1XBlqEmSXHqtO-a2Nn4R8CZyg67CNWfa6NeI55WXGehKkN_o8Uu8RaQsTIOqs9khbdjPPJVKHCD3yu-f3t3nAcKt082LX6JHxLgNSBDKfgY_EHJFQnXGC68erv1oyBaCbSsi74MQSHSfjTZj4L5MisH-Vic6UMk27s-wneOD4N-FtZhIgPbOV1U">
+</div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-end mb-1">
+<h3 class="font-bold text-on-surface truncate">AI科技频道</h3>
+<span class="font-meta-sm text-meta-sm text-on-surface-variant">星期一</span>
+</div>
+<p class="text-secondary text-sm truncate">本周AI创作挑战赛已开启，点击查看规则...</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (7 Tabs) -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/90 dark:bg-surface/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(255,84,74,0.15)] rounded-t-xl h-20 pb-safe px-2 flex justify-around items-center">
+<!-- 导航页 -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-[10px] tracking-tight">导航页</span>
+</a>
+<!-- 视频 -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">play_circle</span>
+<span class="font-label-caps text-[10px] tracking-tight">视频</span>
+</a>
+<!-- VLOG -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">movie</span>
+<span class="font-label-caps text-[10px] tracking-tight">VLOG</span>
+</a>
+<!-- 秘域 -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">lock_person</span>
+<span class="font-label-caps text-[10px] tracking-tight">秘域</span>
+</a>
+<!-- AI科技 -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">smart_toy</span>
+<span class="font-label-caps text-[10px] tracking-tight">AI科技</span>
+</a>
+<!-- 广场 (Active) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold shadow-[0_0_12px_rgba(255,180,171,0.3)] active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined active-icon mb-1">forum</span>
+<span class="font-label-caps text-[10px] tracking-tight">广场</span>
+</a>
+<!-- 我的 -->
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-caps text-[10px] tracking-tight">我的</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for message items
+        document.querySelectorAll('.bg-surface-container, .bg-surface-container\\/50').forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.style.transform = 'scale(0.98)';
+            });
+            item.addEventListener('touchend', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Search icon transition
+        const searchBtn = document.querySelector('header button:last-child');
+        searchBtn.addEventListener('click', () => {
+            console.log('Search initiated');
+            // Mock interaction
+            searchBtn.classList.add('text-primary');
+            setTimeout(() => searchBtn.classList.remove('text-primary'), 500);
+        });
+    </script>
+
+
+</body></html>

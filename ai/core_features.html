@@ -1,0 +1,309 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<title>Ecstasy App - AI科技</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary": "#313030",
+                        "on-surface-variant": "#c4c7c7",
+                        "error": "#ffb4ab",
+                        "primary-container": "#0a0a0a",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353535",
+                        "surface-dim": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "on-error": "#690005",
+                        "inverse-primary": "#5f5e5e",
+                        "background": "#131313",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#402d00",
+                        "on-secondary-fixed": "#40000c",
+                        "primary-fixed": "#e5e2e1",
+                        "tertiary-container": "#100900",
+                        "secondary": "#ffb3b6",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed-variant": "#474646",
+                        "primary": "#c9c6c5",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary": "#68001a",
+                        "surface-variant": "#353535",
+                        "surface-container": "#20201f",
+                        "secondary-container": "#cc003c",
+                        "surface": "#131313",
+                        "secondary-fixed": "#ffdada",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "on-background": "#e5e2e1",
+                        "on-primary-container": "#7b7979",
+                        "outline": "#8e9192",
+                        "on-tertiary-container": "#9b7300",
+                        "tertiary": "#f9bd22",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary-container": "#ffdcdc",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#920028",
+                        "surface-tint": "#c9c6c5",
+                        "outline-variant": "#444748",
+                        "surface-bright": "#393939",
+                        "on-surface": "#e5e2e1",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-padding": "20px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "label-sm": ["Geist"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 179, 182, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(204,0,60,0.05) 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .flame-glow {
+            box-shadow: 0 0 25px rgba(204, 0, 60, 0.2);
+        }
+
+        .btn-desire {
+            background: linear-gradient(to right, #cc003c, #80001a);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-desire:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .pulse-layer {
+            animation: pulse-red 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-secondary/10 flex justify-between items-center px-container-margin h-16">
+<h1 class="font-headline-md text-headline-md text-secondary tracking-tight">AI 科技</h1>
+<button class="text-secondary font-bold text-sm active:scale-95 duration-200 flex items-center gap-1"><span class="material-symbols-outlined text-base">history</span>AI 记录</button>
+</header>
+<main class="pt-20 pb-28 px-container-margin space-y-10"><!-- New Banner Carousel -->
+<section class="-mx-container-margin mb-10"><div class="relative w-[336px] h-[186px] mx-auto rounded-2xl overflow-hidden shadow-lg">
+<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar h-full">
+<!-- Slide 1 -->
+<div class="flex-shrink-0 w-full h-full relative snap-center">
+<img alt="Advanced AI Core" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwdgJk1XZhj77NYj_ofO0Qeuz3zOOlWkxu2OOQKb7B-Xu249LW0rSGDP2fq4xpe5NlOQCoX-Ppgmm84LmYwyxNKtxuAQCQAGWR2q38NnKu8pSDodYJiEIfUyvtyry8Kj1Abof10gAdSuGmy0od1p4AJ2K_NEBPtn8EwclNNG88nOPb6OlnusMm9-k4T9zchVtIRetXLiBhbpjB5DwE2PHj-9_r2FHxxp8jVe0fZeueOyjgtkbjLUZHb_CPi94cXwFqNg9bYXZS4v8">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest mb-1">Featured Tech</span>
+<h3 class="text-white font-bold text-lg">Neural Link v2.0</h3>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="flex-shrink-0 w-full h-full relative snap-center">
+<img alt="Cybernetic Interface" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXy-dBBMHQMG1gPmypDjMh5ixiLGGuTdxAf5_pZXojhgT2unUeGBG-8qubz46-bghhUg47UBN0sOwdC0qXtqe7GpjwqUhednqGoWeMC2cyJl-cIjQ2gOsNrTysF8JHcQVoqYJbHTxtU6zDOkw9vqITv7TkmKuikbW2VnGderpsV5--bYFV2ffUbkd0rztoNwDPZlKDF58CiAyUb0-I_3UOoRIhSIgmp1JjrtyH2xLV0RMBIslIeNlEGUSgU_4AvcR2sYeZELM0-2s">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest mb-1">Trending</span>
+<h3 class="text-white font-bold text-lg">Synthetic Emotions</h3>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="flex-shrink-0 w-full h-full relative snap-center">
+<img alt="AI Matrix" class="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiOwVGkthTJ1S4MF1R4Y3E3WVcNyOVbqgVyuAVguNRoU9bSq8h9aHrn7GnH1-Cg_BmrGc0Irt8Dfqimyd11NmCr5Zpik2WIXaiWHhVcfriZwJrbWds0N-9xaIye4fWUC677crzvDyafmr5OfGjjtOU_1ZVVQeAaUM_blnlI3qzu20R1IWYn-_wXfOU385PkC1qJS35fwaT7K9p-01DN1w_cgfDDJzXBhz8k8yvblz_JdeUW2Jithl9m2N1hwoSPMzU3NBHQG9NeR8">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-5 flex flex-col justify-end">
+<span class="text-secondary font-label-sm text-label-sm uppercase tracking-widest mb-1">New Era</span>
+<h3 class="text-white font-bold text-lg">Quantum Core</h3>
+</div>
+</div>
+</div>
+<!-- Pagination Dots -->
+<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+</div>
+</div></section><section class="mb-10">
+<div class="grid grid-cols-5 gap-3">
+<!-- Row 1 -->
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">rocket_launch</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform" style="border-color: rgba(255, 179, 182, 0.1);">
+<span class="material-symbols-outlined text-secondary">diamond</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">token</span>
+</div>
+<!-- Row 2 -->
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform" style="border-color: rgba(255, 179, 182, 0.1);">
+<span class="material-symbols-outlined text-secondary">hub</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">stream</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">layers</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">blur_on</span>
+</div>
+<div class="aspect-square rounded-xl glass-card flex items-center justify-center group cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">all_inclusive</span>
+</div>
+</div>
+</section><section class="space-y-4">
+<h2 class="text-lg font-bold text-secondary px-2">核心功能</h2>
+<div class="grid grid-cols-2 gap-3 pb-2">
+<!-- Card 1: Image Face Swap -->
+<div class="w-full aspect-[3/2] rounded-xl glass-card overflow-hidden relative group cursor-pointer active:scale-95 transition-transform">
+<img alt="图片换脸" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7rjXLdWhJMbN4eZB3Cs1vBSWZbiHuztSOcy4hc58WvZXS5iaglVFBfj5Sz2F6nJoKVlMqbwMlm5hJ9oIXiK1nSvLBv767iF8VEns1YjrjlkEApTj3TqMGgLOHR4UK9iNFGCG4V1rTRiaZ7WkMlscAXiF_RCh9Xnl0TnIX-4j3gSHgwhre4mUb1X9TYzl_kfS5hBVjt-u2jjJxh26x037RR7icbJmi6v7UY0kQB86S0eia527LnNLKAaQ5wjGdkXDIKvfJC1zptRc">
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+<span class="text-white font-bold text-base">图片换脸</span>
+</div>
+</div>
+<!-- Card 2: Video Face Swap -->
+<div class="w-full aspect-[3/2] rounded-xl glass-card overflow-hidden relative group cursor-pointer active:scale-95 transition-transform">
+<img alt="视频换脸" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYZ3MdqYKgsEkBWtXVNjvhpFRLY6ylbNwDnO0SHjrDCDXiBt25jxaNj2u8KbQhn037ZqCYcxcQAqc6MJShi-6fTtvDtMUTJD95_YguqWrqjaGPXR7cxotTNSgwZ59OaheCVo6MKLziJAQNLeCUH4hjxK3lZykg3SmjsaMUM40zEN_6E58ae0HNycXKaE48HaPflqfSnm89fRlAeCdj64kzkpwD2woFesunjHzaT1O6WoHWATo9SaEraW3cfzrH_7j3ehs0xe2yhY">
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+<span class="text-white font-bold text-base">视频换脸</span>
+</div>
+</div>
+<!-- Card 3: Image Reveal -->
+<div class="w-full aspect-[3/2] rounded-xl glass-card overflow-hidden relative group cursor-pointer active:scale-95 transition-transform">
+<img alt="图片脱衣" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARorhy2ba6Vf0Dx7Q1gWHoZKkZsX5yhbnr0olGO7NEWTPeVqJHH6x4mfc9VYGMvnj0n5rhnJlJikHRnlzE27CRLyTcmKDuNjJ9J1PsNb_SHG1lta9pZlJS879n4GmdRw9Sc9pVMnp2cv_QUxP5_vlhx7ogHJ1yQC4xdklxGIa1YSIYecOxNFPnxq2wkr0rzyMwY3j7130HceqdO4MHYxqOdL0Ul_w9QBMvf9H_YYxI_PWiUJtR-fobKpe1VLnAZWtdOUkRvEDmX78">
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+<span class="text-white font-bold text-base">图片脱衣</span>
+</div>
+</div>
+<!-- Card 4: AI Girlfriend -->
+<div class="w-full aspect-[3/2] rounded-xl glass-card overflow-hidden relative group cursor-pointer active:scale-95 transition-transform">
+<img alt="AI女友" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoppFTchM6abnGWa2ZEeOkJENmF5MGlV928kurNmgp0Vcs8DLl_xoLTtqvlj2DXg76XX7hdTgF3x2-GHYSUpqbUojyJBnbuQkdphIF_6_I_R-fbfyWiUDtriY-0CBkt3b89g9K71t_JYyfg1M4KQTQmLlbMQBSqLC9tGDNh9jtPHiIWEEsEYHwmrTJAxl4EQvBLt1aew4ofimcNb7ZXZQsUWhqGG29qD5CfpTDwGULYkd4D-ibuudvBLe_VMzbgj3anZQYhF6wOKs">
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 to-transparent p-4">
+<span class="text-white font-bold text-base">AI女友</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Section: Desire Fairy -->
+<!-- Feature Grid (2x2) -->
+<!-- Horizontal Scroll: Latest Tech Trends -->
+<!-- Decorative atmospheric element -->
+</main>
+<!-- Navigation Drawer (Desktop-like behavior for side tray if needed, but here as per shell) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-primary/20 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-2">
+<!-- 导航页 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-sm text-label-sm">导航页</span>
+</a>
+<!-- 视频 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">play_circle</span>
+<span class="font-label-sm text-label-sm">视频</span>
+</a>
+<!-- VLOG -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="font-label-sm text-label-sm">VLOG</span>
+</a>
+<!-- 秘域 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-label-sm text-label-sm">秘域</span>
+</a>
+<!-- AI科技 (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-secondary gap-1 scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm">AI科技</span>
+</a>
+<!-- 广场 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm">广场</span>
+</a>
+<!-- 我的 -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/60 gap-1 hover:text-secondary/80 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">我的</span>
+</a>
+</nav>
+<script>
+        // Custom micro-interactions for buttons
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = 'rgba(204, 0, 60, 0.4)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.borderColor = 'rgba(255, 179, 182, 0.1)';
+            });
+        });
+    </script>
+
+
+</body></html>

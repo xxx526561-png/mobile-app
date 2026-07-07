@@ -1,0 +1,291 @@
+<!DOCTYPE html><html class="dark" lang="zh-CN" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI科技 - 视频换脸</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#444748",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535",
+                        "background": "#0a0a0a",
+                        "on-primary": "#313030",
+                        "surface": "#131313",
+                        "secondary": "#ffb3b6",
+                        "primary-fixed": "#e5e2e1",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#ffb3b6",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed-dim": "#f9bd22",
+                        "inverse-primary": "#5f5e5e",
+                        "tertiary-fixed": "#ffdf9f",
+                        "on-secondary-fixed-variant": "#920028",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#261a00",
+                        "on-secondary-container": "#ffdcdc",
+                        "surface-bright": "#393939",
+                        "error-container": "#93000a",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffdada",
+                        "on-secondary-fixed": "#40000c",
+                        "primary": "#c9c6c5",
+                        "tertiary": "#f9bd22",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "on-primary-container": "#7b7979",
+                        "surface-container-highest": "#353535",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#9b7300",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#c4c7c7",
+                        "on-secondary": "#68001a",
+                        "inverse-on-surface": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#5c4300",
+                        "tertiary-container": "#100900",
+                        "surface-tint": "#c9c6c5",
+                        "secondary-container": "#cc003c",
+                        "primary-container": "#0a0a0a",
+                        "on-tertiary": "#402d00",
+                        "outline": "#8e9192",
+                        "on-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "card-padding": "20px",
+                        "container-margin": "24px",
+                        "unit": "8px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(249, 189, 34, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, rgba(249, 189, 34, 0.1) 0%, transparent 40%, rgba(204, 0, 60, 0.1) 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .neo-glow-pink {
+            box-shadow: 0 0 15px rgba(204, 0, 60, 0.3);
+        }
+
+        .neo-glow-gold {
+            box-shadow: 0 0 15px rgba(249, 189, 34, 0.2);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .active-tab-indicator {
+            position: relative;
+        }
+        .active-tab-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 2px;
+            background: #f9bd22;
+            border-radius: 2px;
+            box-shadow: 0 0 8px #f9bd22;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-sm flex items-center justify-between px-gutter h-16">
+<button class="w-10 flex items-center justify-start text-on-surface-variant hover:text-on-surface transition-colors active:scale-95">
+  <span class="material-symbols-outlined text-[20px]">arrow_back_ios_new</span>
+</button> <!-- Placeholder for symmetry if leading icon is removed -->
+<h1 class="font-bold text-[20px] tracking-tight text-tertiary">视频换脸</h1>
+<button class="flex items-center space-x-1 text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 whitespace-nowrap">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="text-[14px] font-medium">AI记录</span>
+</button>
+</header>
+<main class="mt-20 px-gutter">
+<!-- Category Navigation -->
+<nav class="flex overflow-x-auto no-scrollbar py-2 gap-6 items-center whitespace-nowrap"><a class="text-[16px] font-bold bg-secondary-container/80 text-white px-4 py-1 rounded-full" href="#">全部</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">精选</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">SM</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">Cosplay</a>
+<a class="text-[16px] text-on-surface-variant/80 hover:text-on-surface transition-colors" href="#">明星</a></nav>
+<!-- Filter Bar -->
+<div class="flex justify-between items-center py-4 border-b border-white/5 mb-6">
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-tertiary">推荐</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">价格</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">使用次数</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+<button class="flex items-center space-x-1 group">
+<span class="text-[13px] text-on-surface-variant">上架时间</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant/40">unfold_more</span>
+</button>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Upload Video Box -->
+
+<!-- Template 1 -->
+<div class="aspect-video relative rounded-xl overflow-hidden glass-card group">
+<img class="w-full h-full object-cover" data-alt="A high-end cinematic vertical video frame featuring a beautiful cyberpunk woman with neon-lit hair standing in a rainy futuristic street in Tokyo. The lighting is dominated by deep pinks and electric blues, reflecting off a black leather jacket. High-contrast dark minimalism style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABURApUNSZ6SCxTngV1Hb5pYyNwe9yHRQz03vmc7t9e3zRoBpm8WX56MLMSIBB_Yx2pcYs7vPy7GZYUu8sQ_McmBoJfvtcAtKCYPR8n4J4QmZjWUiWm4vkPFDXY5o6ysquO53l24tkOPYQL9BVwAnefUco7-Mb5mMjH0NCNjARUU0EN-1PE4SRynv4x1BG0euvv4KjGqRFy868YGQj0Y0bbQN00V1NuN65y1CShaqHdmDgJoU4jc1IhX9chbPCoKzXpDBB59PVYN0">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-2 right-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full flex items-center space-x-1 border border-white/10">
+<span class="material-symbols-outlined text-tertiary text-[12px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-[10px] text-white font-bold">12k</span>
+</div>
+<div class="absolute bottom-3 left-3">
+<p class="text-[13px] font-bold text-white truncate">霓虹赛博女郎</p>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[10px] bg-secondary-container/80 text-white px-2 py-0.5 rounded-sm">精品</span>
+<span class="text-[10px] text-tertiary font-bold">免费</span>
+</div>
+</div>
+</div>
+<!-- Template 2 -->
+<div class="aspect-video relative rounded-xl overflow-hidden glass-card group">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a woman's face with intricate holographic 3D mesh scanning lines in vibrant pink. The background is a dark, high-tech industrial setting with subtle lens flares and a shallow depth of field. Obsidian desire aesthetic with premium lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyjOsaE3qlpgC0hMKPYQqJk-o3LPJWm8orRX1yTiAUgxYu-R8HPN53Y7FyUtTb4R0J8zcEKtpq3KnTB2IIXHx0-zhAIBVDB_8Z15y4TB8gwjp40WKMsrmMPkcMeDqU4nW2h1tbie9N3uBlT0Qz0m4mTCLpITP5iJ-NW47vUVtuZ3-c8H99sGrYbfkoOzsvyBwO_s8hZEUL6Y1LXVb0oONGAYb7FNowmoqJSyYQfLQTJtGgnqbhESjUWHnnD8ADak6f4QDh6G3xEhI">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<p class="text-[13px] font-bold text-white truncate">人脸扫描特效</p>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[10px] bg-white/10 backdrop-blur-md text-white px-2 py-0.5 rounded-sm">科技感</span>
+<span class="text-[10px] text-tertiary font-bold">9.9 币</span>
+</div>
+</div>
+</div>
+<!-- Template 3 -->
+<div class="aspect-video relative rounded-xl overflow-hidden glass-card group">
+<img class="w-full h-full object-cover" data-alt="A glowing digital silhouette of a ballerina made of millions of tiny sparkling pink and blue particles dancing in a dark void. The floor reflects the luminous dancer perfectly like a black mirror. Luxury glassmorphism aesthetic with high-end digital art vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4-ZF3RErepRpc8Yc2FvLLOiMxeupCSL5c4YQuAx4OKP5w55SDrONpSmZF3wbkZi8YTWadIQNjgetB1vwD0AXjCkmVxDuWcrK16mM1stI2JwXxXgskwPyKQ20MxiI1nfgMM3EjAGgvkc8KiO4D7rkyYL-5ueNQUNigs3C6ik5rFnU8usP9k173yHWdj4xbcATDQb0MQIrwh1EI3JfMB9RHU_a_i2Q7fcC0h3z6dZaDDe2ULXhghMPKHB1UpYueBkM0vfBKRJ1owjQ">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<p class="text-[13px] font-bold text-white truncate">粒子光影芭蕾</p>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[10px] bg-secondary-container/80 text-white px-2 py-0.5 rounded-sm">爆款</span>
+<span class="text-[10px] text-tertiary font-bold">免费</span>
+</div>
+</div>
+</div>
+<!-- Template 4 -->
+<div class="aspect-video relative rounded-xl overflow-hidden glass-card group">
+<img class="w-full h-full object-cover" data-alt="Cinematic shot of a woman in a sleek metallic space suit walking through a futuristic spaceship corridor. The corridor is lit with soft amber and gold lighting, creating a warm luxury atmosphere contrasted against the deep black of the ship's interior. High-end sci-fi visual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7UxI_1Z2UeAzNkzphIzzJDJWSqFtdfiKASHfQ5Bv7lFKe1bT8DhKtQRoC5TQ_S1BLqudllaCEjoUeNmbm3U7nlLexoQE82Eln8Z3o6BbrlZ63-jBcwgI1s5gbzciq8b8H-e9fguziQrDrnt7hMHnL_Pbg40iF5UoLU58MJ7g4UMQnl441HfJztXwkBjtuy5S-tIUbp1hfkgTYEUMW2aeOaPpH4Maam9FOrwVQKJGHB3t2Ul5YRXpnpmxrhwjMPI7PFLggmMHy6U">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-3 left-3">
+<p class="text-[13px] font-bold text-white truncate">星际探索记录</p>
+<div class="flex items-center space-x-2 mt-1">
+<span class="text-[10px] bg-white/10 backdrop-blur-md text-white px-2 py-0.5 rounded-sm">电影感</span>
+<span class="text-[10px] text-tertiary font-bold">免费</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-2xl border-t border-white/5 shadow-[0_-4px_20px_rgba(204,0,60,0.15)] flex justify-around items-center h-20 pb-safe px-2">
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="text-[10px] mt-1 font-label-sm">导航页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">play_circle</span>
+<span class="text-[10px] mt-1 font-label-sm">视频</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">movie_edit</span>
+<span class="text-[10px] mt-1 font-label-sm">VLOG</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">vpn_key</span>
+<span class="text-[10px] mt-1 font-label-sm">秘域</span>
+</a>
+<!-- Active Tab: AI科技 -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold scale-110 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="text-[10px] mt-1 font-label-sm">AI科技</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">stadium</span>
+<span class="text-[10px] mt-1 font-label-sm">广场</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-primary-container/60 hover:text-secondary/80 active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-[10px] mt-1 font-label-sm">我的</span>
+</a>
+</nav>
+<script>
+        // Simple interaction for category selection
+        const categoryLinks = document.querySelectorAll('nav a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach(l => {
+                    l.classList.remove('text-tertiary', 'font-bold', 'active-tab-indicator');
+                    l.classList.add('text-on-surface-variant/80');
+                });
+                link.classList.add('text-tertiary', 'font-bold', 'active-tab-indicator');
+                link.classList.remove('text-on-surface-variant/80');
+            });
+        });
+    </script>
+
+
+</body></html>
